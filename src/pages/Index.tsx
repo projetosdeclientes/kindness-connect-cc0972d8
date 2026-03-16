@@ -17,6 +17,22 @@ const cases = [
   { title: "Sulamericana 2021", image: "/images/case-sulamericana.jpg" },
 ];
 
+const portfolioItems = [
+  { title: "Copa do Nordeste Nordeste TV / Fox Sports", image: "/images/portfolio-1.jpeg" },
+  { title: "Sulamericana 2021", image: "/images/portfolio-9.jpeg" },
+  { title: "Campeonato Brasileiro 2020 – Ceará x Flamengo", image: "/images/portfolio-2.jpeg" },
+  { title: "Ônibus Olímpico Rede Record em Goiânia", image: "/images/portfolio-5.jpeg" },
+  { title: "Produção ao Vivo", image: "/images/portfolio-7.jpeg" },
+  { title: "Transmissão Esportiva", image: "/images/portfolio-3.jpeg" },
+  { title: "Anjos Cantam Jorge & Mateus", image: "/images/portfolio-10.jpeg" },
+  { title: "Cobertura de Evento", image: "/images/portfolio-6.jpeg" },
+  { title: "Superliga Masculina 19/20", image: "/images/portfolio-4.jpeg" },
+  { title: "Fortaleza x Independente", image: "/images/portfolio-8.jpeg" },
+  { title: "Nordeste TV / Fox Sports", image: "/images/portfolio-3-1.jpeg" },
+];
+
+const showcaseItems = [...cases, ...portfolioItems];
+
 const services = [
   { icon: Truck, title: "Unidades Móveis", count: "04", desc: "Transmissão completa de última geração" },
   { icon: Satellite, title: "DSNGs", count: "02", desc: "Links satelitais para qualquer local" },
@@ -212,34 +228,34 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Cases */}
+      {/* Cases + Portfólio */}
       <section className="relative py-24 md:py-32 border-t border-border/30">
         <div className="absolute inset-0 radial-glow" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <SectionHeader label="Portfólio" title="Cases" subtitle="Projetos que fazem a diferença." />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {cases.map((c, i) => (
-              <AnimatedSection key={c.title} delay={i * 0.08}>
+          <SectionHeader label="Portfólio" title="Cases + Portfólio" subtitle="Todos os nossos principais projetos em uma única galeria." />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            {showcaseItems.map((item, i) => (
+              <AnimatedSection key={`${item.title}-${i}`} delay={i * 0.05}>
                 <div className="group rounded-2xl overflow-hidden bg-card/40 border border-border/30 hover:border-primary/20 transition-all duration-300 h-full flex flex-col shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)]">
                   <div className="aspect-[16/9] overflow-hidden bg-muted/10">
                     <img
-                      src={c.image}
-                      alt={c.title}
+                      src={item.image}
+                      alt={item.title}
                       className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                       loading="lazy"
                       decoding="async"
                     />
                   </div>
                   <div className="p-5 flex-1 flex items-center justify-center">
-                    <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors text-center">{c.title}</h3>
+                    <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors text-center">{item.title}</h3>
                   </div>
                 </div>
               </AnimatedSection>
             ))}
           </div>
           <AnimatedSection className="text-center mt-10">
-            <Link to="/cases" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border/50 text-foreground text-sm font-medium hover:bg-secondary/50 hover:border-border transition-all group">
-              Ver todos os cases
+            <Link to="/portfolio" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border/50 text-foreground text-sm font-medium hover:bg-secondary/50 hover:border-border transition-all group">
+              Ver portfólio completo
               <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
             </Link>
           </AnimatedSection>
