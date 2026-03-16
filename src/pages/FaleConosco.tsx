@@ -41,13 +41,28 @@ const socialLinks = [
   },
 ];
 
-const phones = [
-  { number: "(85) 3016-1074", tel: "558530161074", person: null },
-  { number: "(85) 3272-8065", tel: "558532728065", person: null },
-  { number: "(11) 99190-3177", tel: "5511991903177", person: "Fernando" },
-  { number: "(85) 99912-0203", tel: "5585999120203", person: "Fernando" },
-  { number: "(11) 93018-3555", tel: "5511930183555", person: "Roberto" },
-  { number: "(21) 97981-3218", tel: "5521979813218", person: "Roberto" },
+const phoneGroups = [
+  {
+    label: "Telefones",
+    numbers: [
+      { number: "(85) 3016-1074", tel: "558530161074" },
+      { number: "(85) 3272-8065", tel: "558532728065" },
+    ],
+  },
+  {
+    label: "Fernando",
+    numbers: [
+      { number: "(11) 99190-3177", tel: "5511991903177" },
+      { number: "(85) 99912-0203", tel: "5585999120203" },
+    ],
+  },
+  {
+    label: "Roberto",
+    numbers: [
+      { number: "(11) 93018-3555", tel: "5511930183555" },
+      { number: "(21) 97981-3218", tel: "5521979813218" },
+    ],
+  },
 ];
 
 const FaleConosco = () => {
