@@ -29,15 +29,9 @@ const UnidadesMoveis = () => {
                   to={`/unidades-moveis/unidade-${u.id}`}
                   className="group block rounded-2xl overflow-hidden bg-card/30 border border-border/30 hover:border-primary/20 transition-all duration-300"
                 >
-                  {u.image ? (
-                    <div className="aspect-[16/10] overflow-hidden">
-                      <img src={u.image} alt={u.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                    </div>
-                  ) : (
-                    <div className="aspect-[16/10] bg-secondary/30 flex items-center justify-center">
-                      <Truck size={48} className="text-muted-foreground/30" />
-                    </div>
-                  )}
+                  <div className="aspect-[16/10] overflow-hidden">
+                    <img src={u.image} alt={u.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  </div>
                   <div className="p-5">
                     <div className="flex items-center justify-between">
                       <div>
