@@ -214,12 +214,18 @@ const Index = () => {
         <div className="absolute inset-0 radial-glow" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <SectionHeader label="Portfólio" title="Cases" subtitle="Projetos que fazem a diferença." />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {cases.map((c, i) => (
               <AnimatedSection key={c.title} delay={i * 0.08}>
-                <div className="group rounded-2xl overflow-hidden bg-card/30 border border-border/30 hover:border-primary/20 transition-all duration-300 h-full flex flex-col">
-                  <div className="aspect-video overflow-hidden flex items-center justify-center bg-muted/20">
-                    <img src={c.image} alt={c.title} className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy" />
+                <div className="group rounded-2xl overflow-hidden bg-card/40 border border-border/30 hover:border-primary/20 transition-all duration-300 h-full flex flex-col shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)]">
+                  <div className="aspect-[16/9] overflow-hidden bg-muted/10">
+                    <img
+                      src={c.image}
+                      alt={c.title}
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </div>
                   <div className="p-5 flex-1 flex items-center justify-center">
                     <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors text-center">{c.title}</h3>
