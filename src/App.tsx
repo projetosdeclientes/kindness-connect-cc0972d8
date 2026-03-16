@@ -5,10 +5,15 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import QuemSomos from "./pages/QuemSomos.tsx";
+import Equipe from "./pages/Equipe.tsx";
 import Servicos from "./pages/Servicos.tsx";
 import Clientes from "./pages/Clientes.tsx";
 import Cases from "./pages/Cases.tsx";
+import Portfolio from "./pages/Portfolio.tsx";
 import FaleConosco from "./pages/FaleConosco.tsx";
+import UnidadesMoveis from "./pages/UnidadesMoveis.tsx";
+import UnidadeDetail from "./pages/UnidadeDetail.tsx";
+import DSNG from "./pages/DSNG.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -22,9 +27,14 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/quem-somos" element={<QuemSomos />} />
+          <Route path="/quem-somos/equipe" element={<Equipe />} />
           <Route path="/servicos" element={<Servicos />} />
+          <Route path="/unidades-moveis" element={<UnidadesMoveis />} />
+          <Route path="/unidades-moveis/:id" element={<UnidadeDetail />} />
+          <Route path="/dsng" element={<DSNG />} />
           <Route path="/clientes" element={<Clientes />} />
           <Route path="/cases" element={<Cases />} />
+          <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/fale-conosco" element={<FaleConosco />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

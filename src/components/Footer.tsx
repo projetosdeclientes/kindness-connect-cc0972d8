@@ -42,9 +42,10 @@ const Footer = () => {
               {[
                 { label: "Início", path: "/" },
                 { label: "Quem Somos", path: "/quem-somos" },
-                { label: "Serviços", path: "/servicos" },
+                { label: "Unidades Móveis", path: "/unidades-moveis" },
+                { label: "DSNG", path: "/dsng" },
                 { label: "Clientes", path: "/clientes" },
-                { label: "Cases", path: "/cases" },
+                { label: "Cases", path: "/portfolio" },
               ].map((item) => (
                 <Link key={item.path} to={item.path} className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1 group">
                   {item.label}
