@@ -108,9 +108,9 @@ const Index = () => {
             transition={{ duration: 0.7, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
             className="mt-20 md:mt-28"
           >
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {stats.map((s) => (
-                <div key={s.label} className="group p-5 rounded-2xl bg-card/50 border border-border/40 hover:border-primary/20 transition-all shine">
+                <div key={s.label} className="group p-4 sm:p-5 rounded-2xl bg-card/50 border border-border/40 hover:border-primary/20 transition-colors">
                   <s.icon size={16} className="text-primary/50 mb-3" />
                   <div className="text-2xl md:text-3xl font-bold text-foreground tracking-tight">{s.value}</div>
                   <div className="text-xs text-muted-foreground mt-1 tracking-wide">{s.label}</div>
