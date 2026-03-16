@@ -144,10 +144,26 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
   overflow-x: hidden;
+}
+
+/* GPU-accelerate animated elements for smoother scrolling */
+.shine,
+.gradient-text,
+.glass {
+  will-change: transform;
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Smoother image loading */
+img {
+  content-visibility: auto;
 }
 
 /* Custom scrollbar */
