@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import logoImg from "../assets/logo-interfacetv.png";
 
 const navItems = [
   { label: "Início", path: "/" },
@@ -25,6 +26,7 @@ const navItems = [
   { label: "DSNG", path: "/dsng" },
   { label: "Clientes", path: "/clientes" },
   { label: "Cases", path: "/cases" },
+  { label: "Portfólio", path: "/portfolio" },
   { label: "Fale Conosco", path: "/fale-conosco" },
 ];
 
@@ -79,15 +81,7 @@ const Header = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-[72px]">
           <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-              <span className="text-xs font-display font-bold text-primary">IT</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-sm md:text-base font-display font-bold text-foreground leading-none">
-                INTERFACE<span className="text-primary">TV</span>
-              </span>
-              <span className="text-[9px] text-muted-foreground tracking-[0.2em] uppercase leading-none mt-0.5 hidden sm:block">Broadcasting</span>
-            </div>
+            <img src={logoImg} alt="Interface TV Broadcasting" className="h-9 md:h-10 w-auto object-contain" />
           </Link>
 
           {/* Desktop Nav */}
