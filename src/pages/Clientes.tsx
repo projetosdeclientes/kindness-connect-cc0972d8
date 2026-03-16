@@ -8,12 +8,13 @@ const Clientes = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <section className="pt-28 pb-20 md:pt-36 md:pb-28">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader title="Nossos Clientes" subtitle="Alguns de nossos clientes e parceiros" />
+      <section className="relative pt-28 pb-24 md:pt-36 md:pb-32">
+        <div className="absolute inset-0 radial-glow" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <SectionHeader label="Parceiros" title="Nossos Clientes" subtitle="Empresas que confiam no nosso trabalho" />
           
           <AnimatedSection>
-            <div className="max-w-5xl mx-auto">
+            <div className="max-w-5xl mx-auto p-8 md:p-12 rounded-3xl bg-card/30 border border-border/30 shine">
               <img 
                 src="/images/clientes-grid.png" 
                 alt="Logos dos clientes da Interface TV Broadcasting" 

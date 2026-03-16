@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Tv, Satellite, Truck, Zap, Play } from "lucide-react";
+import { ArrowRight, Tv, Satellite, Truck, Zap, Play, Radio, Users, Award } from "lucide-react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AnimatedSection from "../components/AnimatedSection";
@@ -17,10 +17,10 @@ const cases = [
 ];
 
 const services = [
-  { icon: Truck, title: "Unidades Móveis", count: "4", desc: "Unidades de transmissão completas e de última geração." },
-  { icon: Satellite, title: "DSNGs", count: "2", desc: "Links satelitais para transmissão ao vivo de qualquer local." },
-  { icon: Tv, title: "Vans Executivas", count: "2", desc: "Toda comodidade para o cliente com mobilidade e agilidade." },
-  { icon: Zap, title: "Geradores de Energia", count: "2", desc: "Autonomia total para operações em qualquer ambiente." },
+  { icon: Truck, title: "Unidades Móveis", count: "04", desc: "Transmissão completa de última geração" },
+  { icon: Satellite, title: "DSNGs", count: "02", desc: "Links satelitais para qualquer local" },
+  { icon: Tv, title: "Vans Executivas", count: "02", desc: "Mobilidade e conforto para o cliente" },
+  { icon: Zap, title: "Geradores de Energia", count: "02", desc: "Autonomia total em qualquer ambiente" },
 ];
 
 const team = [
@@ -29,80 +29,107 @@ const team = [
   { name: "Roberto", role: "Gerente Geral / Novos Negócios", image: "/images/team-roberto.jpg" },
 ];
 
+const stats = [
+  { value: "25+", label: "Anos de Experiência", icon: Award },
+  { value: "4", label: "Bases no Brasil", icon: Radio },
+  { value: "30+", label: "Clientes Ativos", icon: Users },
+  { value: "10", label: "Unidades de Equipamento", icon: Truck },
+];
+
+const stagger = {
+  parent: { transition: { staggerChildren: 0.08 } },
+  child: { initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] } } },
+};
+
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
       {/* Hero */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
+      <section className="relative min-h-[100dvh] flex items-center overflow-hidden">
+        {/* Background layers */}
         <div className="absolute inset-0">
-          <img src={heroImg} alt="Interface TV Broadcasting" className="w-full h-full object-cover opacity-30" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
+          <img src={heroImg} alt="Interface TV Broadcasting" className="w-full h-full object-cover opacity-20 scale-105" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/70 to-background" />
+          <div className="absolute inset-0 grid-pattern opacity-40" />
         </div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-20">
+        {/* Top glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-primary/5 rounded-full blur-[120px]" />
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-24 pb-16">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            initial="initial"
+            animate="animate"
+            variants={stagger.parent}
             className="max-w-3xl"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border bg-secondary/50 text-sm text-muted-foreground mb-6">
-              <Play size={12} className="text-primary" />
-              +25 anos de experiência em broadcasting
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight">
+            <motion.div variants={stagger.child}>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-[12px] font-medium text-primary mb-8 tracking-wide">
+                <Play size={10} className="fill-primary" />
+                +25 anos de excelência em broadcasting
+              </div>
+            </motion.div>
+
+            <motion.h1 variants={stagger.child} className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold leading-[1.08] tracking-tight">
               <span className="text-foreground">Luz, Câmera,</span>
               <br />
-              <span className="gradient-text">Trans... "Missão"</span>
-            </h1>
-            <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed">
+              <span className="gradient-text">Trans..."Missão"</span>
+            </motion.h1>
+
+            <motion.p variants={stagger.child} className="mt-7 text-base md:text-lg text-muted-foreground max-w-lg leading-relaxed">
               Produtora de vídeo especializada em transmissão de eventos para canais de televisão, agências de publicidade e internet.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
+            </motion.p>
+
+            <motion.div variants={stagger.child} className="mt-9 flex flex-wrap gap-3">
               <Link
                 to="/fale-conosco"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
+                className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground text-sm font-semibold hover:brightness-110 transition-all shadow-[0_0_20px_hsl(157,72%,54%,0.2)]"
               >
-                Fale Conosco <ArrowRight size={16} />
+                Fale Conosco
+                <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
               </Link>
               <Link
                 to="/cases"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border text-foreground font-semibold hover:bg-secondary transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border/60 text-foreground text-sm font-medium hover:bg-secondary/50 hover:border-border transition-all"
               >
                 Ver Cases
               </Link>
-            </div>
+            </motion.div>
           </motion.div>
 
-          {/* Stats */}
+          {/* Stats strip */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="mt-16 md:mt-24 grid grid-cols-2 md:grid-cols-4 gap-4"
+            transition={{ duration: 0.7, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+            className="mt-20 md:mt-28"
           >
-            {services.map((s) => (
-              <div key={s.title} className="p-4 rounded-xl bg-card/60 border border-border/50 text-center">
-                <span className="text-3xl font-bold gradient-text">{s.count}</span>
-                <p className="text-sm text-muted-foreground mt-1">{s.title}</p>
-              </div>
-            ))}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              {stats.map((s) => (
+                <div key={s.label} className="group p-5 rounded-2xl bg-card/50 border border-border/40 hover:border-primary/20 transition-all shine">
+                  <s.icon size={16} className="text-primary/50 mb-3" />
+                  <div className="text-2xl md:text-3xl font-bold text-foreground tracking-tight">{s.value}</div>
+                  <div className="text-xs text-muted-foreground mt-1 tracking-wide">{s.label}</div>
+                </div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Clients Highlight */}
-      <section className="py-20 md:py-28 border-t border-border/50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader title="Clientes" subtitle="Conheça alguns de nossos clientes!" />
+      {/* Clients */}
+      <section className="relative py-24 md:py-32">
+        <div className="absolute inset-0 radial-glow" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <SectionHeader label="Parceiros" title="Clientes" subtitle="Conheça alguns de nossos clientes e parceiros de confiança." />
           <AnimatedSection>
-            <div className="max-w-4xl mx-auto">
-              <img src="/images/clientes-grid.png" alt="Logos dos clientes da Interface TV" className="w-full opacity-80 hover:opacity-100 transition-opacity" />
+            <div className="max-w-4xl mx-auto p-8 md:p-12 rounded-3xl bg-card/30 border border-border/30 shine">
+              <img src="/images/clientes-grid.png" alt="Logos dos clientes da Interface TV" className="w-full opacity-75 hover:opacity-100 transition-opacity duration-500" />
             </div>
             <div className="text-center mt-8">
-              <Link to="/clientes" className="text-primary hover:underline font-medium inline-flex items-center gap-1">
-                Ver todos os clientes <ArrowRight size={14} />
+              <Link to="/clientes" className="text-sm text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-1.5 font-medium">
+                Ver todos os clientes <ArrowRight size={13} />
               </Link>
             </div>
           </AnimatedSection>
@@ -110,31 +137,50 @@ const Index = () => {
       </section>
 
       {/* About */}
-      <section className="py-20 md:py-28 bg-card border-t border-border/50">
+      <section className="py-24 md:py-32 border-t border-border/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader title="Quem Somos" subtitle="Conheça nossa história!" />
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <AnimatedSection>
-              <p className="text-muted-foreground leading-relaxed text-lg">
-                A <strong className="text-foreground">INTERFACETV BROADCASTING</strong> é uma produtora de vídeo, que se especializou em transmissão de eventos para canais de televisão, agência de publicidade e internet.
-              </p>
-              <p className="text-muted-foreground leading-relaxed mt-4">
-                Trabalhamos com produções e gravações de programas esportivos, entretenimento, institucionais, corporativos e produções independentes.
-              </p>
-              <p className="text-muted-foreground leading-relaxed mt-4">
-                Equipe de profissionais com mais de 25 anos de experiência no mercado de áudio visual brasileiro, com ampla capacidade e qualidade técnica entregamos a sua empresa os melhores resultados do mercado.
-              </p>
-              <Link to="/quem-somos" className="mt-6 inline-flex items-center gap-2 text-primary hover:underline font-medium">
-                Saiba mais <ArrowRight size={14} />
-              </Link>
-            </AnimatedSection>
-            <AnimatedSection delay={0.2}>
-              <div className="grid grid-cols-2 gap-4">
-                {services.map((s) => (
-                  <div key={s.title} className="p-5 rounded-xl bg-background border border-border hover:border-primary/30 transition-colors group">
-                    <s.icon size={28} className="text-primary mb-3 group-hover:scale-110 transition-transform" />
-                    <h3 className="font-semibold text-foreground">{s.title}</h3>
-                    <p className="text-sm text-muted-foreground mt-1">{s.desc}</p>
+          <div className="grid md:grid-cols-2 gap-16 items-start">
+            <div>
+              <AnimatedSection>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-medium uppercase tracking-[0.15em] text-primary border border-primary/20 bg-primary/5 mb-6">
+                  Sobre nós
+                </span>
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground leading-tight">
+                  Mais de 25 anos transformando a{" "}
+                  <span className="gradient-text">transmissão audiovisual</span>{" "}
+                  no Brasil
+                </h2>
+              </AnimatedSection>
+              <AnimatedSection delay={0.1}>
+                <p className="mt-6 text-muted-foreground leading-relaxed">
+                  A <strong className="text-foreground">INTERFACETV BROADCASTING</strong> é uma produtora de vídeo, que se especializou em transmissão de eventos para canais de televisão, agência de publicidade e internet.
+                </p>
+                <p className="mt-4 text-muted-foreground leading-relaxed">
+                  Trabalhamos com produções e gravações de programas esportivos, entretenimento, institucionais, corporativos e produções independentes.
+                </p>
+                <p className="mt-4 text-muted-foreground leading-relaxed">
+                  Equipe de profissionais com mais de 25 anos de experiência no mercado de áudio visual brasileiro, com ampla capacidade e qualidade técnica entregamos a sua empresa os melhores resultados do mercado.
+                </p>
+              </AnimatedSection>
+              <AnimatedSection delay={0.2}>
+                <Link to="/quem-somos" className="mt-8 inline-flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors font-medium group">
+                  Conheça nossa história
+                  <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+              </AnimatedSection>
+            </div>
+            <AnimatedSection delay={0.15}>
+              <div className="grid grid-cols-2 gap-3">
+                {services.map((s, i) => (
+                  <div key={s.title} className={`group p-5 md:p-6 rounded-2xl bg-card/50 border border-border/40 hover:border-primary/20 transition-all duration-300 shine ${i === 0 ? 'md:col-span-2' : ''}`}>
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-9 h-9 rounded-lg bg-primary/8 border border-primary/15 flex items-center justify-center group-hover:bg-primary/15 transition-colors">
+                        <s.icon size={16} className="text-primary" />
+                      </div>
+                      <span className="text-xl font-bold text-foreground tracking-tight">{s.count}</span>
+                    </div>
+                    <h3 className="text-sm font-semibold text-foreground">{s.title}</h3>
+                    <p className="text-xs text-muted-foreground mt-1">{s.desc}</p>
                   </div>
                 ))}
               </div>
@@ -144,18 +190,18 @@ const Index = () => {
       </section>
 
       {/* Team */}
-      <section className="py-20 md:py-28 border-t border-border/50">
+      <section className="py-24 md:py-32 border-t border-border/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader title="DNA Interface TV" subtitle="Nosso time ajuda seu negócio/projeto a ir mais longe!" />
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto">
+          <SectionHeader label="Equipe" title="DNA Interface TV" subtitle="Nosso time ajuda seu negócio/projeto a ir mais longe!" />
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
             {team.map((member, i) => (
-              <AnimatedSection key={member.name} delay={i * 0.15}>
-                <div className="text-center group">
-                  <div className="w-32 h-32 mx-auto rounded-full overflow-hidden gradient-border mb-4">
-                    <img src={member.image} alt={member.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <AnimatedSection key={member.name} delay={i * 0.1}>
+                <div className="group text-center p-6 rounded-2xl bg-card/30 border border-border/30 hover:border-primary/15 transition-all duration-300">
+                  <div className="w-24 h-24 mx-auto rounded-2xl overflow-hidden mb-5 ring-1 ring-border/50 group-hover:ring-primary/20 transition-all">
+                    <img src={member.image} alt={member.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
-                  <h3 className="font-semibold text-foreground text-lg">{member.name}</h3>
-                  <p className="text-sm text-muted-foreground">{member.role}</p>
+                  <h3 className="font-semibold text-foreground">{member.name}</h3>
+                  <p className="text-xs text-muted-foreground mt-1">{member.role}</p>
                 </div>
               </AnimatedSection>
             ))}
@@ -164,44 +210,55 @@ const Index = () => {
       </section>
 
       {/* Cases */}
-      <section className="py-20 md:py-28 bg-card border-t border-border/50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader title="Cases" subtitle="Projetos que fazem a diferença." />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <section className="relative py-24 md:py-32 border-t border-border/30">
+        <div className="absolute inset-0 radial-glow" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <SectionHeader label="Portfólio" title="Cases" subtitle="Projetos que fazem a diferença." />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {cases.map((c, i) => (
-              <AnimatedSection key={c.title} delay={i * 0.1}>
-                <div className="group rounded-xl overflow-hidden bg-background border border-border hover:border-primary/30 transition-all hover:shadow-[var(--shadow-glow)]">
-                  <div className="aspect-video overflow-hidden">
-                    <img src={c.image} alt={c.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <AnimatedSection key={c.title} delay={i * 0.08}>
+                <div className="group rounded-2xl overflow-hidden bg-card/30 border border-border/30 hover:border-primary/20 transition-all duration-300">
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img src={c.image} alt={c.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
                   </div>
                   <div className="p-5">
-                    <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">{c.title}</h3>
+                    <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">{c.title}</h3>
                   </div>
                 </div>
               </AnimatedSection>
             ))}
           </div>
-          <div className="text-center mt-10">
-            <Link to="/cases" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border text-foreground font-semibold hover:bg-secondary transition-colors">
-              Ver todos os cases <ArrowRight size={16} />
+          <AnimatedSection className="text-center mt-10">
+            <Link to="/cases" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border/50 text-foreground text-sm font-medium hover:bg-secondary/50 hover:border-border transition-all group">
+              Ver todos os cases
+              <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
             </Link>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 md:py-28 border-t border-border/50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="relative py-24 md:py-32 border-t border-border/30 overflow-hidden">
+        <div className="absolute inset-0 grid-pattern opacity-30" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px]" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <AnimatedSection>
-            <h2 className="text-3xl md:text-5xl font-bold gradient-text">Entre em Contato</h2>
-            <p className="mt-4 text-muted-foreground text-lg max-w-xl mx-auto">
-              Teremos o maior prazer em responder suas perguntas!
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-medium uppercase tracking-[0.15em] text-primary border border-primary/20 bg-primary/5 mb-6">
+              Contato
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground leading-tight text-balance">
+              Pronto para elevar suas{" "}
+              <span className="gradient-text">transmissões</span>?
+            </h2>
+            <p className="mt-5 text-muted-foreground text-base md:text-lg max-w-md mx-auto">
+              Teremos o maior prazer em responder suas perguntas e criar o projeto perfeito para você.
             </p>
             <Link
               to="/fale-conosco"
-              className="mt-8 inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-primary text-primary-foreground font-semibold text-lg hover:opacity-90 transition-opacity"
+              className="mt-9 inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold hover:brightness-110 transition-all shadow-[0_0_30px_hsl(157,72%,54%,0.15)] group"
             >
-              Fale Conosco <ArrowRight size={18} />
+              Fale Conosco
+              <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
             </Link>
           </AnimatedSection>
         </div>
