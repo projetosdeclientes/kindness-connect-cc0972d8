@@ -158,7 +158,7 @@ const Header = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="lg:hidden fixed inset-0 top-16 bg-background/80 backdrop-blur-sm z-40"
+              className="md:hidden fixed inset-0 top-16 bg-background/80 backdrop-blur-sm z-40"
               onClick={() => setMobileOpen(false)}
             />
             {/* Menu panel */}
