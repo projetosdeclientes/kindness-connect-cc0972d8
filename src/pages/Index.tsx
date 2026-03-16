@@ -69,9 +69,9 @@ const Index = () => {
         <AuroraBackground />
         {/* Background layers */}
         <div className="absolute inset-0">
-          <img src={heroImg} alt="Interface TV Broadcasting" className="w-full h-full object-cover opacity-10 scale-105" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
-          <div className="absolute inset-0 grid-pattern opacity-20" />
+          <img src={heroImg} alt="Interface TV Broadcasting" className="w-full h-full object-cover opacity-35 scale-105" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/35 via-background/20 to-background/80" />
+          <div className="absolute inset-0 grid-pattern opacity-12" />
         </div>
         {/* Top glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-primary/5 rounded-full blur-[120px]" />
