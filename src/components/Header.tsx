@@ -32,6 +32,7 @@ const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
   const location = useLocation();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -44,7 +45,18 @@ const Header = () => {
   useEffect(() => {
     setMobileOpen(false);
     setOpenDropdown(null);
+    setMobileDropdown(null);
   }, [location.pathname]);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
@@ -61,7 +73,7 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "glass border-b border-border/40 shadow-[0_1px_3px_rgba(0,0,0,0.3)]" : "bg-transparent"
+        scrolled || mobileOpen ? "glass border-b border-border/40 shadow-[0_1px_3px_rgba(0,0,0,0.3)]" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -134,75 +146,100 @@ const Header = () => {
           {/* Mobile Toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden p-2 rounded-lg text-foreground hover:bg-secondary transition-colors"
+            className="lg:hidden p-2.5 rounded-lg text-foreground hover:bg-secondary/80 transition-colors active:scale-95"
             aria-label="Toggle menu"
           >
-            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Full screen overlay */}
       <AnimatePresence>
         {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="lg:hidden glass border-t border-border/30 max-h-[80vh] overflow-y-auto"
-          >
-            <nav className="container mx-auto px-4 py-3 flex flex-col gap-0.5">
-              {navItems.map((item) => (
-                <div key={item.path}>
-                  {item.children ? (
-                    <>
-                      <button
-                        onClick={() => setOpenDropdown(openDropdown === item.path ? null : item.path)}
-                        className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                          isActive(item.path) ? "text-primary" : "text-muted-foreground"
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="lg:hidden fixed inset-0 top-16 bg-background/80 backdrop-blur-sm z-40"
+              onClick={() => setMobileOpen(false)}
+            />
+            {/* Menu panel */}
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="lg:hidden fixed left-0 right-0 top-16 z-50 glass border-t border-border/30 max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain"
+            >
+              <nav className="container mx-auto px-4 py-4 flex flex-col gap-1">
+                {navItems.map((item) => (
+                  <div key={item.path}>
+                    {item.children ? (
+                      <>
+                        <button
+                          onClick={() => setMobileDropdown(mobileDropdown === item.path ? null : item.path)}
+                          className={`w-full flex items-center justify-between px-4 py-3.5 rounded-xl text-[15px] font-medium transition-colors active:bg-secondary/50 ${
+                            isActive(item.path) ? "text-primary bg-primary/5" : "text-foreground"
+                          }`}
+                        >
+                          {item.label}
+                          <ChevronDown size={16} className={`transition-transform duration-200 text-muted-foreground ${mobileDropdown === item.path ? "rotate-180" : ""}`} />
+                        </button>
+                        <AnimatePresence>
+                          {mobileDropdown === item.path && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.2 }}
+                              className="overflow-hidden"
+                            >
+                              <div className="pl-4 pb-1 space-y-0.5">
+                                {item.children.map((child) => (
+                                  <Link
+                                    key={child.path}
+                                    to={child.path}
+                                    className={`block px-4 py-3 rounded-xl text-[14px] transition-colors active:bg-secondary/50 ${
+                                      location.pathname === child.path ? "text-primary bg-primary/5 font-medium" : "text-muted-foreground"
+                                    }`}
+                                  >
+                                    {child.label}
+                                  </Link>
+                                ))}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </>
+                    ) : (
+                      <Link
+                        to={item.path}
+                        className={`block px-4 py-3.5 rounded-xl text-[15px] font-medium transition-colors active:bg-secondary/50 ${
+                          isActive(item.path) ? "text-primary bg-primary/5" : "text-foreground"
                         }`}
                       >
                         {item.label}
-                        <ChevronDown size={14} className={`transition-transform ${openDropdown === item.path ? "rotate-180" : ""}`} />
-                      </button>
-                      <AnimatePresence>
-                        {openDropdown === item.path && (
-                          <motion.div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            className="overflow-hidden pl-4"
-                          >
-                            {item.children.map((child) => (
-                              <Link
-                                key={child.path}
-                                to={child.path}
-                                className={`block px-4 py-2 rounded-lg text-sm ${
-                                  location.pathname === child.path ? "text-primary" : "text-muted-foreground hover:text-foreground"
-                                }`}
-                              >
-                                {child.label}
-                              </Link>
-                            ))}
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </>
-                  ) : (
-                    <Link
-                      to={item.path}
-                      className={`block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                        isActive(item.path) ? "text-primary bg-primary/8" : "text-muted-foreground hover:text-foreground"
-                      }`}
-                    >
-                      {item.label}
-                    </Link>
-                  )}
+                      </Link>
+                    )}
+                  </div>
+                ))}
+
+                {/* Mobile CTA */}
+                <div className="mt-3 pt-3 border-t border-border/30">
+                  <Link
+                    to="/fale-conosco"
+                    className="block w-full text-center px-4 py-3.5 rounded-xl bg-primary text-primary-foreground text-[15px] font-semibold active:brightness-90 transition-all"
+                  >
+                    Fale Conosco
+                  </Link>
                 </div>
-              ))}
-            </nav>
-          </motion.div>
+              </nav>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header>
