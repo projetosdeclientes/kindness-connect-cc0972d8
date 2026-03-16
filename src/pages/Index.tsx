@@ -264,7 +264,7 @@ const Index = () => {
             </p>
             <Link
               to="/fale-conosco"
-              className="mt-9 inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold hover:brightness-110 transition-all shadow-[0_0_30px_hsl(157,72%,54%,0.15)] group"
+              className="mt-9 inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold hover:brightness-110 transition-all shadow-[0_0_30px_hsl(210,85%,55%,0.15)] group"
             >
               Fale Conosco
               <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />

@@ -253,7 +253,7 @@ const FaleConosco = () => {
                     <button
                       type="submit"
                       disabled={status === "sending"}
-                      className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground text-sm font-semibold hover:brightness-110 transition-all disabled:opacity-50 shadow-[0_0_20px_hsl(157,72%,54%,0.15)]"
+                      className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground text-sm font-semibold hover:brightness-110 transition-all disabled:opacity-50 shadow-[0_0_20px_hsl(210,85%,55%,0.15)]"
                     >
                       {status === "sending" ? "Enviando..." : <>Enviar Mensagem <Send size={13} /></>}
                     </button>
