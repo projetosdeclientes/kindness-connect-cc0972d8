@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, Globe, Facebook, Youtube, Instagram, ArrowUpRight } from "lucide-react";
+import logoImg from "../assets/logo-interfacetv.png";
 
 const Footer = () => {
   return (
@@ -11,13 +12,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8">
           {/* Brand */}
           <div className="md:col-span-4">
-            <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
-                <span className="text-xs font-display font-bold text-primary">IT</span>
-              </div>
-              <span className="text-base font-display font-bold text-foreground">
-                INTERFACE<span className="text-primary">TV</span>
-              </span>
+            <div className="mb-4">
+              <img src={logoImg} alt="Interface TV Broadcasting" className="h-10 w-auto object-contain" />
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
               Produtora de vídeo especializada em transmissão de eventos para canais de televisão, agências de publicidade e internet.
