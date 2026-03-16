@@ -15,6 +15,7 @@ import UnidadesMoveis from "./pages/UnidadesMoveis.tsx";
 import UnidadeDetail from "./pages/UnidadeDetail.tsx";
 import DSNG from "./pages/DSNG.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/quem-somos" element={<QuemSomos />} />
