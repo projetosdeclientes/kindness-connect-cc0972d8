@@ -169,7 +169,7 @@ const AuroraBackground = () => {
 
   if (hasError) return null;
 
-  return <div ref={mountRef} className="pointer-events-none" />;
+  return <div ref={mountRef} className="pointer-events-none overflow-hidden fixed inset-0" />;
 };
 
 export default AuroraBackground;
