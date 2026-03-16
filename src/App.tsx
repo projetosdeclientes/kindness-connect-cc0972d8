@@ -36,7 +36,7 @@ const App = () => (
           <Route path="/dsng" element={<DSNG />} />
           <Route path="/clientes" element={<Clientes />} />
           <Route path="/cases" element={<Cases />} />
-          <Route path="/portfolio" element={<Portfolio />} />
+          
           <Route path="/fale-conosco" element={<FaleConosco />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
