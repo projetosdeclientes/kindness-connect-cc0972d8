@@ -31,7 +31,7 @@ const portfolioItems = [
   { title: "Nordeste TV / Fox Sports", image: "/images/portfolio-3-1.jpeg" },
 ];
 
-const showcaseItems = [...cases, ...portfolioItems];
+const showcaseItems = [cases[0], cases[2], cases[3], cases[4], portfolioItems[3], portfolioItems[6]];
 
 const services = [
   { icon: Truck, title: "Unidades Móveis", count: "04", desc: "Transmissão completa de última geração" },
