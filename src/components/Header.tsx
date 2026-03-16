@@ -26,6 +26,7 @@ const navItems = [
   { label: "DSNG", path: "/dsng" },
   { label: "Clientes", path: "/clientes" },
   { label: "Cases", path: "/cases" },
+  { label: "Portfólio", path: "/portfolio" },
   { label: "Fale Conosco", path: "/fale-conosco" },
 ];
 
