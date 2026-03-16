@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AnimatedSection from "../components/AnimatedSection";
 import SectionHeader from "../components/SectionHeader";
+import AuroraBackground from "../components/AuroraBackground";
 import heroImg from "../assets/hero-broadcast.jpg";
 
 const cases = [
@@ -48,11 +49,13 @@ const Index = () => {
 
       {/* Hero */}
       <section className="relative min-h-[100dvh] flex items-center overflow-hidden">
+        {/* Aurora Three.js Background */}
+        <AuroraBackground />
         {/* Background layers */}
         <div className="absolute inset-0">
-          <img src={heroImg} alt="Interface TV Broadcasting" className="w-full h-full object-cover opacity-20 scale-105" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/70 to-background" />
-          <div className="absolute inset-0 grid-pattern opacity-40" />
+          <img src={heroImg} alt="Interface TV Broadcasting" className="w-full h-full object-cover opacity-10 scale-105" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
+          <div className="absolute inset-0 grid-pattern opacity-20" />
         </div>
         {/* Top glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-primary/5 rounded-full blur-[120px]" />
