@@ -167,7 +167,7 @@ const Header = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className="lg:hidden fixed left-0 right-0 top-16 z-50 glass border-t border-border/30 max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain"
+              className="md:hidden fixed left-0 right-0 top-16 z-50 glass border-t border-border/30 max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain"
             >
               <nav className="container mx-auto px-4 py-4 flex flex-col gap-1">
                 {navItems.map((item) => (
