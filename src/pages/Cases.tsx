@@ -10,8 +10,16 @@ const cases = [
   { title: "Brasileiro Feminino 2021", image: "/images/case-brasileiro-feminino.jpg", desc: "Transmissão do Campeonato Brasileiro Feminino de futebol.", tag: "Futebol" },
   { title: "Sorteio Copa do Mundo 2014", image: "/images/case-sorteio-copa.jpg", desc: "Cobertura do sorteio da Copa do Mundo FIFA 2014 no Brasil.", tag: "FIFA" },
   { title: "UFC", image: "/images/case-ufc.jpg", desc: "Transmissão de eventos do UFC no Brasil.", tag: "MMA" },
-  { title: "Copa do Nordeste – Nordeste TV / Fox Sports", image: "/images/case-copa-nordeste.jpg", desc: "Copa do Nordeste Nordeste TV/ Fox Sports.", tag: "Futebol" },
+  { title: "Copa do Nordeste – Nordeste TV / Fox Sports", image: "/images/case-copa-nordeste.jpg", desc: "Copa do Nordeste Nordeste TV / Fox Sports.", tag: "Futebol" },
   { title: "Sulamericana 2021", image: "/images/case-sulamericana.jpg", desc: "Sulamericana Ceará 2 x 0 Bolívar.", tag: "Futebol" },
+  { title: "Campeonato Brasileiro 2020 – Ceará x Flamengo", image: "/images/portfolio-2.jpeg", desc: "Transmissão do Campeonato Brasileiro 2020, Ceará x Flamengo.", tag: "Futebol" },
+  { title: "Ônibus Olímpico Rede Record em Goiânia", image: "/images/portfolio-5.jpeg", desc: "Operação do ônibus olímpico da Rede Record em Goiânia.", tag: "Esporte" },
+  { title: "Anjos Cantam Jorge & Mateus", image: "/images/portfolio-10.jpeg", desc: "Produção e transmissão do show Anjos Cantam com Jorge & Mateus.", tag: "Entretenimento" },
+  { title: "Superliga Masculina 19/20", image: "/images/portfolio-4.jpeg", desc: "Transmissão da Superliga Masculina de Vôlei 2019/2020.", tag: "Esporte" },
+  { title: "Fortaleza x Independiente", image: "/images/portfolio-8.jpeg", desc: "Transmissão do jogo Fortaleza x Independiente pela Sulamericana.", tag: "Futebol" },
+  { title: "Nordeste TV / Fox Sports", image: "/images/portfolio-3-1.jpeg", desc: "Cobertura esportiva para Nordeste TV e Fox Sports.", tag: "Futebol" },
+  { title: "Produção ao Vivo", image: "/images/portfolio-7.jpeg", desc: "Produção e operação ao vivo com equipe técnica completa.", tag: "Produção" },
+  { title: "Cobertura de Evento", image: "/images/portfolio-6.jpeg", desc: "Cobertura completa de evento com múltiplas câmeras.", tag: "Eventos" },
 ];
 
 const Cases = () => {
