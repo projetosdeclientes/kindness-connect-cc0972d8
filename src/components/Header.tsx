@@ -85,7 +85,7 @@ const Header = () => {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-0.5" ref={dropdownRef}>
+          <nav className="hidden md:flex items-center gap-0.5" ref={dropdownRef}>
             {navItems.map((item) => (
               <div key={item.path} className="relative">
                 {item.children ? (
