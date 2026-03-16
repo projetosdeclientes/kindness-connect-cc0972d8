@@ -17,6 +17,22 @@ const cases = [
   { title: "Sulamericana 2021", image: "/images/case-sulamericana.jpg" },
 ];
 
+const portfolioItems = [
+  { title: "Copa do Nordeste Nordeste TV / Fox Sports", image: "/images/portfolio-1.jpeg" },
+  { title: "Sulamericana 2021", image: "/images/portfolio-9.jpeg" },
+  { title: "Campeonato Brasileiro 2020 – Ceará x Flamengo", image: "/images/portfolio-2.jpeg" },
+  { title: "Ônibus Olímpico Rede Record em Goiânia", image: "/images/portfolio-5.jpeg" },
+  { title: "Produção ao Vivo", image: "/images/portfolio-7.jpeg" },
+  { title: "Transmissão Esportiva", image: "/images/portfolio-3.jpeg" },
+  { title: "Anjos Cantam Jorge & Mateus", image: "/images/portfolio-10.jpeg" },
+  { title: "Cobertura de Evento", image: "/images/portfolio-6.jpeg" },
+  { title: "Superliga Masculina 19/20", image: "/images/portfolio-4.jpeg" },
+  { title: "Fortaleza x Independente", image: "/images/portfolio-8.jpeg" },
+  { title: "Nordeste TV / Fox Sports", image: "/images/portfolio-3-1.jpeg" },
+];
+
+const showcaseItems = [...cases, ...portfolioItems];
+
 const services = [
   { icon: Truck, title: "Unidades Móveis", count: "04", desc: "Transmissão completa de última geração" },
   { icon: Satellite, title: "DSNGs", count: "02", desc: "Links satelitais para qualquer local" },
