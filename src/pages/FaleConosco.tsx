@@ -4,25 +4,85 @@ import Footer from "../components/Footer";
 import AnimatedSection from "../components/AnimatedSection";
 import SectionHeader from "../components/SectionHeader";
 import { Mail, Phone, Send, CheckCircle, MapPin, ArrowRight } from "lucide-react";
+import { Facebook, Instagram, MessageCircle, Youtube } from "lucide-react";
+
+const socialLinks = [
+  {
+    label: "WhatsApp",
+    icon: MessageCircle,
+    href: "https://wa.me/5511991903177",
+    bg: "bg-[#25D366]",
+    hoverBg: "hover:bg-[#20BD5A]",
+    text: "text-white",
+  },
+  {
+    label: "Facebook",
+    icon: Facebook,
+    href: "https://facebook.com/interfacetv",
+    bg: "bg-[#1877F2]",
+    hoverBg: "hover:bg-[#1565D8]",
+    text: "text-white",
+  },
+  {
+    label: "Instagram",
+    icon: Instagram,
+    href: "https://instagram.com/interfacetv",
+    bg: "bg-gradient-to-br from-[#F58529] via-[#DD2A7B] to-[#8134AF]",
+    hoverBg: "hover:brightness-110",
+    text: "text-white",
+  },
+  {
+    label: "YouTube",
+    icon: Youtube,
+    href: "https://youtube.com/@interfacetv",
+    bg: "bg-[#FF0000]",
+    hoverBg: "hover:bg-[#CC0000]",
+    text: "text-white",
+  },
+];
+
+const phones = [
+  { number: "(85) 3016-1074", tel: "558530161074", person: null },
+  { number: "(85) 3272-8065", tel: "558532728065", person: null },
+  { number: "(11) 99190-3177", tel: "5511991903177", person: "Fernando" },
+  { number: "(85) 99912-0203", tel: "5585999120203", person: "Fernando" },
+  { number: "(11) 93018-3555", tel: "5511930183555", person: "Roberto" },
+  { number: "(21) 97981-3218", tel: "5521979813218", person: "Roberto" },
+];
 
 const FaleConosco = () => {
   const [formData, setFormData] = useState({ nome: "", email: "", assunto: "", mensagem: "" });
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
+    setErrorMsg("");
 
-    const subject = encodeURIComponent(formData.assunto || "Contato via site");
-    const body = encodeURIComponent(
-      `Nome: ${formData.nome}\nEmail: ${formData.email}\n\n${formData.mensagem}`
-    );
-    window.location.href = `mailto:eventos@interfacetv.com.br?subject=${subject}&body=${body}`;
-    
-    setTimeout(() => {
+    try {
+      const projectId = import.meta.env.VITE_SUPABASE_PROJECT_ID;
+      const response = await fetch(
+        `https://${projectId}.supabase.co/functions/v1/send-contact-email`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Falha ao enviar mensagem");
+      }
+
       setStatus("success");
       setFormData({ nome: "", email: "", assunto: "", mensagem: "" });
-    }, 1000);
+    } catch (err) {
+      console.error(err);
+      setStatus("error");
+      setErrorMsg("Erro ao enviar. Tente novamente ou entre em contato por telefone.");
+      setTimeout(() => setStatus("idle"), 4000);
+    }
   };
 
   const inputClasses = "w-full px-4 py-3 rounded-xl bg-card/50 border border-border/50 text-foreground text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-primary/40 focus:border-primary/30 transition-all";
@@ -45,25 +105,61 @@ const FaleConosco = () => {
                     Agradecemos seu interesse! Orçamentos, sugestões e dúvidas preencha o formulário que entraremos em contato o mais breve possível.
                   </p>
 
-                  <div className="p-5 rounded-2xl bg-card/30 border border-border/30 space-y-4">
-                    <div className="flex items-start gap-3">
-                      <Phone size={14} className="text-primary mt-1 flex-shrink-0" />
-                      <div className="text-xs text-muted-foreground space-y-1">
-                        <p><strong className="text-foreground">(85) 3016-1074 / 3272-8065</strong></p>
-                        <p>(11) 99190-3177 / (85) 99912-0203 <span className="text-primary/60">Fernando</span></p>
-                        <p>(11) 93018-3555 / (21) 97981-3218 <span className="text-primary/60">Roberto</span></p>
-                      </div>
+                  {/* Phone Numbers */}
+                  <div className="p-5 rounded-2xl bg-card/30 border border-border/30 space-y-3">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Phone size={14} className="text-primary" />
+                      <span className="text-xs font-semibold text-foreground uppercase tracking-wider">Telefones</span>
                     </div>
-                    <div className="h-px bg-border/30" />
-                    <a href="mailto:eventos@interfacetv.com.br" className="flex items-center gap-3 text-xs text-foreground hover:text-primary transition-colors">
-                      <Mail size={14} className="text-primary flex-shrink-0" />
+                    <div className="grid grid-cols-1 gap-1.5">
+                      {phones.map((p) => (
+                        <a
+                          key={p.tel}
+                          href={`tel:+${p.tel}`}
+                          className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
+                        >
+                          <Phone size={11} className="text-primary/60 flex-shrink-0" />
+                          <span className="font-medium text-foreground">{p.number}</span>
+                          {p.person && <span className="text-primary/60 ml-auto">{p.person}</span>}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Email */}
+                  <div className="p-5 rounded-2xl bg-card/30 border border-border/30">
+                    <div className="flex items-center gap-2 mb-3">
+                      <Mail size={14} className="text-primary" />
+                      <span className="text-xs font-semibold text-foreground uppercase tracking-wider">E-mail</span>
+                    </div>
+                    <a href="mailto:eventos@interfacetv.com.br" className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs text-foreground hover:text-primary hover:bg-secondary/50 transition-all">
                       eventos@interfacetv.com.br
                     </a>
-                    <div className="h-px bg-border/30" />
-                    <div className="flex items-start gap-3">
-                      <MapPin size={14} className="text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-xs text-muted-foreground">SP • CE • MA • PA</span>
+                  </div>
+
+                  {/* Locations */}
+                  <div className="p-5 rounded-2xl bg-card/30 border border-border/30">
+                    <div className="flex items-center gap-2 mb-3">
+                      <MapPin size={14} className="text-primary" />
+                      <span className="text-xs font-semibold text-foreground uppercase tracking-wider">Bases</span>
                     </div>
+                    <span className="text-xs text-muted-foreground px-3">SP • CE • MA • PA</span>
+                  </div>
+
+                  {/* Social Media CTAs */}
+                  <div className="grid grid-cols-2 gap-2">
+                    {socialLinks.map((s) => (
+                      <a
+                        key={s.label}
+                        href={s.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`flex items-center gap-2.5 px-4 py-3 rounded-xl ${s.bg} ${s.text} ${s.hoverBg} transition-all shadow-md hover:shadow-lg text-sm font-medium`}
+                      >
+                        <s.icon size={16} />
+                        {s.label}
+                      </a>
+                    ))}
                   </div>
                 </div>
               </AnimatedSection>
@@ -85,6 +181,11 @@ const FaleConosco = () => {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="p-6 md:p-8 rounded-2xl bg-card/30 border border-border/30 space-y-4 shine">
+                    {status === "error" && (
+                      <div className="p-3 rounded-lg bg-destructive/10 border border-destructive/20 text-xs text-destructive">
+                        {errorMsg}
+                      </div>
+                    )}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label className="text-xs font-medium text-muted-foreground mb-1.5 block uppercase tracking-wider">Nome *</label>
