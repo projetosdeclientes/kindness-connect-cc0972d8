@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Truck } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AnimatedSection from "../components/AnimatedSection";
@@ -9,7 +9,7 @@ const units = [
   { id: 1, title: "Unidade 1", cameras: "16 Câmeras", desc: "HD UM 01 – Mercedes Benz ATEGO 1719", image: "/images/um01.jpeg" },
   { id: 2, title: "Unidade 2", cameras: "11 Câmeras", desc: "HD UM 02 – Mercedes Benz 815", image: "/images/um02.jpeg" },
   { id: 3, title: "Unidade 3", cameras: "10 Câmeras", desc: "HD UM 03 – Mercedes Benz ATEGO 1719", image: "/images/um03.jpeg" },
-  { id: 4, title: "Unidade 4", cameras: "07 Câmeras", desc: "HD UM 04 – Van 416 CDI Mercedes Benz", image: null },
+  { id: 4, title: "Unidade 4", cameras: "07 Câmeras", desc: "HD UM 04 – Van 416 CDI Mercedes Benz", image: "/images/um04.jpeg" },
 ];
 
 const UnidadesMoveis = () => {
@@ -29,15 +29,9 @@ const UnidadesMoveis = () => {
                   to={`/unidades-moveis/unidade-${u.id}`}
                   className="group block rounded-2xl overflow-hidden bg-card/30 border border-border/30 hover:border-primary/20 transition-all duration-300"
                 >
-                  {u.image ? (
-                    <div className="aspect-[16/10] overflow-hidden">
-                      <img src={u.image} alt={u.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                    </div>
-                  ) : (
-                    <div className="aspect-[16/10] bg-secondary/30 flex items-center justify-center">
-                      <Truck size={48} className="text-muted-foreground/30" />
-                    </div>
-                  )}
+                  <div className="aspect-[16/10] overflow-hidden">
+                    <img src={u.image} alt={u.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  </div>
                   <div className="p-5">
                     <div className="flex items-center justify-between">
                       <div>
