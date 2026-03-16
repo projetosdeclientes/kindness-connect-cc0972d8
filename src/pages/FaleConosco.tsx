@@ -72,11 +72,19 @@ const FaleConosco = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus("sending");
     setErrorMsg("");
 
+    const projectId = import.meta.env.VITE_SUPABASE_PROJECT_ID;
+    if (!projectId) {
+      setStatus("error");
+      setErrorMsg("Envio por formulário ainda não está configurado. Use os contatos ao lado por enquanto.");
+      setTimeout(() => setStatus("idle"), 4000);
+      return;
+    }
+
+    setStatus("sending");
+
     try {
-      const projectId = import.meta.env.VITE_SUPABASE_PROJECT_ID;
       const response = await fetch(
         `https://${projectId}.supabase.co/functions/v1/send-contact-email`,
         {
@@ -95,7 +103,7 @@ const FaleConosco = () => {
     } catch (err) {
       console.error(err);
       setStatus("error");
-      setErrorMsg("Erro ao enviar. Tente novamente ou entre em contato por telefone.");
+      setErrorMsg("Envio indisponível no momento. Use telefone, WhatsApp ou email direto ao lado.");
       setTimeout(() => setStatus("idle"), 4000);
     }
   };

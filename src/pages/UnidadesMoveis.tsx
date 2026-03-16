@@ -9,7 +9,7 @@ const units = [
   { id: 1, title: "Unidade 1", cameras: "16 Câmeras", desc: "HD UM 01 – Mercedes Benz ATEGO 1719", image: "/images/um01.jpeg" },
   { id: 2, title: "Unidade 2", cameras: "11 Câmeras", desc: "HD UM 02 – Mercedes Benz 815", image: "/images/um02.jpeg" },
   { id: 3, title: "Unidade 3", cameras: "10 Câmeras", desc: "HD UM 03 – Mercedes Benz ATEGO 1719", image: "/images/um03.jpeg" },
-  { id: 4, title: "Unidade 4", cameras: "07 Câmeras", desc: "HD UM 04 – Van 416 CDI Mercedes Benz", image: null },
+  { id: 4, title: "Unidade 4", cameras: "07 Câmeras", desc: "HD UM 04 – Van 416 CDI Mercedes Benz", image: "/images/um04.jpeg" },
 ];
 
 const UnidadesMoveis = () => {
