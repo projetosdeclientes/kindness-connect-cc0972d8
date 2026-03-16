@@ -9,7 +9,7 @@ import Equipe from "./pages/Equipe.tsx";
 import Servicos from "./pages/Servicos.tsx";
 import Clientes from "./pages/Clientes.tsx";
 import Cases from "./pages/Cases.tsx";
-import Portfolio from "./pages/Portfolio.tsx";
+
 import FaleConosco from "./pages/FaleConosco.tsx";
 import UnidadesMoveis from "./pages/UnidadesMoveis.tsx";
 import UnidadeDetail from "./pages/UnidadeDetail.tsx";
