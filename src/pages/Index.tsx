@@ -13,7 +13,7 @@ const showcaseItems = [
   { title: "Sorteio Copa do Mundo 2014", image: "/images/case-sorteio-copa.jpg" },
   { title: "UFC", image: "/images/case-ufc.jpg" },
   { title: "Copa do Nordeste – Fox Sports", image: "/images/case-copa-nordeste.jpg" },
-  { title: "Ônibus Olímpico Rede Record", image: "/images/portfolio-5.jpeg" },
+  { title: "Superliga Masculina 19/20", image: "/images/portfolio-4.jpeg" },
   { title: "Anjos Cantam Jorge & Mateus", image: "/images/portfolio-10.jpeg" },
 ];
 
