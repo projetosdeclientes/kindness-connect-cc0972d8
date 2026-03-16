@@ -42,6 +42,7 @@ const Footer = () => {
                 { label: "DSNG", path: "/dsng" },
                 { label: "Clientes", path: "/clientes" },
                 { label: "Cases", path: "/cases" },
+                { label: "Portfólio", path: "/portfolio" },
               ].map((item) => (
                 <Link key={item.path} to={item.path} className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1 group">
                   {item.label}
