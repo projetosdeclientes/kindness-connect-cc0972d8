@@ -238,7 +238,7 @@ const Index = () => {
             ))}
           </div>
           <AnimatedSection className="text-center mt-10">
-            <Link to="/portfolio" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border/50 text-foreground text-sm font-medium hover:bg-secondary/50 hover:border-border transition-all group">
+            <Link to="/cases" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border/50 text-foreground text-sm font-medium hover:bg-secondary/50 hover:border-border transition-all group">
               Ver portfólio completo
               <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
             </Link>
