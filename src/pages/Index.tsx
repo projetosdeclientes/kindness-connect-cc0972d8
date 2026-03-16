@@ -87,7 +87,7 @@ const Index = () => {
             <motion.div variants={stagger.child} className="mt-9 flex flex-wrap gap-3">
               <Link
                 to="/fale-conosco"
-                className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground text-sm font-semibold hover:brightness-110 transition-all shadow-[0_0_20px_hsl(157,72%,54%,0.2)]"
+                className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground text-sm font-semibold hover:brightness-110 transition-all shadow-[0_0_20px_hsl(210,85%,55%,0.2)]"
               >
                 Fale Conosco
                 <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
