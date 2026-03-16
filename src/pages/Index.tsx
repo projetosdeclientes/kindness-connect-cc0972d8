@@ -10,7 +10,7 @@ import heroImg from "../assets/hero-broadcast.jpg";
 
 const showcaseItems = [
   { title: "Olimpíadas Brasil", image: "/images/case-olimpiadas.jpg" },
-  { title: "Sorteio Copa do Mundo 2014", image: "/images/case-sorteio-copa.jpg" },
+  { title: "Sulamericana 2021", image: "/images/case-sulamericana.jpg" },
   { title: "UFC", image: "/images/case-ufc.jpg" },
   { title: "Copa do Nordeste – Fox Sports", image: "/images/case-copa-nordeste.jpg" },
   { title: "Superliga Masculina 19/20", image: "/images/portfolio-4.jpeg" },
