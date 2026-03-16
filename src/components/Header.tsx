@@ -85,7 +85,7 @@ const Header = () => {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-0.5" ref={dropdownRef}>
+          <nav className="hidden md:flex items-center gap-0.5" ref={dropdownRef}>
             {navItems.map((item) => (
               <div key={item.path} className="relative">
                 {item.children ? (
@@ -140,7 +140,7 @@ const Header = () => {
           {/* Mobile Toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden p-2.5 rounded-lg text-foreground hover:bg-secondary/80 transition-colors active:scale-95"
+            className="md:hidden p-2.5 rounded-lg text-foreground hover:bg-secondary/80 transition-colors active:scale-95"
             aria-label="Toggle menu"
           >
             {mobileOpen ? <X size={22} /> : <Menu size={22} />}
@@ -158,7 +158,7 @@ const Header = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="lg:hidden fixed inset-0 top-16 bg-background/80 backdrop-blur-sm z-40"
+              className="md:hidden fixed inset-0 top-16 bg-background/80 backdrop-blur-sm z-40"
               onClick={() => setMobileOpen(false)}
             />
             {/* Menu panel */}
@@ -167,7 +167,7 @@ const Header = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className="lg:hidden fixed left-0 right-0 top-16 z-50 glass border-t border-border/30 max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain"
+              className="md:hidden fixed left-0 right-0 top-16 z-50 glass border-t border-border/30 max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain"
             >
               <nav className="container mx-auto px-4 py-4 flex flex-col gap-1">
                 {navItems.map((item) => (
