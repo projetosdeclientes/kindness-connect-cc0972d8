@@ -139,7 +139,7 @@ const unitsData: Record<string, UnitData> = {
   "unidade-4": {
     title: "Unidade 4",
     label: "HD UM 04",
-    cameras: "11 CÂMERAS",
+    cameras: "07 CÂMERAS",
     image: "/images/um04.jpeg",
     video: [
       "01 Switcher 16 canais AV-HS450 -PANASONIC",
