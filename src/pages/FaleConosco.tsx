@@ -41,13 +41,28 @@ const socialLinks = [
   },
 ];
 
-const phones = [
-  { number: "(85) 3016-1074", tel: "558530161074", person: null },
-  { number: "(85) 3272-8065", tel: "558532728065", person: null },
-  { number: "(11) 99190-3177", tel: "5511991903177", person: "Fernando" },
-  { number: "(85) 99912-0203", tel: "5585999120203", person: "Fernando" },
-  { number: "(11) 93018-3555", tel: "5511930183555", person: "Roberto" },
-  { number: "(21) 97981-3218", tel: "5521979813218", person: "Roberto" },
+const phoneGroups = [
+  {
+    label: "Telefones",
+    numbers: [
+      { number: "(85) 3016-1074", tel: "558530161074" },
+      { number: "(85) 3272-8065", tel: "558532728065" },
+    ],
+  },
+  {
+    label: "Fernando",
+    numbers: [
+      { number: "(11) 99190-3177", tel: "5511991903177" },
+      { number: "(85) 99912-0203", tel: "5585999120203" },
+    ],
+  },
+  {
+    label: "Roberto",
+    numbers: [
+      { number: "(11) 93018-3555", tel: "5511930183555" },
+      { number: "(21) 97981-3218", tel: "5521979813218" },
+    ],
+  },
 ];
 
 const FaleConosco = () => {
@@ -106,24 +121,28 @@ const FaleConosco = () => {
                   </p>
 
                   {/* Phone Numbers */}
-                  <div className="p-5 rounded-2xl bg-card/30 border border-border/30 space-y-3">
-                    <div className="flex items-center gap-2 mb-2">
+                  <div className="p-5 rounded-2xl bg-card/30 border border-border/30 space-y-4">
+                    <div className="flex items-center gap-2">
                       <Phone size={14} className="text-primary" />
                       <span className="text-xs font-semibold text-foreground uppercase tracking-wider">Telefones</span>
                     </div>
-                    <div className="grid grid-cols-1 gap-1.5">
-                      {phones.map((p) => (
-                        <a
-                          key={p.tel}
-                          href={`tel:+${p.tel}`}
-                          className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
-                        >
-                          <Phone size={11} className="text-primary/60 flex-shrink-0" />
-                          <span className="font-medium text-foreground">{p.number}</span>
-                          {p.person && <span className="text-primary/60 ml-auto">{p.person}</span>}
-                        </a>
-                      ))}
-                    </div>
+                    {phoneGroups.map((group) => (
+                      <div key={group.label} className="space-y-1">
+                        <span className="text-[11px] font-medium text-primary/60 uppercase tracking-wider px-3">{group.label}</span>
+                        <div className="flex flex-wrap gap-1.5">
+                          {group.numbers.map((p) => (
+                            <a
+                              key={p.tel}
+                              href={`tel:+${p.tel}`}
+                              className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
+                            >
+                              <Phone size={11} className="text-primary/60 flex-shrink-0" />
+                              <span className="font-medium text-foreground">{p.number}</span>
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
                   </div>
 
                   {/* Email */}
