@@ -121,24 +121,28 @@ const FaleConosco = () => {
                   </p>
 
                   {/* Phone Numbers */}
-                  <div className="p-5 rounded-2xl bg-card/30 border border-border/30 space-y-3">
-                    <div className="flex items-center gap-2 mb-2">
+                  <div className="p-5 rounded-2xl bg-card/30 border border-border/30 space-y-4">
+                    <div className="flex items-center gap-2">
                       <Phone size={14} className="text-primary" />
                       <span className="text-xs font-semibold text-foreground uppercase tracking-wider">Telefones</span>
                     </div>
-                    <div className="grid grid-cols-1 gap-1.5">
-                      {phones.map((p) => (
-                        <a
-                          key={p.tel}
-                          href={`tel:+${p.tel}`}
-                          className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
-                        >
-                          <Phone size={11} className="text-primary/60 flex-shrink-0" />
-                          <span className="font-medium text-foreground">{p.number}</span>
-                          {p.person && <span className="text-primary/60 ml-auto">{p.person}</span>}
-                        </a>
-                      ))}
-                    </div>
+                    {phoneGroups.map((group) => (
+                      <div key={group.label} className="space-y-1">
+                        <span className="text-[11px] font-medium text-primary/60 uppercase tracking-wider px-3">{group.label}</span>
+                        <div className="flex flex-wrap gap-1.5">
+                          {group.numbers.map((p) => (
+                            <a
+                              key={p.tel}
+                              href={`tel:+${p.tel}`}
+                              className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
+                            >
+                              <Phone size={11} className="text-primary/60 flex-shrink-0" />
+                              <span className="font-medium text-foreground">{p.number}</span>
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
                   </div>
 
                   {/* Email */}
