@@ -128,7 +128,7 @@ const Index = () => {
           <SectionHeader label="Parceiros" title="Clientes" subtitle="Conheça alguns de nossos clientes e parceiros de confiança." />
           <AnimatedSection>
             <div className="max-w-6xl mx-auto p-6 md:p-10 rounded-3xl bg-card/30 border border-border/30 shine">
-              <img src="/images/clientes-grid.png" alt="Logos dos clientes da Interface TV" className="w-full opacity-80 hover:opacity-100 transition-opacity duration-500" />
+              <img src="/images/clientes-grid.png" alt="Logos dos clientes da Interface TV" className="w-full opacity-90 hover:opacity-100 transition-all duration-500 brightness-0 invert" />
             </div>
             <div className="text-center mt-8">
               <Link to="/clientes" className="text-sm text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-1.5 font-medium">
