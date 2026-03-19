@@ -70,42 +70,37 @@ const FaleConosco = () => {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
+  const redirectToWhatsApp = (data: typeof formData) => {
+    const message = `Olá, meu nome é ${data.nome}.\nMeu email é ${data.email}.\nAssunto: ${data.assunto}.\nMensagem: ${data.mensagem}`;
+    const url = `https://wa.me/5511991903177?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMsg("");
-
-    const projectId = import.meta.env.VITE_SUPABASE_PROJECT_ID;
-    if (!projectId) {
-      setStatus("error");
-      setErrorMsg("Envio por formulário ainda não está configurado. Use os contatos ao lado por enquanto.");
-      setTimeout(() => setStatus("idle"), 4000);
-      return;
-    }
-
     setStatus("sending");
 
-    try {
-      const response = await fetch(
+    const currentData = { ...formData };
+
+    // Try sending email in background, but always redirect to WhatsApp
+    const projectId = import.meta.env.VITE_SUPABASE_PROJECT_ID;
+    if (projectId) {
+      fetch(
         `https://${projectId}.supabase.co/functions/v1/send-contact-email`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
+          body: JSON.stringify(currentData),
         }
-      );
-
-      if (!response.ok) {
-        throw new Error("Falha ao enviar mensagem");
-      }
-
-      setStatus("success");
-      setFormData({ nome: "", email: "", assunto: "", mensagem: "" });
-    } catch (err) {
-      console.error(err);
-      setStatus("error");
-      setErrorMsg("Envio indisponível no momento. Use telefone, WhatsApp ou email direto ao lado.");
-      setTimeout(() => setStatus("idle"), 4000);
+      ).catch((err) => console.error("Email send failed:", err));
     }
+
+    // Redirect to WhatsApp immediately
+    redirectToWhatsApp(currentData);
+
+    setStatus("success");
+    setFormData({ nome: "", email: "", assunto: "", mensagem: "" });
   };
 
   const inputClasses = "w-full px-4 py-3 rounded-xl bg-card/50 border border-border/50 text-foreground text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-primary/40 focus:border-primary/30 transition-all";
