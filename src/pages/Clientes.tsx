@@ -14,7 +14,7 @@ const Clientes = () => {
           <SectionHeader label="Parceiros" title="Nossos Clientes" subtitle="Empresas que confiam no nosso trabalho" />
           
           <AnimatedSection>
-            <div className="max-w-5xl mx-auto p-8 md:p-12 rounded-3xl bg-card/30 border border-border/30 shine">
+            <div className="max-w-5xl mx-auto p-8 md:p-12 rounded-3xl bg-white/90 border border-border/30 shine">
               <img 
                 src="/images/clientes-grid.png" 
                 alt="Logos dos clientes da Interface TV Broadcasting" 
