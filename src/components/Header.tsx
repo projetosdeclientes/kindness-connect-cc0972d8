@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import logoImg from "../assets/logo-interfacetv.png";
 
 const navItems = [
-  { label: "Início", path: "/" },
+  { label: "Home", path: "/" },
   {
     label: "Quem Somos", path: "/quem-somos",
     children: [
