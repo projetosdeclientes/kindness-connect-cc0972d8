@@ -67,12 +67,17 @@ const Index = () => {
               </p>
             </ContainerAnimated>
 
-            <ContainerInset className="mt-8 w-full max-w-6xl flex-1 max-h-[60vh] flex items-center justify-center">
+            <ContainerInset
+              insetYRange={[20, 0]}
+              insetXRange={[25, 0]}
+              roundednessRange={[400, 20]}
+              className="mt-8 w-full max-w-6xl flex-1 max-h-[55vh] sm:max-h-[60vh] md:max-h-[65vh] flex items-center justify-center"
+            >
               <HeroImage
                 src={heroImg}
                 alt="Interface TV Broadcasting - Unidade Móvel"
                 draggable={false}
-                className="w-full h-full object-cover rounded-2xl"
+                className="w-full h-full object-contain object-center"
               />
             </ContainerInset>
           </ContainerSticky>
