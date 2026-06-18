@@ -14,6 +14,7 @@ import FaleConosco from "./pages/FaleConosco.tsx";
 import UnidadesMoveis from "./pages/UnidadesMoveis.tsx";
 import UnidadeDetail from "./pages/UnidadeDetail.tsx";
 import DSNG from "./pages/DSNG.tsx";
+import Estrutura from "./pages/Estrutura.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/unidades-moveis" element={<UnidadesMoveis />} />
           <Route path="/unidades-moveis/:id" element={<UnidadeDetail />} />
           <Route path="/dsng" element={<DSNG />} />
+          <Route path="/estrutura" element={<Estrutura />} />
           <Route path="/clientes" element={<Clientes />} />
           <Route path="/cases" element={<Cases />} />
           

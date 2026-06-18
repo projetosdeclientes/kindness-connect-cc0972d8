@@ -33,22 +33,12 @@ const QuemSomos = () => {
             <div className="space-y-5">
               <AnimatedSection>
                 <p className="text-base text-muted-foreground leading-relaxed">
-                  <strong className="text-foreground">A INTERFACETV BROADCASTING</strong> que atua há mais de 25 anos no mercado brasileiro, buscando a excelência e sempre acompanhando a evolução tecnológica no mercado.
-                </p>
-              </AnimatedSection>
-              <AnimatedSection delay={0.05}>
-                <p className="text-base text-muted-foreground leading-relaxed">
-                  Adquirimos um invejável Know-How para produzir os melhores trabalhos para os nossos clientes e parceiros.
+                  Criada em <strong className="text-foreground">1994</strong>, a <strong className="text-foreground">Interfacetv Broadcasting</strong> percorreu um caminho, e uma trajetória repleta de desafios, até se consolidar como uma das marcas de maior destaque no segmento de comunicação.
                 </p>
               </AnimatedSection>
               <AnimatedSection delay={0.1}>
                 <p className="text-base text-muted-foreground leading-relaxed">
-                  Possuímos uma estrutura completa e de última geração: Unidades Móveis de Transmissão, DSNGs, Geradores de energia e Gruas eletrônicas.
-                </p>
-              </AnimatedSection>
-              <AnimatedSection delay={0.15}>
-                <p className="text-base text-muted-foreground leading-relaxed">
-                  Com profissionais qualificados e com grande experiência no mercado audiovisual e publicitário, que garantem um excelente trabalho desde a pré-produção até a finalização e entrega do produto final.
+                  Atuando no mercado de Broadcasting e adotando um modelo inovador e criativo, a empresa tornou-se sinônimo de excelência nas transmissões de eventos em diversos segmentos.
                 </p>
               </AnimatedSection>
             </div>
@@ -71,11 +61,28 @@ const QuemSomos = () => {
                 <div className="flex items-start gap-3 p-5 rounded-2xl bg-primary/5 border border-primary/15">
                   <MapPin size={16} className="text-primary mt-0.5 flex-shrink-0" />
                   <p className="text-sm text-muted-foreground">
-                    Com bases em <strong className="text-foreground">São Paulo, Fortaleza, São Luís e Belém</strong>, nossa logística nos permite atender com agilidade e precisão em território nacional.
+                    Com bases em <strong className="text-foreground">São Paulo, Rio de Janeiro, Minas Gerais, Fortaleza, São Luís e Belém</strong>, nossa logística nos permite atender com agilidade e precisão em território nacional.
                   </p>
                 </div>
               </AnimatedSection>
             </div>
+          </div>
+
+          {/* Missão, Visão e Valores */}
+          <div className="mt-24 md:mt-32 grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+            {[
+              { label: "Nossa Missão", text: "Inovação e dedicação nos bastidores, para entregar excelência na frente das câmeras." },
+              { label: "Nossa Visão", text: "Por trás de cada evento, existe uma equipe que transforma visão em realidade." },
+              { label: "Nossos Valores", text: "Atuar com transparência, levando emoção aos olhos e corações do público, com sensibilidade, criatividade e comprometimento." },
+            ].map((item, i) => (
+              <AnimatedSection key={item.label} delay={i * 0.1}>
+                <div className="group h-full p-7 rounded-2xl bg-card/40 border border-border/40 hover:border-primary/30 transition-all duration-500 shine">
+                  <span className="inline-block text-[10px] font-semibold uppercase tracking-[0.18em] text-primary mb-3">{`0${i + 1}`}</span>
+                  <h3 className="text-xl md:text-2xl font-extrabold text-foreground tracking-tight mb-3 gradient-text">{item.label}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item.text}</p>
+                </div>
+              </AnimatedSection>
+            ))}
           </div>
 
           {/* Infrastructure */}
