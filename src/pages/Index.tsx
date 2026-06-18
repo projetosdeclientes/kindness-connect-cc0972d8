@@ -210,16 +210,18 @@ const Index = () => {
             <AnimatedSection delay={0.15}>
               <div className="grid grid-cols-2 gap-3">
                 {services.map((s, i) => (
-                  <div key={s.title} className={`group p-5 md:p-6 rounded-2xl bg-card/50 border border-border/40 hover:border-primary/20 transition-all duration-300 shine ${i === 0 ? 'md:col-span-2' : ''}`}>
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-9 h-9 rounded-lg bg-primary/8 border border-primary/15 flex items-center justify-center group-hover:bg-primary/15 transition-colors">
-                        <s.icon size={16} className="text-primary" />
+                  <TiltCard key={s.title} intensity={8} className={`group rounded-2xl ${i === 0 ? 'md:col-span-2' : ''}`}>
+                    <div className="p-5 md:p-6 rounded-2xl bg-card/50 border border-border/40 hover:border-primary/30 transition-all duration-300 shine h-full">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                          <s.icon size={16} className="text-primary" />
+                        </div>
+                        <span className="text-xl font-bold text-foreground tracking-tight">{s.count}</span>
                       </div>
-                      <span className="text-xl font-bold text-foreground tracking-tight">{s.count}</span>
+                      <h3 className="text-sm font-semibold text-foreground">{s.title}</h3>
+                      <p className="text-xs text-muted-foreground mt-1">{s.desc}</p>
                     </div>
-                    <h3 className="text-sm font-semibold text-foreground">{s.title}</h3>
-                    <p className="text-xs text-muted-foreground mt-1">{s.desc}</p>
-                  </div>
+                  </TiltCard>
                 ))}
               </div>
             </AnimatedSection>
