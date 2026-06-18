@@ -50,23 +50,23 @@ const Index = () => {
       <Header />
 
       {/* Hero: caminhão sticky no fundo; ao rolar, o texto sobe e cobre a imagem */}
-      <section className="relative w-full h-[70vh] md:h-[90vh] sticky top-0 z-0 overflow-hidden bg-background">
+      <section className="relative w-full h-[55vh] sm:h-[70vh] md:h-[90vh] sticky top-0 z-0 overflow-hidden bg-background">
         <img
           src={heroImg}
           alt="Interface TV Broadcasting - Unidade Móvel"
-          className="absolute inset-0 w-full h-full object-contain object-center md:object-cover"
+          className="absolute inset-0 w-full h-full object-contain object-center md:object-cover scale-125 sm:scale-110 md:scale-100"
           draggable={false}
         />
       </section>
 
       <section className="relative z-10 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20 pb-20 md:pt-28 md:pb-28">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center pt-10 pb-10 md:pt-28 md:pb-28">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold leading-[1.05] tracking-tight">
             <span className="text-foreground">Luz, Câmera,</span>
             <br />
             <span className="gradient-text">Trans..."Missão"</span>
           </h1>
-          <p className="mt-6 text-base md:text-lg text-foreground/90 max-w-xl mx-auto leading-relaxed">
+          <p className="mt-4 md:mt-6 text-base md:text-lg text-foreground/90 max-w-xl mx-auto leading-relaxed">
             Transformamos tecnologia em conexão para levar emoção a cada transmissão.
           </p>
         </div>
