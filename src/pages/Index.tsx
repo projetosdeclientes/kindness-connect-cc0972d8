@@ -3,7 +3,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight, Tv, Satellite, Truck, Zap, Play, Radio, Users, Award } from "lucide-react";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
-import Hero3DIcon from "@/components/Hero3DIcon";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AnimatedSection from "../components/AnimatedSection";
@@ -68,13 +67,7 @@ const Index = () => {
               Interface TV Broadcasting
             </span>
             <h1 className="text-[2.6rem] xs:text-5xl font-bold leading-[1.02] tracking-tight min-h-[5.2rem]">
-              <span className="text-white inline-flex items-center gap-2 flex-wrap justify-center">
-                Luz
-                <Hero3DIcon kind="bulb" className="!w-[1.1em] !h-[1.1em]" />
-                , Câmera
-                <Hero3DIcon kind="camera" className="!w-[1.2em] !h-[1.2em]" />
-                ,
-              </span>
+              <span className="text-white">Luz, Câmera,</span>
               <br />
               <Typewriter
                 text={['Trans..."Missão"']}
@@ -87,7 +80,6 @@ const Index = () => {
                 className="gradient-text"
               />
             </h1>
-
             <p className="mt-4 text-[15px] text-foreground/80 max-w-sm mx-auto leading-relaxed">
               Transformamos tecnologia em conexão para levar emoção a cada transmissão.
             </p>
@@ -111,13 +103,7 @@ const Index = () => {
       <section className="hidden md:block relative z-10 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center py-28">
           <h1 className="text-6xl lg:text-[4.5rem] font-bold leading-[1.05] tracking-tight min-h-[10rem]">
-            <span className="text-white inline-flex items-center gap-3 justify-center flex-wrap">
-              Luz
-              <Hero3DIcon kind="bulb" className="!w-[1.1em] !h-[1.1em]" />
-              , Câmera
-              <Hero3DIcon kind="camera" className="!w-[1.2em] !h-[1.2em]" />
-              ,
-            </span>
+            <span className="text-white">Luz, Câmera,</span>
             <br />
             <Typewriter
               text={['Trans..."Missão"']}
@@ -130,7 +116,6 @@ const Index = () => {
               className="gradient-text"
             />
           </h1>
-
           <p className="mt-6 text-lg text-foreground/90 max-w-xl mx-auto leading-relaxed">
             Transformamos tecnologia em conexão para levar emoção a cada transmissão.
           </p>
