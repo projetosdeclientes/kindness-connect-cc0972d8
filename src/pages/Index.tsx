@@ -260,7 +260,7 @@ const Index = () => {
             viewport={{ once: true, amount: 0.15 }}
             variants={{
               hidden: {},
-              show: { transition: { staggerChildren: 0.18, delayChildren: 0.05 } },
+              show: { transition: { staggerChildren: 0.3, delayChildren: 0.05 } },
             }}
           >
             {showcaseItems.map((item, i) => (
