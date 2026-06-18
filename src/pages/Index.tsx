@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight, Tv, Satellite, Truck, Zap, Play, Radio, Users, Award } from "lucide-react";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
+import Hero3DIcon from "@/components/Hero3DIcon";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AnimatedSection from "../components/AnimatedSection";

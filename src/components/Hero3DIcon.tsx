@@ -1,6 +1,6 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Suspense, useRef } from "react";
-import type { Group, Mesh } from "three";
+import type { Group, Mesh, MeshStandardMaterial } from "three";
 
 type IconKind = "bulb" | "camera";
 
@@ -11,7 +11,7 @@ const Bulb = () => {
     if (group.current) group.current.rotation.y += delta * 0.6;
     if (glass.current) {
       const t = state.clock.elapsedTime;
-      const mat = glass.current.material as THREE.MeshStandardMaterial;
+      const mat = glass.current.material as MeshStandardMaterial;
       mat.emissiveIntensity = 1.6 + Math.sin(t * 3) * 0.4;
     }
   });
