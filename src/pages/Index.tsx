@@ -80,7 +80,7 @@ const Index = () => {
       </section>
 
       {/* Stats */}
-      <section className="relative overflow-hidden border-t border-border/30 -mt-32 md:-mt-48">
+      <section className="relative overflow-hidden border-t border-border/30">
         <AuroraBackground />
         <div className="absolute inset-0 grid-pattern opacity-8" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-16 md:py-24">
