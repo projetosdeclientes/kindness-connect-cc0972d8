@@ -63,7 +63,7 @@ const Index = () => {
         {/* Imagem fixa (sticky) */}
         <div className="sticky top-20 w-full z-0">
           <motion.img
-            style={{ scale: imageScale, opacity: imageOpacity }}
+            style={{ scale: imageScale }}
             src={heroImg}
             alt="Interface TV Broadcasting - Unidade Móvel"
             className="w-full h-auto object-contain block will-change-transform"
