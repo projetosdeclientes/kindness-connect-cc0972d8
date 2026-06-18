@@ -71,7 +71,7 @@ const Index = () => {
           src={heroImg}
           className="mx-auto rounded-2xl object-contain md:object-cover h-full w-full object-center"
           alt="Interface TV Broadcasting - Unidade Móvel"
-          className="mx-auto rounded-2xl object-cover h-full w-full object-center"
+          
           draggable={false}
         />
       </ContainerScroll>
