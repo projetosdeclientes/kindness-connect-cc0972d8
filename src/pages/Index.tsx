@@ -58,10 +58,9 @@ const Index = () => {
   const imageFilter = useTransform(imageBlur, (b) => `blur(${b})`);
   const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0.2, 0.95]);
 
-  // Texto: sobe e cresce, dominando a foto
-  const textY = useTransform(scrollYProgress, [0, 1], ["40%", "-5%"]);
-  const textScale = useTransform(scrollYProgress, [0, 1], [0.85, 1.15]);
-  const textOpacity = useTransform(scrollYProgress, [0, 0.15, 1], [0, 1, 1]);
+  // Texto: permanece centralizado, apenas cresce e ganha presença
+  const textScale = useTransform(scrollYProgress, [0, 1], [0.9, 1.1]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.15, 1], [0.7, 1, 1]);
 
   return (
     <div className="min-h-screen bg-background">
