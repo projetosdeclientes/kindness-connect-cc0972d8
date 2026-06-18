@@ -83,12 +83,7 @@ const Index = () => {
 
       {/* Hero desktop: caminhão sticky no fundo */}
       <section className="hidden md:block relative w-full md:h-[90vh] sticky top-0 z-0 overflow-hidden bg-background">
-        <img
-          src={heroImg}
-          alt="Interface TV Broadcasting - Unidade Móvel"
-          className="absolute inset-0 w-full h-full object-cover"
-          draggable={false}
-        />
+        <HeroCrossfade className="absolute inset-0 w-full h-full object-cover" />
       </section>
 
       <section className="hidden md:block relative z-10 bg-background">
