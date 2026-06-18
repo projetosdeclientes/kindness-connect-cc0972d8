@@ -45,18 +45,30 @@ const stagger = {
 };
 
 const Index = () => {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  // Suavização: textos sobem com leve translateY e fade-in conforme rola
+  const introY = useTransform(scrollYProgress, [0, 0.4], [80, 0]);
+  const introOpacity = useTransform(scrollYProgress, [0, 0.15, 0.4], [0, 0.4, 1]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
+  const imageOpacity = useTransform(scrollYProgress, [0, 0.6, 1], [1, 0.8, 0.5]);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
       {/* Hero + Intro com parallax sticky */}
-      <div className="relative">
+      <div ref={heroRef} className="relative">
         {/* Imagem fixa (sticky) */}
         <div className="sticky top-20 w-full z-0">
-          <img
+          <motion.img
+            style={{ scale: imageScale, opacity: imageOpacity }}
             src={heroImg}
             alt="Interface TV Broadcasting - Unidade Móvel"
-            className="w-full h-auto object-contain block"
+            className="w-full h-auto object-contain block will-change-transform"
           />
         </div>
 
@@ -66,7 +78,8 @@ const Index = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/85 to-background pointer-events-none" />
           <AuroraBackground />
           <div className="absolute inset-0 grid-pattern opacity-8" />
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-[30vh] pb-20 md:pb-28">
+          <motion.div style={{ y: introY, opacity: introOpacity }} className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-[30vh] pb-20 md:pb-28 will-change-transform">
+
             <motion.div
               initial="initial"
               whileInView="animate"
