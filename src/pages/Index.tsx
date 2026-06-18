@@ -50,11 +50,9 @@ const Index = () => {
     target: heroRef,
     offset: ["start start", "end start"],
   });
-  // Suavização: textos sobem com leve translateY e fade-in conforme rola
-  const introY = useTransform(scrollYProgress, [0, 0.4], [80, 0]);
-  const introOpacity = useTransform(scrollYProgress, [0, 0.15, 0.4], [0, 0.4, 1]);
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
-  const imageOpacity = useTransform(scrollYProgress, [0, 0.6, 1], [1, 0.8, 0.5]);
+  // Suavização: textos sobem com leve translateY mantendo total nitidez
+  const introY = useTransform(scrollYProgress, [0, 0.35], [60, 0]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
 
   return (
     <div className="min-h-screen bg-background">
