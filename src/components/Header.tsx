@@ -91,6 +91,8 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        hiddenByFooter ? "opacity-0 -translate-y-full pointer-events-none" : "opacity-100 translate-y-0"
+      } ${
         scrolled || mobileOpen ? "glass border-b border-border/40 shadow-[0_1px_3px_rgba(0,0,0,0.3)]" : "bg-transparent"
       }`}
     >
