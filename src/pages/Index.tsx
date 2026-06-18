@@ -71,12 +71,13 @@ const Index = () => {
         </div>
 
         {/* Intro + Stats — sobem por cima da imagem ao rolar */}
-        <section className="relative z-10 -mt-[35vh] md:-mt-[45vh] overflow-hidden">
-          {/* Gradiente que transiciona transparente -> background para sobrepor sutilmente */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/85 to-background pointer-events-none" />
+        <section className="relative z-10 -mt-[20vh] sm:-mt-[30vh] md:-mt-[40vh] overflow-hidden">
+          {/* Gradiente que sobrepõe a base da imagem para legibilidade total dos textos */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/95 to-background pointer-events-none" />
           <AuroraBackground />
           <div className="absolute inset-0 grid-pattern opacity-8" />
-          <motion.div style={{ y: introY, opacity: introOpacity }} className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-[30vh] pb-20 md:pb-28 will-change-transform">
+          <motion.div style={{ y: introY }} className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-[22vh] sm:pt-[28vh] pb-20 md:pb-28 will-change-transform">
+
 
             <motion.div
               initial="initial"
