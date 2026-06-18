@@ -48,30 +48,31 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      {/* Hero: somente a foto do caminhão */}
-      <section className="relative w-full h-[60vh] md:h-[80vh] overflow-hidden">
-        <img
-          src={heroImg}
-          alt="Interface TV Broadcasting - Unidade Móvel"
-          className="absolute inset-0 w-full h-full object-cover object-center"
-          draggable={false}
-        />
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-background" />
-      </section>
+      {/* Hero com efeito parallax: caminhão fixo enquanto texto sobe por cima */}
+      <div className="relative">
+        <section className="sticky top-0 w-full h-[60vh] md:h-[80vh] overflow-hidden z-0">
+          <img
+            src={heroImg}
+            alt="Interface TV Broadcasting - Unidade Móvel"
+            className="absolute inset-0 w-full h-full object-cover object-center"
+            draggable={false}
+          />
+        </section>
 
-      {/* Texto abaixo do hero */}
-      <section className="relative">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center pt-12 pb-16 md:pt-16 md:pb-24">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold leading-[1.05] tracking-tight">
-            <span className="text-foreground">Luz, Câmera,</span>
-            <br />
-            <span className="gradient-text">Trans..."Missão"</span>
-          </h1>
-          <p className="mt-6 text-base md:text-lg text-foreground/90 max-w-xl mx-auto leading-relaxed">
-            Transformamos tecnologia em conexão para levar emoção a cada transmissão.
-          </p>
-        </div>
-      </section>
+        {/* Texto sobe por cima da imagem do caminhão */}
+        <section className="relative z-10 bg-background">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 pb-16 md:pt-24 md:pb-24">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold leading-[1.05] tracking-tight">
+              <span className="text-foreground">Luz, Câmera,</span>
+              <br />
+              <span className="gradient-text">Trans..."Missão"</span>
+            </h1>
+            <p className="mt-6 text-base md:text-lg text-foreground/90 max-w-xl mx-auto leading-relaxed">
+              Transformamos tecnologia em conexão para levar emoção a cada transmissão.
+            </p>
+          </div>
+        </section>
+      </div>
 
       {/* Stats */}
       <section className="relative overflow-hidden border-t border-border/30">
