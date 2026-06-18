@@ -99,7 +99,7 @@ const Index = () => {
                 <span className="gradient-text">Trans..."Missão"</span>
               </motion.h1>
 
-              <motion.p variants={stagger.child} className="mt-7 text-base md:text-lg text-foreground/90 max-w-lg leading-relaxed drop-shadow-[0_1px_8px_rgba(0,0,0,0.6)]">
+              <motion.p variants={stagger.child} className="mt-7 text-base md:text-lg text-foreground max-w-lg leading-relaxed drop-shadow-[0_1px_8px_rgba(0,0,0,0.6)]">
                 Produtora de vídeo especializada em transmissão de eventos para canais de televisão, agências de publicidade e internet.
               </motion.p>
             </motion.div>
