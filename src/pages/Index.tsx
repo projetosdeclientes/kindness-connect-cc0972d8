@@ -299,13 +299,15 @@ const Index = () => {
             <p className="mt-5 text-muted-foreground text-base md:text-lg max-w-md mx-auto">
               Teremos o maior prazer em responder suas perguntas e criar o projeto perfeito para você.
             </p>
-            <Link
-              to="/fale-conosco"
-              className="mt-9 inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold hover:brightness-110 transition-all shadow-[0_0_30px_hsl(210,85%,55%,0.15)] group"
-            >
-              Fale Conosco
-              <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
-            </Link>
+            <Magnetic className="mt-9">
+              <Link
+                to="/fale-conosco"
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold hover:brightness-110 transition-all shadow-[0_0_40px_hsl(var(--primary)/0.35)] group"
+              >
+                Fale Conosco
+                <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Magnetic>
           </AnimatedSection>
         </div>
       </section>
