@@ -82,7 +82,7 @@ const Index = () => {
           />
 
           <motion.div
-            style={{ y: textY, scale: textScale, opacity: textOpacity }}
+            style={{ scale: textScale, opacity: textOpacity }}
             className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 will-change-transform"
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold leading-[1.05] tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.5)]">
