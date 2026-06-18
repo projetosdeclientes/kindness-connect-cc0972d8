@@ -59,10 +59,10 @@ const Index = () => {
   const overlayOpacity = useTransform(scrollYProgress, [0, 0.58], [0.18, 0.9]);
   const fogOpacity = useTransform(scrollYProgress, [0, 0.25, 0.58], [0, 0.35, 0.96]);
 
-  // Texto: começa invisível abaixo da tela e sobe dominando a foto
-  const textY = useTransform(scrollYProgress, [0, 0.1, 0.58], ["80vh", "55vh", "0vh"]);
-  const textScale = useTransform(scrollYProgress, [0, 0.58], [0.9, 1.05]);
-  const textOpacity = useTransform(scrollYProgress, [0, 0.08, 0.35, 0.58], [0, 0, 1, 1]);
+  // Texto: invisível no início; sobe e domina conforme a foto vira neblina
+  const textY = useTransform(scrollYProgress, [0, 0.15, 0.6], ["25vh", "12vh", "0vh"]);
+  const textScale = useTransform(scrollYProgress, [0, 0.6], [0.95, 1.05]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.15, 0.45, 0.6], [0, 0, 1, 1]);
 
   return (
     <div className="min-h-screen bg-background">
