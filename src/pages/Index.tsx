@@ -50,38 +50,48 @@ const Index = () => {
     target: heroRef,
     offset: ["start start", "end start"],
   });
-  const truckOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
-  const truckScale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
+  const truckY = useTransform(scrollYProgress, [0, 1], ["0%", "-40%"]);
+  const truckOpacity = useTransform(scrollYProgress, [0, 0.7, 1], [1, 0.4, 0]);
+  const truckScale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["100%", "0%"]);
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
-      {/* Hero com efeito parallax: caminhão fixo e some enquanto texto sobe por cima */}
-      <div ref={heroRef} className="relative">
-        <section className="sticky top-0 w-full h-[60vh] md:h-[80vh] overflow-hidden z-0 bg-background">
-          <motion.img
-            style={{ opacity: truckOpacity, scale: truckScale }}
-            src={heroImg}
-            alt="Interface TV Broadcasting - Unidade Móvel"
-            className="absolute inset-0 w-full h-full object-contain object-center md:object-cover"
-            draggable={false}
-          />
-        </section>
+      {/* Hero parallax: caminhão fica para trás enquanto o texto sobe e toma seu lugar */}
+      <div ref={heroRef} className="relative h-[180vh]">
+        <div className="sticky top-0 h-screen w-full overflow-hidden bg-background">
+          {/* Camada do caminhão (fundo) */}
+          <motion.div
+            style={{ y: truckY, opacity: truckOpacity, scale: truckScale }}
+            className="absolute inset-0 z-0"
+          >
+            <img
+              src={heroImg}
+              alt="Interface TV Broadcasting - Unidade Móvel"
+              className="absolute inset-0 w-full h-full object-contain object-center md:object-cover"
+              draggable={false}
+            />
+          </motion.div>
 
-        {/* Texto sobe por cima da imagem do caminhão */}
-        <section className="relative z-10 bg-background">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 pb-16 md:pt-24 md:pb-24">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold leading-[1.05] tracking-tight">
-              <span className="text-foreground">Luz, Câmera,</span>
-              <br />
-              <span className="gradient-text">Trans..."Missão"</span>
-            </h1>
-            <p className="mt-6 text-base md:text-lg text-foreground/90 max-w-xl mx-auto leading-relaxed">
-              Transformamos tecnologia em conexão para levar emoção a cada transmissão.
-            </p>
-          </div>
-        </section>
+          {/* Camada do texto (sobe por cima) */}
+          <motion.div
+            style={{ y: textY }}
+            className="absolute inset-x-0 top-1/2 -translate-y-1/2 z-10"
+          >
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold leading-[1.05] tracking-tight">
+                <span className="text-foreground">Luz, Câmera,</span>
+                <br />
+                <span className="gradient-text">Trans..."Missão"</span>
+              </h1>
+              <p className="mt-6 text-base md:text-lg text-foreground/90 max-w-xl mx-auto leading-relaxed">
+                Transformamos tecnologia em conexão para levar emoção a cada transmissão.
+              </p>
+            </div>
+          </motion.div>
+        </div>
       </div>
 
 
