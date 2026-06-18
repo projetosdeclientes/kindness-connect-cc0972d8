@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, Tv, Satellite, Truck, Zap, Play, Radio, Users, Award } from "lucide-react";
-import { ContainerScroll, ContainerSticky, ContainerAnimated, ContainerInset, HeroImage } from "@/components/ui/animated-image-on-scroll";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AnimatedSection from "../components/AnimatedSection";
 import SectionHeader from "../components/SectionHeader";
 import AuroraBackground from "../components/AuroraBackground";
-import heroImg from "../assets/hero-truck.png";
+import HeroScroll from "../components/HeroScroll";
 
 const showcaseItems = [
   { title: "Olimpíadas Brasil", image: "/images/case-olimpiadas.jpg" },
@@ -48,41 +47,8 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      {/* Hero com animação inset/clip-path no scroll */}
-      <section>
-        <ContainerScroll className="h-[260vh] md:h-[300vh]">
-          <ContainerSticky className="flex flex-col items-center justify-start px-4 pt-28 md:pt-32 pb-10 overflow-hidden">
-            <ContainerAnimated className="space-y-5 text-center max-w-3xl mx-auto">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-[12px] font-medium text-primary tracking-wide">
-                <Play size={10} className="fill-primary" />
-                +25 anos de excelência em broadcasting
-              </div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold leading-[1.05] tracking-tight">
-                <span className="text-foreground">Luz, Câmera,</span>
-                <br />
-                <span className="gradient-text">Trans..."Missão"</span>
-              </h1>
-              <p className="text-base md:text-lg text-foreground/90 max-w-xl mx-auto leading-relaxed">
-                Transformamos tecnologia em conexão para levar emoção a cada transmissão.
-              </p>
-            </ContainerAnimated>
-
-            <ContainerInset
-              insetYRange={[20, 0]}
-              insetXRange={[25, 0]}
-              roundednessRange={[400, 20]}
-              className="mt-8 w-full max-w-6xl flex-1 max-h-[55vh] sm:max-h-[60vh] md:max-h-[65vh] flex items-center justify-center"
-            >
-              <HeroImage
-                src={heroImg}
-                alt="Interface TV Broadcasting - Unidade Móvel"
-                draggable={false}
-                className="w-full h-full object-contain object-center"
-              />
-            </ContainerInset>
-          </ContainerSticky>
-        </ContainerScroll>
-      </section>
+      {/* Hero com scroll: imagem sobe/recua e texto desce */}
+      <HeroScroll />
 
       {/* Stats */}
       <section className="relative overflow-hidden border-t border-border/30">
