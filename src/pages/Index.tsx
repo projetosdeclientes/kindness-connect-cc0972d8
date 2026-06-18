@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { ArrowRight, Tv, Satellite, Truck, Zap, Play, Radio, Users, Award } from "lucide-react";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import Header from "../components/Header";
