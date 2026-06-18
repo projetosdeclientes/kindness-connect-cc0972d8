@@ -253,9 +253,24 @@ const Index = () => {
         <div className="absolute inset-0 radial-glow" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <SectionHeader label="Portfólio" title="Cases + Portfólio" subtitle="Todos os nossos principais projetos em uma única galeria." />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.15 }}
+            variants={{
+              hidden: {},
+              show: { transition: { staggerChildren: 0.18, delayChildren: 0.05 } },
+            }}
+          >
             {showcaseItems.map((item, i) => (
-              <AnimatedSection key={`${item.title}-${i}`} delay={i * 0.05}>
+              <motion.div
+                key={`${item.title}-${i}`}
+                variants={{
+                  hidden: { opacity: 0, y: 24 },
+                  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.25, 0.1, 0.25, 1] } },
+                }}
+              >
                 <div className="group rounded-2xl overflow-hidden bg-card/40 border border-border/30 hover:border-primary/20 transition-all duration-300 h-full flex flex-col shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)]">
                   <div className="aspect-[16/9] overflow-hidden bg-muted/10">
                     <img
@@ -270,9 +285,9 @@ const Index = () => {
                     <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors text-center">{item.title}</h3>
                   </div>
                 </div>
-              </AnimatedSection>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
           <AnimatedSection className="text-center mt-10">
             <Link to="/cases" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border/50 text-foreground text-sm font-medium hover:bg-secondary/50 hover:border-border transition-all group">
               Ver portfólio completo
