@@ -73,12 +73,7 @@ const Index = () => {
 
           {/* Imagem ancorada na base, inteira, sem corte */}
           <div className="relative z-10 flex-1 mt-2">
-            <img
-              src={heroImg}
-              alt="Interface TV Broadcasting - Unidade Móvel"
-              className="absolute inset-x-0 bottom-0 w-full h-full object-contain object-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
-              draggable={false}
-            />
+            <HeroCrossfade className="absolute inset-x-0 bottom-0 w-full h-full object-contain object-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]" />
           </div>
 
           {/* Fade para a próxima seção */}
