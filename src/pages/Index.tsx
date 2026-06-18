@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight, Tv, Satellite, Truck, Zap, Play, Radio, Users, Award } from "lucide-react";
+import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AnimatedSection from "../components/AnimatedSection";
@@ -45,85 +45,61 @@ const stagger = {
 };
 
 const Index = () => {
-  const heroRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
-  // Suavização: textos sobem com leve translateY mantendo total nitidez
-  const introY = useTransform(scrollYProgress, [0, 0.35], [60, 0]);
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
-
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
-      {/* Hero + Intro com parallax sticky */}
-      <div ref={heroRef} className="relative">
-        {/* Imagem fixa (sticky) */}
-        <div className="sticky top-20 w-full z-0">
-          <motion.img
-            style={{ scale: imageScale }}
-            src={heroImg}
-            alt="Interface TV Broadcasting - Unidade Móvel"
-            className="w-full h-auto object-contain block will-change-transform"
-          />
-        </div>
+      {/* Hero com animação 3D scroll (ContainerScroll) */}
+      <ContainerScroll
+        titleComponent={
+          <div className="pt-20">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-[12px] font-medium text-primary mb-6 tracking-wide">
+              <Play size={10} className="fill-primary" />
+              +25 anos de excelência em broadcasting
+            </div>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold leading-[1.05] tracking-tight">
+              <span className="text-foreground">Luz, Câmera,</span>
+              <br />
+              <span className="gradient-text">Trans..."Missão"</span>
+            </h1>
+            <p className="mt-5 text-base md:text-lg text-foreground/90 max-w-xl mx-auto leading-relaxed">
+              Produtora de vídeo especializada em transmissão de eventos para canais de televisão, agências de publicidade e internet.
+            </p>
+          </div>
+        }
+      >
+        <img
+          src={heroImg}
+          alt="Interface TV Broadcasting - Unidade Móvel"
+          className="mx-auto rounded-2xl object-cover h-full w-full object-center"
+          draggable={false}
+        />
+      </ContainerScroll>
 
-        {/* Intro + Stats — sobem por cima da imagem ao rolar */}
-        <section className="relative z-10 -mt-[20vh] sm:-mt-[30vh] md:-mt-[40vh] overflow-hidden">
-          {/* Gradiente que sobrepõe a base da imagem para legibilidade total dos textos */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/95 to-background pointer-events-none" />
-          <AuroraBackground />
-          <div className="absolute inset-0 grid-pattern opacity-8" />
-          <motion.div style={{ y: introY }} className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-[22vh] sm:pt-[28vh] pb-20 md:pb-28 will-change-transform">
-
-
-            <motion.div
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={stagger.parent}
-              className="max-w-3xl"
-            >
-              <motion.div variants={stagger.child}>
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-[12px] font-medium text-primary mb-8 tracking-wide">
-                  <Play size={10} className="fill-primary" />
-                  +25 anos de excelência em broadcasting
+      {/* Stats */}
+      <section className="relative overflow-hidden border-t border-border/30 -mt-32 md:-mt-48">
+        <AuroraBackground />
+        <div className="absolute inset-0 grid-pattern opacity-8" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-16 md:py-24">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+          >
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {stats.map((s) => (
+                <div key={s.label} className="group p-4 sm:p-5 rounded-2xl bg-card/70 backdrop-blur-md border border-border/60 hover:border-primary/30 transition-colors">
+                  <s.icon size={18} className="text-primary mb-3" />
+                  <div className="text-2xl md:text-3xl font-bold text-white tracking-tight drop-shadow-[0_2px_8px_rgba(255,255,255,0.15)]">{s.value}</div>
+                  <div className="text-sm text-foreground/90 mt-1 tracking-wide font-medium">{s.label}</div>
                 </div>
-              </motion.div>
-
-              <motion.h1 variants={stagger.child} className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold leading-[1.08] tracking-tight drop-shadow-[0_2px_20px_rgba(0,0,0,0.7)]">
-                <span className="text-foreground">Luz, Câmera,</span>
-                <br />
-                <span className="gradient-text">Trans..."Missão"</span>
-              </motion.h1>
-
-              <motion.p variants={stagger.child} className="mt-7 text-base md:text-lg text-foreground max-w-lg leading-relaxed drop-shadow-[0_1px_8px_rgba(0,0,0,0.6)]">
-                Produtora de vídeo especializada em transmissão de eventos para canais de televisão, agências de publicidade e internet.
-              </motion.p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-              className="mt-16 md:mt-20"
-            >
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                {stats.map((s) => (
-                  <div key={s.label} className="group p-4 sm:p-5 rounded-2xl bg-card/70 backdrop-blur-md border border-border/60 hover:border-primary/30 transition-colors">
-                    <s.icon size={18} className="text-primary mb-3" />
-                    <div className="text-2xl md:text-3xl font-bold text-white tracking-tight drop-shadow-[0_2px_8px_rgba(255,255,255,0.15)]">{s.value}</div>
-                    <div className="text-sm text-foreground/90 mt-1 tracking-wide font-medium">{s.label}</div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
+              ))}
+            </div>
           </motion.div>
-        </section>
-      </div>
+        </div>
+      </section>
+
 
 
 
