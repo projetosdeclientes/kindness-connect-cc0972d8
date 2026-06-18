@@ -78,7 +78,7 @@ const Index = () => {
       <section className="relative overflow-hidden border-t border-border/30">
         <AuroraBackground />
         <div className="absolute inset-0 grid-pattern opacity-8" />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-16 md:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-12 md:py-24">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -102,7 +102,7 @@ const Index = () => {
 
 
       {/* Clients */}
-      <section className="relative py-24 md:py-32">
+      <section className="relative py-12 md:py-32">
         <div className="absolute inset-0 radial-glow" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <SectionHeader label="Parceiros" title="Clientes" subtitle="Conheça alguns de nossos clientes e parceiros de confiança." />
@@ -120,7 +120,7 @@ const Index = () => {
       </section>
 
       {/* About */}
-      <section className="py-24 md:py-32 border-t border-border/30">
+      <section className="py-12 md:py-32 border-t border-border/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-16 items-start">
             <div>
@@ -173,7 +173,7 @@ const Index = () => {
       </section>
 
       {/* Team */}
-      <section className="py-24 md:py-32 border-t border-border/30">
+      <section className="py-12 md:py-32 border-t border-border/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader label="Equipe" title="DNA Interface TV" subtitle="Nosso time ajuda seu negócio/projeto a ir mais longe!" />
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
@@ -193,7 +193,7 @@ const Index = () => {
       </section>
 
       {/* Cases + Portfólio */}
-      <section className="relative py-24 md:py-32 border-t border-border/30">
+      <section className="relative py-12 md:py-32 border-t border-border/30">
         <div className="absolute inset-0 radial-glow" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <SectionHeader label="Portfólio" title="Cases + Portfólio" subtitle="Todos os nossos principais projetos em uma única galeria." />
@@ -227,7 +227,7 @@ const Index = () => {
       </section>
 
       {/* CTA */}
-      <section className="relative py-24 md:py-32 border-t border-border/30 overflow-hidden">
+      <section className="relative py-12 md:py-32 border-t border-border/30 overflow-hidden">
         <div className="absolute inset-0 grid-pattern opacity-30" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px]" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
