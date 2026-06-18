@@ -138,11 +138,15 @@ const Index = () => {
           >
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {stats.map((s) => (
-                <div key={s.label} className="group p-4 sm:p-5 rounded-2xl bg-card/70 backdrop-blur-md border border-border/60 hover:border-primary/30 transition-colors">
-                  <s.icon size={18} className="text-primary mb-3" />
-                  <div className="text-2xl md:text-3xl font-bold text-white tracking-tight drop-shadow-[0_2px_8px_rgba(255,255,255,0.15)]">{s.value}</div>
-                  <div className="text-sm text-foreground/90 mt-1 tracking-wide font-medium">{s.label}</div>
-                </div>
+                <TiltCard key={s.label} className="group rounded-2xl">
+                  <div className="p-4 sm:p-5 rounded-2xl bg-card/70 backdrop-blur-md border border-border/60 hover:border-primary/40 transition-colors h-full">
+                    <s.icon size={18} className="text-primary mb-3" />
+                    <div className="text-2xl md:text-3xl font-bold text-white tracking-tight drop-shadow-[0_2px_8px_rgba(255,255,255,0.15)]">
+                      <CountUp value={s.value} />
+                    </div>
+                    <div className="text-sm text-foreground/90 mt-1 tracking-wide font-medium">{s.label}</div>
+                  </div>
+                </TiltCard>
               ))}
             </div>
           </motion.div>
