@@ -32,6 +32,7 @@ const navItems = [
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hiddenByFooter, setHiddenByFooter] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
   const location = useLocation();
@@ -42,6 +43,22 @@ const Header = () => {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Hide header when footer enters viewport
+  useEffect(() => {
+    const footer = document.querySelector("footer");
+    if (!footer) {
+      setHiddenByFooter(false);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      ([entry]) => setHiddenByFooter(entry.isIntersecting),
+      { threshold: 0.01 }
+    );
+    observer.observe(footer);
+    return () => observer.disconnect();
+  }, [location.pathname]);
+
 
   useEffect(() => {
     setMobileOpen(false);
@@ -74,6 +91,8 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        hiddenByFooter ? "opacity-0 -translate-y-full pointer-events-none" : "opacity-100 translate-y-0"
+      } ${
         scrolled || mobileOpen ? "glass border-b border-border/40 shadow-[0_1px_3px_rgba(0,0,0,0.3)]" : "bg-transparent"
       }`}
     >
