@@ -10,6 +10,7 @@ import SectionHeader from "../components/SectionHeader";
 import AuroraBackground from "../components/AuroraBackground";
 import heroImg from "../assets/hero-truck.png";
 import HeroCrossfade from "../components/HeroCrossfade";
+import { Typewriter } from "@/components/ui/typewriter-text";
 
 const showcaseItems = [
   { title: "Olimpíadas Brasil", image: "/images/case-olimpiadas.jpg" },
@@ -61,10 +62,17 @@ const Index = () => {
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-medium uppercase tracking-[0.18em] text-primary border border-primary/25 bg-primary/5 mb-5">
               Interface TV Broadcasting
             </span>
-            <h1 className="text-[2.6rem] xs:text-5xl font-bold leading-[1.02] tracking-tight">
-              <span className="text-foreground">Luz, Câmera,</span>
-              <br />
-              <span className="gradient-text">Trans..."Missão"</span>
+            <h1 className="text-[2.6rem] xs:text-5xl font-bold leading-[1.02] tracking-tight min-h-[5.2rem]">
+              <Typewriter
+                text={['Luz, Câmera,\nTrans..."Missão"']}
+                speed={80}
+                deleteSpeed={40}
+                delay={2500}
+                loop
+                cursor="▍"
+                cursorClassName="gradient-text animate-pulse ml-0.5"
+                className="gradient-text whitespace-pre-line"
+              />
             </h1>
             <p className="mt-4 text-[15px] text-foreground/80 max-w-sm mx-auto leading-relaxed">
               Transformamos tecnologia em conexão para levar emoção a cada transmissão.
@@ -88,10 +96,17 @@ const Index = () => {
 
       <section className="hidden md:block relative z-10 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center py-28">
-          <h1 className="text-6xl lg:text-[4.5rem] font-bold leading-[1.05] tracking-tight">
-            <span className="text-foreground">Luz, Câmera,</span>
-            <br />
-            <span className="gradient-text">Trans..."Missão"</span>
+          <h1 className="text-6xl lg:text-[4.5rem] font-bold leading-[1.05] tracking-tight min-h-[10rem]">
+            <Typewriter
+              text={['Luz, Câmera,\nTrans..."Missão"']}
+              speed={80}
+              deleteSpeed={40}
+              delay={2500}
+              loop
+              cursor="▍"
+              cursorClassName="gradient-text animate-pulse ml-1"
+              className="gradient-text whitespace-pre-line"
+            />
           </h1>
           <p className="mt-6 text-lg text-foreground/90 max-w-xl mx-auto leading-relaxed">
             Transformamos tecnologia em conexão para levar emoção a cada transmissão.
