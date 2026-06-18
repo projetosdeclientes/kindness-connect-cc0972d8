@@ -7,7 +7,7 @@ interface CountUpProps {
   className?: string;
 }
 
-const CountUp = ({ value, duration = 1.8, className }: CountUpProps) => {
+const CountUp = ({ value, duration = 2.4, className }: CountUpProps) => {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.4 });
 
