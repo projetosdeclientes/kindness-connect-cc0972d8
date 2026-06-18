@@ -63,15 +63,17 @@ const Index = () => {
               Interface TV Broadcasting
             </span>
             <h1 className="text-[2.6rem] xs:text-5xl font-bold leading-[1.02] tracking-tight min-h-[5.2rem]">
+              <span className="text-white">Luz, Câmera,</span>
+              <br />
               <Typewriter
-                text={['Luz, Câmera,\nTrans..."Missão"']}
+                text={['Trans..."Missão"']}
                 speed={80}
                 deleteSpeed={40}
                 delay={2500}
                 loop
                 cursor="▍"
                 cursorClassName="gradient-text animate-pulse ml-0.5"
-                className="gradient-text whitespace-pre-line"
+                className="gradient-text"
               />
             </h1>
             <p className="mt-4 text-[15px] text-foreground/80 max-w-sm mx-auto leading-relaxed">
