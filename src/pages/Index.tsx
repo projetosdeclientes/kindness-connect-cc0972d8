@@ -48,20 +48,20 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      {/* Hero */}
-      <section className="relative min-h-[100dvh] flex items-center overflow-hidden">
-        {/* Aurora Three.js Background */}
-        <AuroraBackground />
-        {/* Background layers */}
-        <div className="absolute inset-0">
-          <img src={heroImg} alt="Interface TV Broadcasting" className="w-full h-full object-cover opacity-55 scale-105" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/15 via-background/10 to-background/70" />
-          <div className="absolute inset-0 grid-pattern opacity-8" />
-        </div>
-        {/* Top glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-primary/5 rounded-full blur-[120px]" />
+      {/* Hero - imagem solo */}
+      <section className="relative w-full bg-background pt-20">
+        <img
+          src={heroImg}
+          alt="Interface TV Broadcasting - Unidade Móvel"
+          className="w-full h-auto object-contain block"
+        />
+      </section>
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-24 pb-16">
+      {/* Intro + Stats */}
+      <section className="relative overflow-hidden border-t border-border/30">
+        <AuroraBackground />
+        <div className="absolute inset-0 grid-pattern opacity-8" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20 md:py-28">
           <motion.div
             initial="initial"
             animate="animate"
@@ -84,15 +84,13 @@ const Index = () => {
             <motion.p variants={stagger.child} className="mt-7 text-base md:text-lg text-muted-foreground max-w-lg leading-relaxed">
               Produtora de vídeo especializada em transmissão de eventos para canais de televisão, agências de publicidade e internet.
             </motion.p>
-
           </motion.div>
 
-          {/* Stats strip */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mt-20 md:mt-28"
+            transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+            className="mt-16 md:mt-20"
           >
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {stats.map((s) => (
@@ -106,6 +104,7 @@ const Index = () => {
           </motion.div>
         </div>
       </section>
+
 
       {/* Clients */}
       <section className="relative py-24 md:py-32">
