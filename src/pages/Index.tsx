@@ -48,30 +48,23 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      {/* Hero: somente a foto do caminhão */}
-      <section className="relative w-full h-[60vh] md:h-[80vh] overflow-hidden">
-        <img
-          src={heroImg}
-          alt="Interface TV Broadcasting - Unidade Móvel"
-          className="absolute inset-0 w-full h-full object-cover object-center"
-          draggable={false}
-        />
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-background" />
-      </section>
+      {/* Hero animado com scroll-scrub */}
+      <HeroScrub
+        imageUrl={heroImg}
+        imageAlt="Interface TV Broadcasting - Unidade Móvel"
+        titleTop="Luz, Câmera,"
+        titleBottom={`Trans..."Missão"`}
+        aspect={16 / 9}
+      />
 
-      {/* Texto abaixo do hero */}
-      <section className="relative">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center pt-12 pb-16 md:pt-16 md:pb-24">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/20 bg-primary/10 text-[12px] font-medium text-primary mb-6 tracking-wide">
+      {/* Subtítulo */}
+      <section className="relative -mt-24 md:-mt-32 z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center pb-8">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/20 bg-primary/10 text-[12px] font-medium text-primary mb-5 tracking-wide">
             <Play size={10} className="fill-primary" />
             +25 anos de excelência em broadcasting
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold leading-[1.05] tracking-tight">
-            <span className="text-foreground">Luz, Câmera,</span>
-            <br />
-            <span className="gradient-text">Trans..."Missão"</span>
-          </h1>
-          <p className="mt-6 text-base md:text-lg text-foreground/90 max-w-xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg text-foreground/90 max-w-xl mx-auto leading-relaxed">
             Transformamos tecnologia em conexão para levar emoção a cada transmissão.
           </p>
         </div>
