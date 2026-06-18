@@ -9,6 +9,7 @@ import AnimatedSection from "../components/AnimatedSection";
 import SectionHeader from "../components/SectionHeader";
 import AuroraBackground from "../components/AuroraBackground";
 import heroImg from "../assets/hero-truck.png";
+import HeroCrossfade from "../components/HeroCrossfade";
 
 const showcaseItems = [
   { title: "Olimpíadas Brasil", image: "/images/case-olimpiadas.jpg" },
@@ -72,12 +73,7 @@ const Index = () => {
 
           {/* Imagem ancorada na base, inteira, sem corte */}
           <div className="relative z-10 flex-1 mt-2">
-            <img
-              src={heroImg}
-              alt="Interface TV Broadcasting - Unidade Móvel"
-              className="absolute inset-x-0 bottom-0 w-full h-full object-contain object-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
-              draggable={false}
-            />
+            <HeroCrossfade className="absolute inset-x-0 bottom-0 w-full h-full object-contain object-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]" />
           </div>
 
           {/* Fade para a próxima seção */}
@@ -87,12 +83,7 @@ const Index = () => {
 
       {/* Hero desktop: caminhão sticky no fundo */}
       <section className="hidden md:block relative w-full md:h-[90vh] sticky top-0 z-0 overflow-hidden bg-background">
-        <img
-          src={heroImg}
-          alt="Interface TV Broadcasting - Unidade Móvel"
-          className="absolute inset-0 w-full h-full object-cover"
-          draggable={false}
-        />
+        <HeroCrossfade className="absolute inset-0 w-full h-full object-cover" />
       </section>
 
       <section className="hidden md:block relative z-10 bg-background">
