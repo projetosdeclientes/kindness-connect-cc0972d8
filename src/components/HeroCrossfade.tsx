@@ -9,7 +9,7 @@ interface HeroCrossfadeProps {
   fadeMs?: number;
 }
 
-const images = [heroImg1, heroImg2];
+const images = [heroImg2, heroImg1];
 
 const HeroCrossfade = ({
   className = "",
