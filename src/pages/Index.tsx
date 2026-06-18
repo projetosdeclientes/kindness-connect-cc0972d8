@@ -50,11 +50,9 @@ const Index = () => {
     target: heroRef,
     offset: ["start start", "end start"],
   });
-  // Suavização: textos sobem com leve translateY e fade-in conforme rola
-  const introY = useTransform(scrollYProgress, [0, 0.4], [80, 0]);
-  const introOpacity = useTransform(scrollYProgress, [0, 0.15, 0.4], [0, 0.4, 1]);
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
-  const imageOpacity = useTransform(scrollYProgress, [0, 0.6, 1], [1, 0.8, 0.5]);
+  // Suavização: textos sobem com leve translateY mantendo total nitidez
+  const introY = useTransform(scrollYProgress, [0, 0.35], [60, 0]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -65,7 +63,7 @@ const Index = () => {
         {/* Imagem fixa (sticky) */}
         <div className="sticky top-20 w-full z-0">
           <motion.img
-            style={{ scale: imageScale, opacity: imageOpacity }}
+            style={{ scale: imageScale }}
             src={heroImg}
             alt="Interface TV Broadcasting - Unidade Móvel"
             className="w-full h-auto object-contain block will-change-transform"
@@ -73,12 +71,13 @@ const Index = () => {
         </div>
 
         {/* Intro + Stats — sobem por cima da imagem ao rolar */}
-        <section className="relative z-10 -mt-[35vh] md:-mt-[45vh] overflow-hidden">
-          {/* Gradiente que transiciona transparente -> background para sobrepor sutilmente */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/85 to-background pointer-events-none" />
+        <section className="relative z-10 -mt-[20vh] sm:-mt-[30vh] md:-mt-[40vh] overflow-hidden">
+          {/* Gradiente que sobrepõe a base da imagem para legibilidade total dos textos */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/95 to-background pointer-events-none" />
           <AuroraBackground />
           <div className="absolute inset-0 grid-pattern opacity-8" />
-          <motion.div style={{ y: introY, opacity: introOpacity }} className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-[30vh] pb-20 md:pb-28 will-change-transform">
+          <motion.div style={{ y: introY }} className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-[22vh] sm:pt-[28vh] pb-20 md:pb-28 will-change-transform">
+
 
             <motion.div
               initial="initial"
@@ -100,7 +99,7 @@ const Index = () => {
                 <span className="gradient-text">Trans..."Missão"</span>
               </motion.h1>
 
-              <motion.p variants={stagger.child} className="mt-7 text-base md:text-lg text-foreground/90 max-w-lg leading-relaxed drop-shadow-[0_1px_8px_rgba(0,0,0,0.6)]">
+              <motion.p variants={stagger.child} className="mt-7 text-base md:text-lg text-foreground max-w-lg leading-relaxed drop-shadow-[0_1px_8px_rgba(0,0,0,0.6)]">
                 Produtora de vídeo especializada em transmissão de eventos para canais de televisão, agências de publicidade e internet.
               </motion.p>
             </motion.div>
