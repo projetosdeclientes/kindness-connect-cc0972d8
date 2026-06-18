@@ -9,6 +9,7 @@ import AnimatedSection from "../components/AnimatedSection";
 import SectionHeader from "../components/SectionHeader";
 import AuroraBackground from "../components/AuroraBackground";
 import heroImg from "../assets/hero-truck.png";
+import HeroCrossfade from "../components/HeroCrossfade";
 
 const showcaseItems = [
   { title: "Olimpíadas Brasil", image: "/images/case-olimpiadas.jpg" },
