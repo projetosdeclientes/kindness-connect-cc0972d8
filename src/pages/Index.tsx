@@ -62,7 +62,7 @@ const Index = () => {
               <span className="gradient-text">Trans..."Missão"</span>
             </h1>
             <p className="mt-5 text-base md:text-lg text-foreground/90 max-w-xl mx-auto leading-relaxed">
-              Produtora de vídeo especializada em transmissão de eventos para canais de televisão, agências de publicidade e internet.
+              Transformamos tecnologia em conexão para levar emoção a cada transmissão.
             </p>
           </div>
         }

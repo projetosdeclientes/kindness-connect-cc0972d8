@@ -2,8 +2,6 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AnimatedSection from "../components/AnimatedSection";
 import SectionHeader from "../components/SectionHeader";
-import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const cases = [
   { title: "Olimpíadas Brasil", image: "/images/case-olimpiadas.jpg", desc: "Cobertura completa das Olimpíadas com transmissão ao vivo para canais nacionais.", tag: "Esporte" },
@@ -51,11 +49,6 @@ const Cases = () => {
             ))}
           </div>
 
-          <AnimatedSection className="text-center mt-14">
-            <Link to="/fale-conosco" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground text-sm font-semibold hover:brightness-110 transition-all group">
-              Solicitar orçamento <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
-            </Link>
-          </AnimatedSection>
         </div>
       </section>
 
