@@ -45,14 +45,23 @@ const stagger = {
 };
 
 const Index = () => {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const truckOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const truckScale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
-      {/* Hero com efeito parallax: caminhão fixo enquanto texto sobe por cima */}
-      <div className="relative">
+      {/* Hero com efeito parallax: caminhão fixo e some enquanto texto sobe por cima */}
+      <div ref={heroRef} className="relative">
         <section className="sticky top-0 w-full h-[60vh] md:h-[80vh] overflow-hidden z-0">
-          <img
+          <motion.img
+            style={{ opacity: truckOpacity, scale: truckScale }}
             src={heroImg}
             alt="Interface TV Broadcasting - Unidade Móvel"
             className="absolute inset-0 w-full h-full object-cover object-center"
@@ -74,6 +83,7 @@ const Index = () => {
           </div>
         </section>
       </div>
+
 
       {/* Stats */}
       <section className="relative overflow-hidden border-t border-border/30">
