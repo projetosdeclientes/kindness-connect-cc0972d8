@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, Tv, Satellite, Truck, Zap, Play, Radio, Users, Award } from "lucide-react";
+import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AnimatedSection from "../components/AnimatedSection";
 import SectionHeader from "../components/SectionHeader";
 import AuroraBackground from "../components/AuroraBackground";
-import HeroScroll from "../components/HeroScroll";
+import heroImg from "../assets/hero-truck.png";
 
 const showcaseItems = [
   { title: "Olimpíadas Brasil", image: "/images/case-olimpiadas.jpg" },
@@ -47,11 +48,36 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      {/* Hero com scroll: imagem sobe/recua e texto desce */}
-      <HeroScroll />
+      {/* Hero com animação 3D scroll (ContainerScroll) */}
+      <ContainerScroll
+        titleComponent={
+          <div className="pt-20">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-[12px] font-medium text-primary mb-6 tracking-wide">
+              <Play size={10} className="fill-primary" />
+              +25 anos de excelência em broadcasting
+            </div>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold leading-[1.05] tracking-tight">
+              <span className="text-foreground">Luz, Câmera,</span>
+              <br />
+              <span className="gradient-text">Trans..."Missão"</span>
+            </h1>
+            <p className="mt-5 text-base md:text-lg text-foreground/90 max-w-xl mx-auto leading-relaxed">
+              Transformamos tecnologia em conexão para levar emoção a cada transmissão.
+            </p>
+          </div>
+        }
+      >
+        <img
+          src={heroImg}
+          className="mx-auto rounded-2xl object-contain md:object-cover h-full w-full object-center"
+          alt="Interface TV Broadcasting - Unidade Móvel"
+          
+          draggable={false}
+        />
+      </ContainerScroll>
 
       {/* Stats */}
-      <section className="relative overflow-hidden border-t border-border/30">
+      <section className="relative overflow-hidden border-t border-border/30 -mt-32 md:-mt-48">
         <AuroraBackground />
         <div className="absolute inset-0 grid-pattern opacity-8" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-16 md:py-24">
