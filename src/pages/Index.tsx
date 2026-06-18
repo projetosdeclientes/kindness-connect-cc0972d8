@@ -61,10 +61,17 @@ const Index = () => {
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-medium uppercase tracking-[0.18em] text-primary border border-primary/25 bg-primary/5 mb-5">
               Interface TV Broadcasting
             </span>
-            <h1 className="text-[2.6rem] xs:text-5xl font-bold leading-[1.02] tracking-tight">
-              <span className="text-foreground">Luz, Câmera,</span>
-              <br />
-              <span className="gradient-text">Trans..."Missão"</span>
+            <h1 className="text-[2.6rem] xs:text-5xl font-bold leading-[1.02] tracking-tight min-h-[5.2rem]">
+              <Typewriter
+                text={['Luz, Câmera,\nTrans..."Missão"']}
+                speed={80}
+                deleteSpeed={40}
+                delay={2500}
+                loop
+                cursor="▍"
+                cursorClassName="gradient-text animate-pulse ml-0.5"
+                className="gradient-text whitespace-pre-line"
+              />
             </h1>
             <p className="mt-4 text-[15px] text-foreground/80 max-w-sm mx-auto leading-relaxed">
               Transformamos tecnologia em conexão para levar emoção a cada transmissão.
