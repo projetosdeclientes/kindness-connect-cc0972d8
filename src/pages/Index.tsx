@@ -49,24 +49,60 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      {/* Hero: caminhão sticky no fundo; ao rolar, o texto sobe e cobre a imagem */}
-      <section className="relative w-full h-[42svh] sm:h-[60svh] md:h-[90vh] sticky top-0 z-0 overflow-hidden bg-background">
+      {/* Hero mobile: composição imersiva com imagem + texto sobreposto */}
+      <section className="md:hidden relative w-full overflow-hidden bg-background">
+        <div className="relative w-full h-[78svh] min-h-[560px] flex flex-col">
+          {/* Glow de fundo */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.18),transparent_60%)]" />
+
+          {/* Conteúdo textual */}
+          <div className="relative z-20 pt-24 px-6 text-center">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-medium uppercase tracking-[0.18em] text-primary border border-primary/25 bg-primary/5 mb-5">
+              Interface TV Broadcasting
+            </span>
+            <h1 className="text-[2.6rem] xs:text-5xl font-bold leading-[1.02] tracking-tight">
+              <span className="text-foreground">Luz, Câmera,</span>
+              <br />
+              <span className="gradient-text">Trans..."Missão"</span>
+            </h1>
+            <p className="mt-4 text-[15px] text-foreground/80 max-w-sm mx-auto leading-relaxed">
+              Transformamos tecnologia em conexão para levar emoção a cada transmissão.
+            </p>
+          </div>
+
+          {/* Imagem ancorada na base, inteira, sem corte */}
+          <div className="relative z-10 flex-1 mt-2">
+            <img
+              src={heroImg}
+              alt="Interface TV Broadcasting - Unidade Móvel"
+              className="absolute inset-x-0 bottom-0 w-full h-full object-contain object-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
+              draggable={false}
+            />
+          </div>
+
+          {/* Fade para a próxima seção */}
+          <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-b from-transparent to-background z-20 pointer-events-none" />
+        </div>
+      </section>
+
+      {/* Hero desktop: caminhão sticky no fundo */}
+      <section className="hidden md:block relative w-full md:h-[90vh] sticky top-0 z-0 overflow-hidden bg-background">
         <img
           src={heroImg}
           alt="Interface TV Broadcasting - Unidade Móvel"
-          className="absolute inset-0 w-full h-full object-contain [object-position:center] md:object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
           draggable={false}
         />
       </section>
 
-      <section className="relative z-10 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center py-12 md:py-28">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold leading-[1.05] tracking-tight">
+      <section className="hidden md:block relative z-10 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center py-28">
+          <h1 className="text-6xl lg:text-[4.5rem] font-bold leading-[1.05] tracking-tight">
             <span className="text-foreground">Luz, Câmera,</span>
             <br />
             <span className="gradient-text">Trans..."Missão"</span>
           </h1>
-          <p className="mt-4 md:mt-6 text-base md:text-lg text-foreground/90 max-w-xl mx-auto leading-relaxed">
+          <p className="mt-6 text-lg text-foreground/90 max-w-xl mx-auto leading-relaxed">
             Transformamos tecnologia em conexão para levar emoção a cada transmissão.
           </p>
         </div>
