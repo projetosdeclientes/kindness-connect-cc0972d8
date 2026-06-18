@@ -48,36 +48,33 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      {/* Hero com animação 3D scroll (ContainerScroll) */}
-      <ContainerScroll
-        titleComponent={
-          <div className="pt-20">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-[12px] font-medium text-primary mb-6 tracking-wide">
-              <Play size={10} className="fill-primary" />
-              +25 anos de excelência em broadcasting
-            </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold leading-[1.05] tracking-tight">
-              <span className="text-foreground">Luz, Câmera,</span>
-              <br />
-              <span className="gradient-text">Trans..."Missão"</span>
-            </h1>
-            <p className="mt-5 text-base md:text-lg text-foreground/90 max-w-xl mx-auto leading-relaxed">
-              Transformamos tecnologia em conexão para levar emoção a cada transmissão.
-            </p>
-          </div>
-        }
-      >
+      {/* Hero padrão com imagem de fundo */}
+      <section className="relative w-full min-h-[88vh] flex items-center justify-center overflow-hidden">
         <img
           src={heroImg}
-          className="mx-auto rounded-2xl object-contain md:object-cover h-full w-full object-center"
           alt="Interface TV Broadcasting - Unidade Móvel"
-          
+          className="absolute inset-0 w-full h-full object-cover object-center"
           draggable={false}
         />
-      </ContainerScroll>
+        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center pt-24 pb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/20 bg-primary/10 backdrop-blur-sm text-[12px] font-medium text-primary mb-6 tracking-wide">
+            <Play size={10} className="fill-primary" />
+            +25 anos de excelência em broadcasting
+          </div>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold leading-[1.05] tracking-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.6)]">
+            <span className="text-white">Luz, Câmera,</span>
+            <br />
+            <span className="gradient-text">Trans..."Missão"</span>
+          </h1>
+          <p className="mt-6 text-base md:text-lg text-white/90 max-w-xl mx-auto leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)]">
+            Transformamos tecnologia em conexão para levar emoção a cada transmissão.
+          </p>
+        </div>
+      </section>
 
       {/* Stats */}
-      <section className="relative overflow-hidden border-t border-border/30 -mt-32 md:-mt-48">
+      <section className="relative overflow-hidden border-t border-border/30">
         <AuroraBackground />
         <div className="absolute inset-0 grid-pattern opacity-8" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-16 md:py-24">
