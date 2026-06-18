@@ -11,7 +11,7 @@ import AuroraBackground from "../components/AuroraBackground";
 import heroImg from "../assets/hero-truck.png";
 import HeroCrossfade from "../components/HeroCrossfade";
 import { Typewriter } from "@/components/ui/typewriter-text";
-import ScrollProgress from "../components/ScrollProgress";
+
 import TiltCard from "../components/TiltCard";
 import CountUp from "../components/CountUp";
 import Magnetic from "../components/Magnetic";
