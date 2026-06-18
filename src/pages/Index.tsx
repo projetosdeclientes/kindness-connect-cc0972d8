@@ -62,10 +62,6 @@ const Index = () => {
       {/* Texto abaixo do hero */}
       <section className="relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center pt-12 pb-16 md:pt-16 md:pb-24">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/20 bg-primary/10 text-[12px] font-medium text-primary mb-6 tracking-wide">
-            <Play size={10} className="fill-primary" />
-            +25 anos de excelência em broadcasting
-          </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold leading-[1.05] tracking-tight">
             <span className="text-foreground">Luz, Câmera,</span>
             <br />
