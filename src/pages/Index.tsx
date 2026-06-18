@@ -96,10 +96,17 @@ const Index = () => {
 
       <section className="hidden md:block relative z-10 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center py-28">
-          <h1 className="text-6xl lg:text-[4.5rem] font-bold leading-[1.05] tracking-tight">
-            <span className="text-foreground">Luz, Câmera,</span>
-            <br />
-            <span className="gradient-text">Trans..."Missão"</span>
+          <h1 className="text-6xl lg:text-[4.5rem] font-bold leading-[1.05] tracking-tight min-h-[10rem]">
+            <Typewriter
+              text={['Luz, Câmera,\nTrans..."Missão"']}
+              speed={80}
+              deleteSpeed={40}
+              delay={2500}
+              loop
+              cursor="▍"
+              cursorClassName="gradient-text animate-pulse ml-1"
+              className="gradient-text whitespace-pre-line"
+            />
           </h1>
           <p className="mt-6 text-lg text-foreground/90 max-w-xl mx-auto leading-relaxed">
             Transformamos tecnologia em conexão para levar emoção a cada transmissão.
