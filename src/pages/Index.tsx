@@ -6,7 +6,8 @@ import Footer from "../components/Footer";
 import AnimatedSection from "../components/AnimatedSection";
 import SectionHeader from "../components/SectionHeader";
 import AuroraBackground from "../components/AuroraBackground";
-import heroImg from "../assets/hero-broadcast.jpg";
+import heroAsset from "../assets/hero-truck.png.asset.json";
+const heroImg = heroAsset.url;
 
 const showcaseItems = [
   { title: "Olimpíadas Brasil", image: "/images/case-olimpiadas.jpg" },
