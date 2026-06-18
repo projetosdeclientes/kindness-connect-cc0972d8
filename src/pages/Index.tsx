@@ -53,6 +53,7 @@ const stagger = {
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <ScrollProgress />
       <Header />
 
       {/* Hero mobile: composição imersiva com imagem + texto sobreposto */}
