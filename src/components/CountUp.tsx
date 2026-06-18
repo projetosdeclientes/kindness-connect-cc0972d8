@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useInView } from "framer-motion";
 
 interface CountUpProps {
@@ -7,16 +7,21 @@ interface CountUpProps {
   className?: string;
 }
 
-const CountUp = ({ value, duration = 1.6, className }: CountUpProps) => {
+const CountUp = ({ value, duration = 1.8, className }: CountUpProps) => {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.4 });
-  const match = value.match(/^(\d+)(.*)$/);
-  const target = match ? parseInt(match[1], 10) : 0;
-  const suffix = match ? match[2] : value;
+
+  const { target, suffix, isNumeric } = useMemo(() => {
+    const m = value.match(/^(\d+)(.*)$/);
+    return m
+      ? { target: parseInt(m[1], 10), suffix: m[2], isNumeric: true }
+      : { target: 0, suffix: value, isNumeric: false };
+  }, [value]);
+
   const [n, setN] = useState(0);
 
   useEffect(() => {
-    if (!inView || !match) return;
+    if (!inView || !isNumeric) return;
     let raf = 0;
     const start = performance.now();
     const tick = (t: number) => {
@@ -27,12 +32,11 @@ const CountUp = ({ value, duration = 1.6, className }: CountUpProps) => {
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [inView, target, duration, match]);
+  }, [inView, isNumeric, target, duration]);
 
   return (
     <span ref={ref} className={className}>
-      {match ? n : value}
-      {match ? suffix : ""}
+      {isNumeric ? `${n}${suffix}` : value}
     </span>
   );
 };
