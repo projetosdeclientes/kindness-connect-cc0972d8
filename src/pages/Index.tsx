@@ -59,12 +59,12 @@ const Index = () => {
 
       {/* Hero com efeito parallax: caminhão fixo e some enquanto texto sobe por cima */}
       <div ref={heroRef} className="relative">
-        <section className="sticky top-0 w-full h-[60vh] md:h-[80vh] overflow-hidden z-0">
+        <section className="sticky top-0 w-full h-[60vh] md:h-[80vh] overflow-hidden z-0 bg-background">
           <motion.img
             style={{ opacity: truckOpacity, scale: truckScale }}
             src={heroImg}
             alt="Interface TV Broadcasting - Unidade Móvel"
-            className="absolute inset-0 w-full h-full object-cover object-center"
+            className="absolute inset-0 w-full h-full object-contain object-center md:object-cover"
             draggable={false}
           />
         </section>
