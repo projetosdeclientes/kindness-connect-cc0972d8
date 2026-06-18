@@ -154,7 +154,7 @@ const AuroraBackground = () => {
 
   if (hasError) return null;
 
-  return <div ref={mountRef} className="pointer-events-none overflow-hidden fixed inset-0" />;
+  return <div ref={mountRef} aria-hidden="true" className="pointer-events-none overflow-hidden absolute inset-0 -z-10" />;
 };
 
 export default AuroraBackground;
