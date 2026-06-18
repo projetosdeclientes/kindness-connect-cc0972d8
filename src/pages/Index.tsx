@@ -32,9 +32,9 @@ const team = [
 
 const stats = [
   { value: "25+", label: "Anos de Experiência", icon: Award },
-  { value: "4", label: "Bases no Brasil", icon: Radio },
+  { value: "6", label: "Bases no Brasil", icon: Radio },
   { value: "30+", label: "Clientes Ativos", icon: Users },
-  { value: "10", label: "Unidades de Equipamento", icon: Truck },
+  { value: "5", label: "Unidades Móveis de Transmissão", icon: Truck },
 ];
 
 const stagger = {
@@ -84,21 +84,6 @@ const Index = () => {
               Produtora de vídeo especializada em transmissão de eventos para canais de televisão, agências de publicidade e internet.
             </motion.p>
 
-            <motion.div variants={stagger.child} className="mt-9 flex flex-wrap gap-3">
-              <Link
-                to="/fale-conosco"
-                className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground text-sm font-semibold hover:brightness-110 transition-all shadow-[0_0_20px_hsl(210,85%,55%,0.2)]"
-              >
-                Fale Conosco
-                <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
-              </Link>
-              <Link
-                to="/cases"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border/60 text-foreground text-sm font-medium hover:bg-secondary/50 hover:border-border transition-all"
-              >
-                Ver Cases
-              </Link>
-            </motion.div>
           </motion.div>
 
           {/* Stats strip */}
@@ -110,10 +95,10 @@ const Index = () => {
           >
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {stats.map((s) => (
-                <div key={s.label} className="group p-4 sm:p-5 rounded-2xl bg-card/50 border border-border/40 hover:border-primary/20 transition-colors">
-                  <s.icon size={16} className="text-primary/50 mb-3" />
-                  <div className="text-2xl md:text-3xl font-bold text-foreground tracking-tight">{s.value}</div>
-                  <div className="text-xs text-muted-foreground mt-1 tracking-wide">{s.label}</div>
+                <div key={s.label} className="group p-4 sm:p-5 rounded-2xl bg-card/70 border border-border/60 hover:border-primary/30 transition-colors">
+                  <s.icon size={18} className="text-primary mb-3" />
+                  <div className="text-2xl md:text-3xl font-bold text-white tracking-tight drop-shadow-[0_2px_8px_rgba(255,255,255,0.15)]">{s.value}</div>
+                  <div className="text-sm text-foreground/90 mt-1 tracking-wide font-medium">{s.label}</div>
                 </div>
               ))}
             </div>
