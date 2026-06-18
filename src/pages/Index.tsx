@@ -48,62 +48,70 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      {/* Hero - imagem solo */}
-      <section className="relative w-full bg-background pt-20">
-        <img
-          src={heroImg}
-          alt="Interface TV Broadcasting - Unidade Móvel"
-          className="w-full h-auto object-contain block"
-        />
-      </section>
+      {/* Hero + Intro com parallax sticky */}
+      <div className="relative">
+        {/* Imagem fixa (sticky) */}
+        <div className="sticky top-20 w-full z-0">
+          <img
+            src={heroImg}
+            alt="Interface TV Broadcasting - Unidade Móvel"
+            className="w-full h-auto object-contain block"
+          />
+        </div>
 
-      {/* Intro + Stats */}
-      <section className="relative overflow-hidden border-t border-border/30">
-        <AuroraBackground />
-        <div className="absolute inset-0 grid-pattern opacity-8" />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20 md:py-28">
-          <motion.div
-            initial="initial"
-            animate="animate"
-            variants={stagger.parent}
-            className="max-w-3xl"
-          >
-            <motion.div variants={stagger.child}>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-[12px] font-medium text-primary mb-8 tracking-wide">
-                <Play size={10} className="fill-primary" />
-                +25 anos de excelência em broadcasting
-              </div>
+        {/* Intro + Stats — sobem por cima da imagem ao rolar */}
+        <section className="relative z-10 -mt-[35vh] md:-mt-[45vh] overflow-hidden">
+          {/* Gradiente que transiciona transparente -> background para sobrepor sutilmente */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/85 to-background pointer-events-none" />
+          <AuroraBackground />
+          <div className="absolute inset-0 grid-pattern opacity-8" />
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-[30vh] pb-20 md:pb-28">
+            <motion.div
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={stagger.parent}
+              className="max-w-3xl"
+            >
+              <motion.div variants={stagger.child}>
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-[12px] font-medium text-primary mb-8 tracking-wide">
+                  <Play size={10} className="fill-primary" />
+                  +25 anos de excelência em broadcasting
+                </div>
+              </motion.div>
+
+              <motion.h1 variants={stagger.child} className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold leading-[1.08] tracking-tight drop-shadow-[0_2px_20px_rgba(0,0,0,0.7)]">
+                <span className="text-foreground">Luz, Câmera,</span>
+                <br />
+                <span className="gradient-text">Trans..."Missão"</span>
+              </motion.h1>
+
+              <motion.p variants={stagger.child} className="mt-7 text-base md:text-lg text-foreground/90 max-w-lg leading-relaxed drop-shadow-[0_1px_8px_rgba(0,0,0,0.6)]">
+                Produtora de vídeo especializada em transmissão de eventos para canais de televisão, agências de publicidade e internet.
+              </motion.p>
             </motion.div>
 
-            <motion.h1 variants={stagger.child} className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold leading-[1.08] tracking-tight">
-              <span className="text-foreground">Luz, Câmera,</span>
-              <br />
-              <span className="gradient-text">Trans..."Missão"</span>
-            </motion.h1>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+              className="mt-16 md:mt-20"
+            >
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                {stats.map((s) => (
+                  <div key={s.label} className="group p-4 sm:p-5 rounded-2xl bg-card/70 backdrop-blur-md border border-border/60 hover:border-primary/30 transition-colors">
+                    <s.icon size={18} className="text-primary mb-3" />
+                    <div className="text-2xl md:text-3xl font-bold text-white tracking-tight drop-shadow-[0_2px_8px_rgba(255,255,255,0.15)]">{s.value}</div>
+                    <div className="text-sm text-foreground/90 mt-1 tracking-wide font-medium">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      </div>
 
-            <motion.p variants={stagger.child} className="mt-7 text-base md:text-lg text-muted-foreground max-w-lg leading-relaxed">
-              Produtora de vídeo especializada em transmissão de eventos para canais de televisão, agências de publicidade e internet.
-            </motion.p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mt-16 md:mt-20"
-          >
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              {stats.map((s) => (
-                <div key={s.label} className="group p-4 sm:p-5 rounded-2xl bg-card/70 border border-border/60 hover:border-primary/30 transition-colors">
-                  <s.icon size={18} className="text-primary mb-3" />
-                  <div className="text-2xl md:text-3xl font-bold text-white tracking-tight drop-shadow-[0_2px_8px_rgba(255,255,255,0.15)]">{s.value}</div>
-                  <div className="text-sm text-foreground/90 mt-1 tracking-wide font-medium">{s.label}</div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
 
       {/* Clients */}
