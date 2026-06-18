@@ -23,7 +23,7 @@ const navItems = [
       { label: "Unidade 4", path: "/unidades-moveis/unidade-4" },
     ],
   },
-  { label: "DSNG", path: "/dsng" },
+  { label: "Estrutura", path: "/estrutura" },
   { label: "Clientes", path: "/clientes" },
   { label: "Cases", path: "/cases" },
   { label: "Fale Conosco", path: "/fale-conosco" },
@@ -78,9 +78,9 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-[72px]">
+        <div className="flex items-center justify-between h-20 md:h-24">
           <Link to="/" className="flex items-center gap-2.5 group">
-            <img src={logoImg} alt="Interface TV Broadcasting" className="h-14 md:h-16 w-auto object-contain" />
+            <img src={logoImg} alt="Interface TV Broadcasting" className="h-20 md:h-24 w-auto object-contain" />
           </Link>
 
           {/* Desktop Nav */}
