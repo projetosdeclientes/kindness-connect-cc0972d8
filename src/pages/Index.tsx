@@ -51,23 +51,25 @@ const Index = () => {
     offset: ["start start", "end start"],
   });
 
-  // Imagem: vai sumindo conforme o scroll
-  const imageOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
-  const imageBlur = useTransform(scrollYProgress, [0, 1], ["0px", "8px"]);
+  // Animação termina antes do sticky soltar a próxima seção
+  const imageOpacity = useTransform(scrollYProgress, [0, 0.42, 0.58], [1, 0.35, 0]);
+  const imageScale = useTransform(scrollYProgress, [0, 0.58], [1.02, 1.16]);
+  const imageBlur = useTransform(scrollYProgress, [0, 0.58], ["0px", "12px"]);
   const imageFilter = useTransform(imageBlur, (b) => `blur(${b})`);
-  const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0.2, 0.95]);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 0.58], [0.18, 0.9]);
+  const fogOpacity = useTransform(scrollYProgress, [0, 0.25, 0.58], [0, 0.35, 0.96]);
 
-  // Texto: permanece centralizado, apenas cresce e ganha presença
-  const textScale = useTransform(scrollYProgress, [0, 1], [0.9, 1.1]);
-  const textOpacity = useTransform(scrollYProgress, [0, 0.15, 1], [0.7, 1, 1]);
+  // Texto: sobe enquanto a foto desaparece, sem liberar a página antes da hora
+  const textY = useTransform(scrollYProgress, [0, 0.58], ["18vh", "-14vh"]);
+  const textScale = useTransform(scrollYProgress, [0, 0.58], [0.92, 1.08]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.12, 0.58], [0.82, 1, 1]);
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
       {/* Hero animado: imagem "engolida" pelo texto no scroll */}
-      <section ref={heroRef} className="relative w-full h-[180vh]">
+      <section ref={heroRef} className="relative w-full h-[240vh]">
         <div className="sticky top-0 h-screen w-full overflow-hidden">
           <motion.img
             src={heroImg}
@@ -80,9 +82,13 @@ const Index = () => {
             style={{ opacity: overlayOpacity }}
             className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/50 to-background"
           />
+          <motion.div
+            style={{ opacity: fogOpacity }}
+            className="absolute inset-0 bg-[radial-gradient(circle_at_center,hsl(var(--background)/0.22),hsl(var(--background)/0.82)_58%,hsl(var(--background))_100%)] backdrop-blur-sm"
+          />
 
           <motion.div
-            style={{ scale: textScale, opacity: textOpacity }}
+            style={{ y: textY, scale: textScale, opacity: textOpacity }}
             className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 will-change-transform"
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold leading-[1.05] tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.5)]">
