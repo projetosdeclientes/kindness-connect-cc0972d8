@@ -10,6 +10,7 @@ import SectionHeader from "../components/SectionHeader";
 import AuroraBackground from "../components/AuroraBackground";
 import heroImg from "../assets/hero-truck.png";
 import HeroCrossfade from "../components/HeroCrossfade";
+import { Typewriter } from "@/components/ui/typewriter-text";
 
 const showcaseItems = [
   { title: "Olimpíadas Brasil", image: "/images/case-olimpiadas.jpg" },
