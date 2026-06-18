@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Tv, Satellite, Truck, Zap, Play, Radio, Users, Award } from "lucide-react";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import Header from "../components/Header";
@@ -44,34 +45,59 @@ const stagger = {
 };
 
 const Index = () => {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+
+  // Imagem: vai sumindo conforme o scroll
+  const imageOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
+  const imageBlur = useTransform(scrollYProgress, [0, 1], ["0px", "8px"]);
+  const imageFilter = useTransform(imageBlur, (b) => `blur(${b})`);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0.2, 0.95]);
+
+  // Texto: sobe e cresce, dominando a foto
+  const textY = useTransform(scrollYProgress, [0, 1], ["40%", "-5%"]);
+  const textScale = useTransform(scrollYProgress, [0, 1], [0.85, 1.15]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.15, 1], [0, 1, 1]);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
-      {/* Hero: somente a foto do caminhão */}
-      <section className="relative w-full h-[60vh] md:h-[80vh] overflow-hidden">
-        <img
-          src={heroImg}
-          alt="Interface TV Broadcasting - Unidade Móvel"
-          className="absolute inset-0 w-full h-full object-cover object-center"
-          draggable={false}
-        />
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-background" />
-      </section>
+      {/* Hero animado: imagem "engolida" pelo texto no scroll */}
+      <section ref={heroRef} className="relative w-full h-[180vh]">
+        <div className="sticky top-0 h-screen w-full overflow-hidden">
+          <motion.img
+            src={heroImg}
+            alt="Interface TV Broadcasting - Unidade Móvel"
+            style={{ opacity: imageOpacity, scale: imageScale, filter: imageFilter }}
+            className="absolute inset-0 w-full h-full object-cover object-center will-change-transform"
+            draggable={false}
+          />
+          <motion.div
+            style={{ opacity: overlayOpacity }}
+            className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/50 to-background"
+          />
 
-      {/* Texto abaixo do hero */}
-      <section className="relative">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center pt-12 pb-16 md:pt-16 md:pb-24">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold leading-[1.05] tracking-tight">
-            <span className="text-foreground">Luz, Câmera,</span>
-            <br />
-            <span className="gradient-text">Trans..."Missão"</span>
-          </h1>
-          <p className="mt-6 text-base md:text-lg text-foreground/90 max-w-xl mx-auto leading-relaxed">
-            Transformamos tecnologia em conexão para levar emoção a cada transmissão.
-          </p>
+          <motion.div
+            style={{ y: textY, scale: textScale, opacity: textOpacity }}
+            className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 will-change-transform"
+          >
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold leading-[1.05] tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.5)]">
+              <span className="text-foreground">Luz, Câmera,</span>
+              <br />
+              <span className="gradient-text">Trans..."Missão"</span>
+            </h1>
+            <p className="mt-6 text-base md:text-lg text-foreground/95 max-w-xl mx-auto leading-relaxed drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]">
+              Transformamos tecnologia em conexão para levar emoção a cada transmissão.
+            </p>
+          </motion.div>
         </div>
       </section>
+
 
       {/* Stats */}
       <section className="relative overflow-hidden border-t border-border/30">
