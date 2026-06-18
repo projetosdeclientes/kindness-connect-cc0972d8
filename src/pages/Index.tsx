@@ -58,10 +58,9 @@ const Index = () => {
   const imageFilter = useTransform(imageBlur, (b) => `blur(${b})`);
   const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0.2, 0.95]);
 
-  // Texto: sobe e cresce, dominando a foto
-  const textY = useTransform(scrollYProgress, [0, 1], ["40%", "-5%"]);
-  const textScale = useTransform(scrollYProgress, [0, 1], [0.85, 1.15]);
-  const textOpacity = useTransform(scrollYProgress, [0, 0.15, 1], [0, 1, 1]);
+  // Texto: permanece centralizado, apenas cresce e ganha presença
+  const textScale = useTransform(scrollYProgress, [0, 1], [0.9, 1.1]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.15, 1], [0.7, 1, 1]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -83,7 +82,7 @@ const Index = () => {
           />
 
           <motion.div
-            style={{ y: textY, scale: textScale, opacity: textOpacity }}
+            style={{ scale: textScale, opacity: textOpacity }}
             className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 will-change-transform"
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold leading-[1.05] tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.5)]">
