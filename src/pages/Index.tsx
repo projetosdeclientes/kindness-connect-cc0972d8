@@ -11,6 +11,10 @@ import AuroraBackground from "../components/AuroraBackground";
 import heroImg from "../assets/hero-truck.png";
 import HeroCrossfade from "../components/HeroCrossfade";
 import { Typewriter } from "@/components/ui/typewriter-text";
+import ScrollProgress from "../components/ScrollProgress";
+import TiltCard from "../components/TiltCard";
+import CountUp from "../components/CountUp";
+import Magnetic from "../components/Magnetic";
 
 const showcaseItems = [
   { title: "Olimpíadas Brasil", image: "/images/case-olimpiadas.jpg" },
@@ -49,6 +53,7 @@ const stagger = {
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <ScrollProgress />
       <Header />
 
       {/* Hero mobile: composição imersiva com imagem + texto sobreposto */}
@@ -133,11 +138,15 @@ const Index = () => {
           >
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {stats.map((s) => (
-                <div key={s.label} className="group p-4 sm:p-5 rounded-2xl bg-card/70 backdrop-blur-md border border-border/60 hover:border-primary/30 transition-colors">
-                  <s.icon size={18} className="text-primary mb-3" />
-                  <div className="text-2xl md:text-3xl font-bold text-white tracking-tight drop-shadow-[0_2px_8px_rgba(255,255,255,0.15)]">{s.value}</div>
-                  <div className="text-sm text-foreground/90 mt-1 tracking-wide font-medium">{s.label}</div>
-                </div>
+                <TiltCard key={s.label} className="group rounded-2xl">
+                  <div className="p-4 sm:p-5 rounded-2xl bg-card/70 backdrop-blur-md border border-border/60 hover:border-primary/40 transition-colors h-full">
+                    <s.icon size={18} className="text-primary mb-3" />
+                    <div className="text-2xl md:text-3xl font-bold text-white tracking-tight drop-shadow-[0_2px_8px_rgba(255,255,255,0.15)]">
+                      <CountUp value={s.value} />
+                    </div>
+                    <div className="text-sm text-foreground/90 mt-1 tracking-wide font-medium">{s.label}</div>
+                  </div>
+                </TiltCard>
               ))}
             </div>
           </motion.div>
@@ -201,16 +210,18 @@ const Index = () => {
             <AnimatedSection delay={0.15}>
               <div className="grid grid-cols-2 gap-3">
                 {services.map((s, i) => (
-                  <div key={s.title} className={`group p-5 md:p-6 rounded-2xl bg-card/50 border border-border/40 hover:border-primary/20 transition-all duration-300 shine ${i === 0 ? 'md:col-span-2' : ''}`}>
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-9 h-9 rounded-lg bg-primary/8 border border-primary/15 flex items-center justify-center group-hover:bg-primary/15 transition-colors">
-                        <s.icon size={16} className="text-primary" />
+                  <TiltCard key={s.title} intensity={8} className={`group rounded-2xl ${i === 0 ? 'md:col-span-2' : ''}`}>
+                    <div className="p-5 md:p-6 rounded-2xl bg-card/50 border border-border/40 hover:border-primary/30 transition-all duration-300 shine h-full">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                          <s.icon size={16} className="text-primary" />
+                        </div>
+                        <span className="text-xl font-bold text-foreground tracking-tight">{s.count}</span>
                       </div>
-                      <span className="text-xl font-bold text-foreground tracking-tight">{s.count}</span>
+                      <h3 className="text-sm font-semibold text-foreground">{s.title}</h3>
+                      <p className="text-xs text-muted-foreground mt-1">{s.desc}</p>
                     </div>
-                    <h3 className="text-sm font-semibold text-foreground">{s.title}</h3>
-                    <p className="text-xs text-muted-foreground mt-1">{s.desc}</p>
-                  </div>
+                  </TiltCard>
                 ))}
               </div>
             </AnimatedSection>
@@ -288,13 +299,15 @@ const Index = () => {
             <p className="mt-5 text-muted-foreground text-base md:text-lg max-w-md mx-auto">
               Teremos o maior prazer em responder suas perguntas e criar o projeto perfeito para você.
             </p>
-            <Link
-              to="/fale-conosco"
-              className="mt-9 inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold hover:brightness-110 transition-all shadow-[0_0_30px_hsl(210,85%,55%,0.15)] group"
-            >
-              Fale Conosco
-              <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
-            </Link>
+            <Magnetic className="mt-9">
+              <Link
+                to="/fale-conosco"
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold hover:brightness-110 transition-all shadow-[0_0_40px_hsl(var(--primary)/0.35)] group"
+              >
+                Fale Conosco
+                <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Magnetic>
           </AnimatedSection>
         </div>
       </section>
