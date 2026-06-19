@@ -34,6 +34,10 @@ const members: { name: string; role?: string; image?: string }[] = [
     role: "Técnico de Áudio e Comunicação",
     image: "https://qtbkvshbmqlszncxlcuc.supabase.co/storage/v1/object/public/dsl-uploads/N6uwID0HRxdbETr1wxR2y5Fe83o2/0d10663c-da11-452b-953b-c32aab14ef31.png",
   },
+  {
+    name: "João Paulo",
+    image: "https://qtbkvshbmqlszncxlcuc.supabase.co/storage/v1/object/public/dsl-uploads/N6uwID0HRxdbETr1wxR2y5Fe83o2/1ee9c1e2-219c-4998-bd9a-fb78667d47c2.png",
+  },
   { name: "Ramon" },
   { name: "Luigi" },
 ];
