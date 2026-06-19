@@ -1,4 +1,4 @@
-import heroImg2 from "../assets/hero-truck-2.png";
+import fleetAsset from "../assets/fleet.png.asset.json";
 
 interface HeroCrossfadeProps {
   className?: string;
@@ -11,7 +11,7 @@ const HeroCrossfade = ({
 }: HeroCrossfadeProps) => {
   return (
     <img
-      src={heroImg2}
+      src={fleetAsset.url}
       alt={alt}
       draggable={false}
       className={className}
