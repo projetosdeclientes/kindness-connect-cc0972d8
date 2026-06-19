@@ -11,7 +11,6 @@ import AuroraBackground from "../components/AuroraBackground";
 import heroImg from "../assets/hero-truck.png";
 import HeroCrossfade from "../components/HeroCrossfade";
 import { Typewriter } from "@/components/ui/typewriter-text";
-import RotatingEarth from "@/components/ui/wireframe-dotted-globe";
 
 import TiltCard from "../components/TiltCard";
 import CountUp from "../components/CountUp";
@@ -102,31 +101,24 @@ const Index = () => {
       </section>
 
       <section className="hidden md:block relative z-10 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-28">
-          <div className="grid grid-cols-2 gap-8 items-center">
-            <div className="text-left">
-              <h1 className="text-6xl lg:text-[4.5rem] font-bold leading-[1.05] tracking-tight min-h-[10rem]">
-                <span className="text-white">Luz, Câmera,</span>
-                <br />
-                <Typewriter
-                  text={['Trans..."Missão"']}
-                  speed={80}
-                  deleteSpeed={40}
-                  delay={2500}
-                  loop
-                  cursor="▍"
-                  cursorClassName="gradient-text animate-pulse ml-1"
-                  className="gradient-text"
-                />
-              </h1>
-              <p className="mt-6 text-lg text-foreground/90 max-w-xl leading-relaxed">
-                Transformamos tecnologia em conexão para levar emoção a cada transmissão.
-              </p>
-            </div>
-            <div className="flex justify-center items-center">
-              <RotatingEarth width={560} height={560} />
-            </div>
-          </div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center py-28">
+          <h1 className="text-6xl lg:text-[4.5rem] font-bold leading-[1.05] tracking-tight min-h-[10rem]">
+            <span className="text-white">Luz, Câmera,</span>
+            <br />
+            <Typewriter
+              text={['Trans..."Missão"']}
+              speed={80}
+              deleteSpeed={40}
+              delay={2500}
+              loop
+              cursor="▍"
+              cursorClassName="gradient-text animate-pulse ml-1"
+              className="gradient-text"
+            />
+          </h1>
+          <p className="mt-6 text-lg text-foreground/90 max-w-xl mx-auto leading-relaxed">
+            Transformamos tecnologia em conexão para levar emoção a cada transmissão.
+          </p>
         </div>
       </section>
 
