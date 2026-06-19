@@ -3,12 +3,13 @@ import Footer from "../components/Footer";
 import AnimatedSection from "../components/AnimatedSection";
 import SectionHeader from "../components/SectionHeader";
 import { User, ImageOff } from "lucide-react";
+import betoAsset from "../assets/beto.png.asset.json";
 
 // Estrutura pronta para receber os integrantes. Fotos, função e descrição serão
 // adicionadas assim que forem enviadas pelo cliente.
 const members: { name: string; role?: string; image?: string }[] = [
   { name: "Nando" },
-  { name: "Beto" },
+  { name: "Roberto Leite", role: "Sócio / Coordenador de Eventos e Novos Negócios", image: betoAsset.url },
   { name: "Caca" },
   { name: "Gabriel" },
   { name: "Marcão" },
