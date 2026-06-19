@@ -3,13 +3,12 @@ import Footer from "../components/Footer";
 import AnimatedSection from "../components/AnimatedSection";
 import SectionHeader from "../components/SectionHeader";
 import { User, ImageOff } from "lucide-react";
-import betoAsset from "../assets/beto.png.asset.json";
 
 // Estrutura pronta para receber os integrantes. Fotos, função e descrição serão
 // adicionadas assim que forem enviadas pelo cliente.
 const members: { name: string; role?: string; image?: string }[] = [
   { name: "Nando" },
-  { name: "Roberto Leite", role: "Sócio / Coordenador de Eventos e Novos Negócios", image: betoAsset.url },
+  { name: "Beto" },
   { name: "Caca" },
   { name: "Gabriel" },
   { name: "Marcão" },
@@ -61,13 +60,9 @@ const Equipe = () => {
                   </div>
                   <div className="p-4 text-center flex-1 flex flex-col justify-center">
                     <h3 className="text-sm font-semibold text-foreground">{m.name}</h3>
-                    {m.role ? (
-                      <p className="text-[11px] text-muted-foreground mt-1">{m.role}</p>
-                    ) : (
-                      <p className="text-[11px] text-muted-foreground mt-1 flex items-center justify-center gap-1">
-                        <ImageOff size={10} /> Função em breve
-                      </p>
-                    )}
+                    <p className="text-[11px] text-muted-foreground mt-1 flex items-center justify-center gap-1">
+                      <ImageOff size={10} /> Função em breve
+                    </p>
                   </div>
                 </div>
               </AnimatedSection>
