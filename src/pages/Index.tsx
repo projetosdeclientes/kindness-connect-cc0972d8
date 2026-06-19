@@ -63,8 +63,8 @@ const Index = () => {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.18),transparent_60%)]" />
 
           {/* Imagem no topo */}
-          <div className="relative z-10 w-full">
-            <HeroCrossfade className="w-full h-[50svh] min-h-[320px] object-cover" />
+          <div className="relative z-10 w-full pt-16 bg-background">
+            <HeroCrossfade className="w-full h-auto object-contain" />
           </div>
 
           {/* Conteúdo textual abaixo */}
