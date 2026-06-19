@@ -29,7 +29,11 @@ const members: { name: string; role?: string; image?: string }[] = [
     name: "Samuel",
     image: "https://qtbkvshbmqlszncxlcuc.supabase.co/storage/v1/object/public/dsl-uploads/N6uwID0HRxdbETr1wxR2y5Fe83o2/42680331-07c4-4f08-b6ec-290aad397542.png",
   },
-  { name: "Willams" },
+  {
+    name: "Willams Teixeira",
+    role: "Técnico de Áudio e Comunicação",
+    image: "https://qtbkvshbmqlszncxlcuc.supabase.co/storage/v1/object/public/dsl-uploads/N6uwID0HRxdbETr1wxR2y5Fe83o2/0d10663c-da11-452b-953b-c32aab14ef31.png",
+  },
   { name: "Ramon" },
   { name: "Luigi" },
 ];
