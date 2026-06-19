@@ -16,7 +16,10 @@ const members: { name: string; role?: string; image?: string }[] = [
   { name: "Caca" },
   { name: "Gabriel" },
   { name: "Marcão" },
-  { name: "Gildo" },
+  {
+    name: "Gildo",
+    image: "https://qtbkvshbmqlszncxlcuc.supabase.co/storage/v1/object/public/dsl-uploads/N6uwID0HRxdbETr1wxR2y5Fe83o2/51206a97-b441-4bfc-abec-1abb64c9392e.png",
+  },
   {
     name: "Edson Ribeiro",
     role: "Supervisor de Externa",
