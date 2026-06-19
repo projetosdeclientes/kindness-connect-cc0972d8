@@ -8,7 +8,11 @@ import { User, ImageOff } from "lucide-react";
 // adicionadas assim que forem enviadas pelo cliente.
 const members: { name: string; role?: string; image?: string }[] = [
   { name: "Nando" },
-  { name: "Beto" },
+  {
+    name: "Beto",
+    role: "Sócio e Coordenador de Eventos e Novos Negócios",
+    image: "https://qtbkvshbmqlszncxlcuc.supabase.co/storage/v1/object/public/dsl-uploads/N6uwID0HRxdbETr1wxR2y5Fe83o2/6b2e88bb-9ebd-434d-8379-e3fbfb2fbea9.png",
+  },
   { name: "Caca" },
   { name: "Gabriel" },
   { name: "Marcão" },
