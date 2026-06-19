@@ -22,7 +22,10 @@ const members: { name: string; role?: string; image?: string }[] = [
     role: "Supervisor de Externa",
     image: "https://qtbkvshbmqlszncxlcuc.supabase.co/storage/v1/object/public/dsl-uploads/N6uwID0HRxdbETr1wxR2y5Fe83o2/38d168b0-b9c5-4598-98b3-809b8af1c022.png",
   },
-  { name: "Samuel" },
+  {
+    name: "Samuel",
+    image: "https://qtbkvshbmqlszncxlcuc.supabase.co/storage/v1/object/public/dsl-uploads/N6uwID0HRxdbETr1wxR2y5Fe83o2/42680331-07c4-4f08-b6ec-290aad397542.png",
+  },
   { name: "Willams" },
   { name: "Ramon" },
   { name: "Luigi" },
