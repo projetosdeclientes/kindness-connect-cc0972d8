@@ -36,7 +36,7 @@ const services = [
 const team = [
   { name: "Caca", role: "Diretor", image: "/images/team-caca.jpg" },
   { name: "Fernando", role: "Diretor Geral", image: "/images/team-fernando.png" },
-  { name: "Roberto", role: "Gerente Geral / Novos Negócios", image: "/images/team-roberto.jpg" },
+  { name: "Roberto", role: "Gerente Geral / Novos Negócios", image: "https://qtbkvshbmqlszncxlcuc.supabase.co/storage/v1/object/public/dsl-uploads/N6uwID0HRxdbETr1wxR2y5Fe83o2/1a6ba88d-4397-45fc-8485-ec18910cadae.png" },
 ];
 
 const stats = [
