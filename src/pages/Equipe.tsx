@@ -64,9 +64,13 @@ const Equipe = () => {
                   </div>
                   <div className="p-4 text-center flex-1 flex flex-col justify-center">
                     <h3 className="text-sm font-semibold text-foreground">{m.name}</h3>
-                    <p className="text-[11px] text-muted-foreground mt-1 flex items-center justify-center gap-1">
-                      <ImageOff size={10} /> Função em breve
-                    </p>
+                    {m.role ? (
+                      <p className="text-[11px] text-primary mt-1">{m.role}</p>
+                    ) : (
+                      <p className="text-[11px] text-muted-foreground mt-1 flex items-center justify-center gap-1">
+                        <ImageOff size={10} /> Função em breve
+                      </p>
+                    )}
                   </div>
                 </div>
               </AnimatedSection>
