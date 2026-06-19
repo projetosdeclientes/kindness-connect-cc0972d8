@@ -56,14 +56,19 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      {/* Hero mobile: composição imersiva com imagem + texto sobreposto */}
+      {/* Hero mobile: imagem no topo, texto abaixo */}
       <section className="md:hidden relative w-full overflow-hidden bg-background">
-        <div className="relative w-full h-[78svh] min-h-[560px] flex flex-col">
+        <div className="relative w-full flex flex-col">
           {/* Glow de fundo */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.18),transparent_60%)]" />
 
-          {/* Conteúdo textual */}
-          <div className="relative z-20 pt-24 px-6 text-center">
+          {/* Imagem no topo */}
+          <div className="relative z-10 w-full pt-20">
+            <HeroCrossfade className="w-full h-[42svh] min-h-[280px] object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]" />
+          </div>
+
+          {/* Conteúdo textual abaixo */}
+          <div className="relative z-20 px-6 pt-6 pb-12 text-center">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-medium uppercase tracking-[0.18em] text-primary border border-primary/25 bg-primary/5 mb-5">
               Interface TV Broadcasting
             </span>
@@ -85,14 +90,6 @@ const Index = () => {
               Transformamos tecnologia em conexão para levar emoção a cada transmissão.
             </p>
           </div>
-
-          {/* Imagem ancorada na base, inteira, sem corte */}
-          <div className="relative z-10 flex-1 mt-2">
-            <HeroCrossfade className="absolute inset-x-0 bottom-0 w-full h-full object-contain object-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]" />
-          </div>
-
-          {/* Fade para a próxima seção */}
-          <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-b from-transparent to-background z-20 pointer-events-none" />
         </div>
       </section>
 
