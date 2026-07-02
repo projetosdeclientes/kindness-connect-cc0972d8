@@ -8,6 +8,7 @@ import QuemSomos from "./pages/QuemSomos.tsx";
 import Equipe from "./pages/Equipe.tsx";
 import Servicos from "./pages/Servicos.tsx";
 import Clientes from "./pages/Clientes.tsx";
+import ClientesHtml from "./pages/ClientesHtml.tsx";
 import Cases from "./pages/Cases.tsx";
 
 import FaleConosco from "./pages/FaleConosco.tsx";
@@ -37,6 +38,7 @@ const App = () => (
           <Route path="/dsng" element={<DSNG />} />
           <Route path="/estrutura" element={<Estrutura />} />
           <Route path="/clientes" element={<Clientes />} />
+          <Route path="/clientes-html" element={<ClientesHtml />} />
           <Route path="/cases" element={<Cases />} />
           
           <Route path="/fale-conosco" element={<FaleConosco />} />
