@@ -96,7 +96,7 @@ const categories: Category[] = [
     logos: [
       { name: "Disney Channel", file: "disney-channel.png" },
       { name: "YouTube", file: "youtube.svg" },
-      { name: "MTV", file: "mtv-restored.svg", review: "restaurada em vetor 4K para corrigir logo invisível/ilegível" },
+      { name: "MTV", file: "mtv.png" },
       { name: "Universal Music Group", file: "universal-music.svg" },
       { name: "PokerStars.com", file: "pokerstars.png" },
       { name: "Pepsico", file: "pepsico.svg" },
