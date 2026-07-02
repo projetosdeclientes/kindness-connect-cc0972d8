@@ -57,7 +57,7 @@ const categories: Category[] = [
     logos: [
       { name: "FIVB", file: "fivb.png" },
       { name: "Vôlei Brasil", file: "volei-brasil.png" },
-      { name: "NBB", file: "nbb-restored.svg", review: "restaurada em vetor 4K para remover a versão incorreta com Caixa" },
+      { name: "NBB", file: "nbb.png" },
       { name: "WSL", file: "wsl.png" },
       { name: "Dream Tour", file: "dream-tour.png" },
       { name: "BWF", file: "bwf.png" },
