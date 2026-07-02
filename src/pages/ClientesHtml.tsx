@@ -181,6 +181,7 @@ const ClientesHtml = () => {
         }
         .clientes-html .logo-card-html {
           position:relative; display:flex; flex-direction:column;
+          min-height:190px;
           background:#12161D; border:1px solid #242B36; border-radius:10px;
           opacity:0; transform:translateY(10px);
           transition: background .2s, border-color .2s, transform .5s, opacity .5s, box-shadow .2s;
@@ -189,27 +190,28 @@ const ClientesHtml = () => {
         .clientes-html .logo-card-html.in-view { opacity:1; transform:translateY(0); }
         .clientes-html .logo-card-html:hover { background:#1A2029; border-color:#E8A33D; box-shadow:0 6px 20px rgba(232,163,61,.15); }
         .clientes-html .logo-img-wrap {
-          aspect-ratio:1/1; display:flex; align-items:center; justify-content:center;
-          padding:10px; background:#fff;
+          width:100%; height:145px;
+          display:flex; align-items:center; justify-content:center;
+          padding:16px; background:#fff;
         }
         .clientes-html .logo-card-html img { width:100%; height:100%; object-fit:contain; display:block; }
         .clientes-html .logo-name {
+          min-height:44px;
+          display:flex; align-items:center; justify-content:center;
           font-family:'Space Grotesk',sans-serif; font-size:12px; font-weight:600;
-          color:#EDEEF0; text-align:center; padding:10px 8px; line-height:1.25;
-          border-top:1px solid #242B36; letter-spacing:.02em;
+          color:#EDEEF0; text-align:center; padding:8px 10px; line-height:1.2;
+          border-top:1px solid #242B36;
         }
         .clientes-html .logo-fallback {
           font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:700;
           color:#E8A33D; text-align:center; line-height:1.2;
         }
-        .clientes-html .review-flag {
-          display:inline-block; margin-left:6px; padding:2px 5px; border-radius:999px;
-          background:rgba(232,163,61,.14); color:#E8A33D; font-size:8px; letter-spacing:.08em;
-          vertical-align:middle;
-        }
+        .clientes-html .review-flag { display:none !important; }
         @media (max-width:640px){
           .clientes-html .clients { padding:64px 20px 48px; }
           .clientes-html .logo-grid { grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); }
+          .clientes-html .logo-card-html { min-height:165px; }
+          .clientes-html .logo-img-wrap { height:120px; padding:12px; }
           .clientes-html .logo-name { font-size:11px; padding:8px 6px; }
         }
         @media (prefers-reduced-motion:reduce){
