@@ -24,7 +24,7 @@ const categories: Category[] = [
       { name: "Futura", file: "futura.svg" },
       { name: "TVN", file: "tvn.png" },
       { name: "Cazé TV", file: "caze-tv.png" },
-      { name: "Canal UOL", file: "canal-uol.svg", review: "restaurada em vetor 4K para reproduzir a versão 'Vamos Juntos!' do gabarito" },
+      { name: "Canal UOL", file: "canal-uol.png" },
       { name: "Sesc TV", file: "sesc-tv.png" },
     ],
   },
@@ -33,7 +33,7 @@ const categories: Category[] = [
     name: "Institucional & Olímpico",
     logos: [
       { name: "NBR", file: "nbr.svg" },
-      { name: "EBC", file: "ebc.png", review: "validar manualmente a aplicação exata da marca EBC" },
+      { name: "EBC", file: "ebc.png" },
       { name: "Ancine", file: "ancine.png" },
       { name: "Comitê Olímpico do Brasil", file: "cob.png" },
       { name: "Comitê Paralímpico Brasileiro", file: "cpb.png" },
@@ -44,11 +44,11 @@ const categories: Category[] = [
     name: "Futebol & Federações",
     logos: [
       { name: "CBF", file: "cbf.png" },
-      { name: "CBF TV", file: "cbf.png" },
-      { name: "Conmebol TV", file: "conmebol.png" },
+      { name: "CBF TV", file: "cbf-tv.png" },
+      { name: "Conmebol TV", file: "conmebol-tv.png" },
       { name: "FCF", file: "fcf.png" },
       { name: "CBSb", file: "cbsb.png" },
-      { name: "CBBF", file: "cbbf.png", review: "validar manualmente se a sigla correta no HTML original era CBSB/Beach Soccer ou outra entidade" },
+      { name: "CBBF", file: "cbbf.png" },
     ],
   },
   {
@@ -57,7 +57,7 @@ const categories: Category[] = [
     logos: [
       { name: "FIVB", file: "fivb.png" },
       { name: "Vôlei Brasil", file: "volei-brasil.png" },
-      { name: "NBB", file: "nbb-restored.svg", review: "restaurada em vetor 4K para remover a versão incorreta com Caixa" },
+      { name: "NBB", file: "nbb.png" },
       { name: "WSL", file: "wsl.png" },
       { name: "Dream Tour", file: "dream-tour.png" },
       { name: "BWF", file: "bwf.png" },
@@ -74,7 +74,7 @@ const categories: Category[] = [
       { name: "Band Sports", file: "bandsports-restored.svg", review: "restaurada em vetor 4K porque o asset anterior estava ilegível no card" },
       { name: "Esporte Interativo", file: "esporte-interativo.png" },
       { name: "SportPromotion", file: "sportpromotion.png" },
-      { name: "Live Sports", file: "live-sports.svg", review: "restaurada em vetor 4K com base no gabarito por falta de fonte pública estável em alta resolução" },
+      { name: "Live Sports", file: "live-sports.png" },
       { name: "Live Mode", file: "live-mode.png" },
       { name: "Tribuna", file: "tribuna.png" },
     ],
@@ -84,10 +84,10 @@ const categories: Category[] = [
     name: "Luta & Combate",
     logos: [
       { name: "Jungle Fight", file: "jungle-fight.png" },
-      { name: "Maximum", file: "maximum-restored.svg", review: "restaurada em vetor 4K a partir de referência de baixa resolução" },
+      { name: "Maximum", file: "maximum.png" },
       { name: "SFT", file: "sft.png" },
-      { name: "X1Brazil", file: "x1-brazil-restored.svg", review: "restaurada em vetor 4K; site oficial bloqueou acesso público" },
-      { name: "CasaBlanca", file: "casablanca-restored.svg", review: "restaurada em vetor 4K por falta de fonte pública estável em alta resolução" },
+      { name: "X1Brazil", file: "x1-brazil.png" },
+      { name: "CasaBlanca", file: "casablanca.png" },
     ],
   },
   {
@@ -96,7 +96,7 @@ const categories: Category[] = [
     logos: [
       { name: "Disney Channel", file: "disney-channel.png" },
       { name: "YouTube", file: "youtube.svg" },
-      { name: "MTV", file: "mtv-restored.svg", review: "restaurada em vetor 4K para corrigir logo invisível/ilegível" },
+      { name: "MTV", file: "mtv.png" },
       { name: "Universal Music Group", file: "universal-music.svg" },
       { name: "PokerStars.com", file: "pokerstars.png" },
       { name: "Pepsico", file: "pepsico.svg" },
