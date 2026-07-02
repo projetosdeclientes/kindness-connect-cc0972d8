@@ -229,7 +229,7 @@ const ClientsSection = ({ preview = false }: { preview?: boolean }) => {
               Emissoras, federações e plataformas que confiam na Interfacetv Broadcasting para transmitir seus eventos ao vivo — com unidades móveis e DSNG prontos para qualquer cobertura.
             </p>
 
-            {categories.map((cat) => (
+            {displayCategories.map((cat) => (
               <div className="category" key={cat.index}>
                 <div className="cat-head">
                   <span className="cat-index">{cat.index}</span>
@@ -263,7 +263,28 @@ const ClientsSection = ({ preview = false }: { preview?: boolean }) => {
                 </div>
               </div>
             ))}
+
+            {preview && (
+              <div style={{ textAlign: "center", marginTop: 32 }}>
+                <a
+                  href="/clientes"
+                  style={{
+                    display: "inline-flex", alignItems: "center", gap: 8,
+                    padding: "14px 28px", borderRadius: 10,
+                    background: "#E8A33D", color: "#0A0C10",
+                    fontFamily: "'Space Grotesk',sans-serif", fontSize: 14, fontWeight: 600,
+                    letterSpacing: ".05em", textDecoration: "none",
+                    transition: "transform .2s, box-shadow .2s",
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.boxShadow = "0 8px 24px rgba(232,163,61,.3)"; e.currentTarget.style.transform = "translateY(-1px)"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.transform = "translateY(0)"; }}
+                >
+                  Ver todos os clientes →
+                </a>
+              </div>
+            )}
           </div>
+
         </section>
       </div>
     </>
