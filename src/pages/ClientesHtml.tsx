@@ -239,22 +239,25 @@ const ClientesHtml = () => {
                 <div className="logo-grid">
                   {cat.logos.map((logo) => (
                     <div key={`${cat.index}-${logo.name}`} className="logo-card-html" title={logo.name}>
-                      <img
-                        src={logoUrl(logo.domain)}
-                        alt={logo.name}
-                        loading="lazy"
-                        onError={(e) => {
-                          const img = e.currentTarget;
-                          const parent = img.parentElement;
-                          if (parent && !parent.querySelector(".logo-fallback")) {
-                            img.style.display = "none";
-                            const fb = document.createElement("span");
-                            fb.className = "logo-fallback";
-                            fb.textContent = logo.name;
-                            parent.appendChild(fb);
-                          }
-                        }}
-                      />
+                      <div className="logo-img-wrap">
+                        <img
+                          src={logoUrl(logo.domain)}
+                          alt={logo.name}
+                          loading="lazy"
+                          onError={(e) => {
+                            const img = e.currentTarget;
+                            const parent = img.parentElement;
+                            if (parent && !parent.querySelector(".logo-fallback")) {
+                              img.style.display = "none";
+                              const fb = document.createElement("span");
+                              fb.className = "logo-fallback";
+                              fb.textContent = logo.name.substring(0, 3).toUpperCase();
+                              parent.appendChild(fb);
+                            }
+                          }}
+                        />
+                      </div>
+                      <div className="logo-name">{logo.name}</div>
                     </div>
                   ))}
                 </div>
