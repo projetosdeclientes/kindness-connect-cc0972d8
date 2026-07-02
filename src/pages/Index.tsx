@@ -7,7 +7,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AnimatedSection from "../components/AnimatedSection";
 import SectionHeader from "../components/SectionHeader";
-import AuroraBackground from "../components/AuroraBackground";
+
 import heroImg from "../assets/hero-truck.png";
 import HeroCrossfade from "../components/HeroCrossfade";
 import { Typewriter } from "@/components/ui/typewriter-text";
