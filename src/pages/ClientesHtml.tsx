@@ -74,7 +74,7 @@ const categories: Category[] = [
       { name: "Band Sports", file: "bandsports-restored.svg", review: "restaurada em vetor 4K porque o asset anterior estava ilegível no card" },
       { name: "Esporte Interativo", file: "esporte-interativo.png" },
       { name: "SportPromotion", file: "sportpromotion.png" },
-      { name: "Live Sports", file: "live-sports.svg", review: "restaurada em vetor 4K com base no gabarito por falta de fonte pública estável em alta resolução" },
+      { name: "Live Sports", file: "live-sports.png" },
       { name: "Live Mode", file: "live-mode.png" },
       { name: "Tribuna", file: "tribuna.png" },
     ],
