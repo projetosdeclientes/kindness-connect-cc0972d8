@@ -108,7 +108,7 @@ const categories: Category[] = [
 ];
 
 const logoUrl = (domain: string) =>
-  `https://img.logo.dev/${domain}?token=${LOGO_DEV_KEY}&size=400&format=png&retina=true&theme=dark`;
+  `https://img.logo.dev/${domain}?token=${LOGO_DEV_KEY}&size=400&format=png&retina=true&theme=dark&fallback=monogram`;
 
 const ClientesHtml = () => {
   const rootRef = useRef<HTMLDivElement>(null);
