@@ -7,6 +7,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AnimatedSection from "../components/AnimatedSection";
 import SectionHeader from "../components/SectionHeader";
+import ClientsSection from "../components/ClientsSection";
 
 import heroImg from "../assets/hero-truck.png";
 import HeroCrossfade from "../components/HeroCrossfade";
@@ -161,22 +162,8 @@ const Index = () => {
 
 
       {/* Clients */}
-      <section className="relative py-12 md:py-32">
-        <div className="absolute inset-0 radial-glow" />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <SectionHeader label="Parceiros" title="Clientes" subtitle="Conheça alguns de nossos clientes e parceiros de confiança." />
-          <AnimatedSection>
-            <div className="max-w-6xl mx-auto p-6 md:p-10 rounded-3xl bg-white/90 border border-border/30 shine">
-              <img src="/images/clientes-grid.png" alt="Logos dos clientes da Interface TV" className="w-full hover:opacity-100 transition-all duration-500" />
-            </div>
-            <div className="text-center mt-8">
-              <Link to="/clientes" className="text-sm text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-1.5 font-medium">
-                Ver todos os clientes <ArrowRight size={13} />
-              </Link>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
+      <ClientsSection />
+
 
       {/* About */}
       <section className="py-12 md:py-32 border-t border-border/30">
