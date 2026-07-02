@@ -104,7 +104,8 @@ const categories: Category[] = [
 
 const logoUrl = (file: string) => `/images/client-logos/${file}`;
 
-const ClientsSection = () => {
+const ClientsSection = ({ preview = false }: { preview?: boolean }) => {
+  const displayCategories = preview ? categories.slice(0, 1) : categories;
   const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
