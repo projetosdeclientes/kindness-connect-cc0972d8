@@ -13,7 +13,7 @@ const categories: Category[] = [
     logos: [
       { name: "TV Globo", file: "tv-globo.svg" },
       { name: "RecordTV", file: "record.webp" },
-      { name: "SBT", file: "sbt.png" },
+      { name: "SBT", file: "sbt-restored.svg", review: "restaurada em vetor 4K para corrigir proporção/qualidade do arquivo anterior" },
       { name: "Band", file: "band.png" },
       { name: "TV Cultura", file: "tv-cultura-restored.svg", review: "restaurada em vetor 4K por falta de fonte oficial pública em alta resolução exatamente igual ao gabarito" },
       { name: "TV Brasil", file: "tv-brasil.png" },
@@ -71,7 +71,7 @@ const categories: Category[] = [
       { name: "SporTV", file: "sportv.png" },
       { name: "DAZN", file: "dazn.png" },
       { name: "Fox Sports", file: "fox-sports.png" },
-      { name: "Band Sports", file: "bandsports.png", review: "Logo.dev retornava UOL; deixei separado para validação manual" },
+      { name: "Band Sports", file: "bandsports-restored.svg", review: "restaurada em vetor 4K porque o asset anterior estava ilegível no card" },
       { name: "Esporte Interativo", file: "esporte-interativo.png" },
       { name: "SportPromotion", file: "sportpromotion.png" },
       { name: "Live Sports", file: "live-sports.svg", review: "restaurada em vetor 4K com base no gabarito por falta de fonte pública estável em alta resolução" },
@@ -84,10 +84,10 @@ const categories: Category[] = [
     name: "Luta & Combate",
     logos: [
       { name: "Jungle Fight", file: "jungle-fight.png" },
-      { name: "Maximum", file: "maximum.png", review: "asset oficial existe, mas a resolução pública é menor que 4K" },
+      { name: "Maximum", file: "maximum-restored.svg", review: "restaurada em vetor 4K a partir de referência de baixa resolução" },
       { name: "SFT", file: "sft.png" },
-      { name: "X1Brazil", file: "x1-brazil.png", review: "site oficial bloqueou acesso; validar manualmente" },
-      { name: "CasaBlanca", file: "casablanca.png", review: "não encontrei domínio oficial estável; validar manualmente" },
+      { name: "X1Brazil", file: "x1-brazil-restored.svg", review: "restaurada em vetor 4K; site oficial bloqueou acesso público" },
+      { name: "CasaBlanca", file: "casablanca-restored.svg", review: "restaurada em vetor 4K por falta de fonte pública estável em alta resolução" },
     ],
   },
   {
@@ -96,7 +96,7 @@ const categories: Category[] = [
     logos: [
       { name: "Disney Channel", file: "disney-channel.png" },
       { name: "YouTube", file: "youtube.svg" },
-      { name: "MTV", file: "mtv.png", review: "não havia asset local confiável; validar manualmente" },
+      { name: "MTV", file: "mtv-restored.svg", review: "restaurada em vetor 4K para corrigir logo invisível/ilegível" },
       { name: "Universal Music Group", file: "universal-music.svg" },
       { name: "PokerStars.com", file: "pokerstars.png" },
       { name: "Pepsico", file: "pepsico.svg" },
@@ -270,7 +270,7 @@ const ClientesHtml = () => {
             ))}
 
             <p style={{ marginTop: 48, fontSize: 12, color: "#7E8794", lineHeight: 1.7 }}>
-              Base revisada com assets locais em alta resolução/SVG quando disponível. Marcas com selo <strong style={{ color: "#E8A33D" }}>VALIDAR</strong> exigem conferência manual por falta de fonte oficial pública estável ou divergência entre domínios.
+              Base revisada com assets locais em alta resolução/SVG quando disponível. Marcas com selo <strong style={{ color: "#E8A33D" }}>VALIDAR</strong> foram restauradas em vetor 4K ou exigem conferência manual por falta de fonte oficial pública estável.
             </p>
           </div>
         </section>
