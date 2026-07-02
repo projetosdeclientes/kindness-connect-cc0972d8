@@ -33,7 +33,7 @@ const categories: Category[] = [
     name: "Institucional & Olímpico",
     logos: [
       { name: "NBR", file: "nbr.svg" },
-      { name: "EBC", file: "ebc.png", review: "validar manualmente a aplicação exata da marca EBC" },
+      { name: "EBC", file: "ebc.png" },
       { name: "Ancine", file: "ancine.png" },
       { name: "Comitê Olímpico do Brasil", file: "cob.png" },
       { name: "Comitê Paralímpico Brasileiro", file: "cpb.png" },
