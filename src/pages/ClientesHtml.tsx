@@ -2,113 +2,110 @@ import { useEffect, useRef } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-const LOGO_DEV_KEY = import.meta.env.VITE_LOVABLE_CONNECTOR_LOGO_DEV_API_KEY;
-
-type Logo = { name: string; domain: string };
+type Logo = { name: string; file: string; review?: string };
 type Category = { index: string; name: string; logos: Logo[] };
 
-// Domínios oficiais de cada marca — Logo.dev busca a logo real direto do site.
+// Base curada de logos locais: evita retornos incorretos de domínios genéricos/subdomínios.
 const categories: Category[] = [
   {
     index: "CH. 01",
     name: "TV Aberta & Emissoras",
     logos: [
-      { name: "TV Globo", domain: "globo.com" },
-      { name: "RecordTV", domain: "record.com.br" },
-      { name: "SBT", domain: "sbt.com.br" },
-      { name: "Band", domain: "band.uol.com.br" },
-      { name: "TV Cultura", domain: "cultura.uol.com.br" },
-      { name: "TV Brasil", domain: "tvbrasil.ebc.com.br" },
-      { name: "TV Verdes Mares", domain: "verdesmares.com.br" },
-      { name: "TV Liberal", domain: "gruporbs.com.br" },
-      { name: "Rede Bahia", domain: "redebahia.com.br" },
-      { name: "Jangadeiro", domain: "tvjangadeiro.com.br" },
-      { name: "Futura", domain: "futura.org.br" },
-      { name: "TVN", domain: "tvn.cl" },
-      { name: "Cazé TV", domain: "cazetv.com.br" },
-      { name: "Canal UOL", domain: "uol.com.br" },
-      { name: "Sesc TV", domain: "sesctv.org.br" },
+      { name: "TV Globo", file: "tv-globo.svg" },
+      { name: "RecordTV", file: "record.png" },
+      { name: "SBT", file: "sbt.png" },
+      { name: "Band", file: "band.png" },
+      { name: "TV Cultura", file: "tv-cultura.png" },
+      { name: "TV Brasil", file: "tv-brasil.png" },
+      { name: "TV Verdes Mares", file: "tv-verdes-mares.png" },
+      { name: "TV Liberal", file: "tv-liberal.png" },
+      { name: "Rede Bahia", file: "rede-bahia.png" },
+      { name: "Jangadeiro", file: "jangadeiro.png" },
+      { name: "Futura", file: "futura.svg" },
+      { name: "TVN", file: "tvn.png" },
+      { name: "Cazé TV", file: "caze-tv.png" },
+      { name: "Canal UOL", file: "uol.png" },
+      { name: "Sesc TV", file: "sesc-tv.png" },
     ],
   },
   {
     index: "CH. 02",
     name: "Institucional & Olímpico",
     logos: [
-      { name: "NBR", domain: "canalgov.gov.br" },
-      { name: "EBC", domain: "ebc.com.br" },
-      { name: "Ancine", domain: "gov.br" },
-      { name: "Comitê Olímpico do Brasil", domain: "cob.org.br" },
-      { name: "Comitê Paralímpico Brasileiro", domain: "cpb.org.br" },
+      { name: "NBR / Canal Gov", file: "canal-gov.png", review: "marca pública substituída; validar se deseja NBR antigo ou Canal Gov atual" },
+      { name: "EBC", file: "ebc.png", review: "validar manualmente a aplicação exata da marca EBC" },
+      { name: "Ancine", file: "ancine.png" },
+      { name: "Comitê Olímpico do Brasil", file: "cob.png" },
+      { name: "Comitê Paralímpico Brasileiro", file: "cpb.png" },
     ],
   },
   {
     index: "CH. 03",
     name: "Futebol & Federações",
     logos: [
-      { name: "CBF", domain: "cbf.com.br" },
-      { name: "CBF TV", domain: "cbf.com.br" },
-      { name: "Conmebol TV", domain: "conmebol.com" },
-      { name: "FCF", domain: "futebolcearense.com.br" },
-      { name: "CBSb", domain: "cbsb.com.br" },
-      { name: "CBBF", domain: "cbbf.org.br" },
+      { name: "CBF", file: "cbf.png" },
+      { name: "CBF TV", file: "cbf.png" },
+      { name: "Conmebol TV", file: "conmebol.png" },
+      { name: "FCF", file: "fcf.png" },
+      { name: "CBSb", file: "cbsb.png" },
+      { name: "CBBF", file: "cbbf.png", review: "validar manualmente se a sigla correta no HTML original era CBSB/Beach Soccer ou outra entidade" },
     ],
   },
   {
     index: "CH. 04",
     name: "Federações & Ligas Esportivas",
     logos: [
-      { name: "FIVB", domain: "fivb.com" },
-      { name: "Vôlei Brasil", domain: "cbv.com.br" },
-      { name: "NBB", domain: "lnb.com.br" },
-      { name: "WSL", domain: "worldsurfleague.com" },
-      { name: "Dream Tour", domain: "dreamtour.com.br" },
-      { name: "BWF", domain: "bwfbadminton.com" },
+      { name: "FIVB", file: "fivb.png" },
+      { name: "Vôlei Brasil", file: "volei-brasil.png" },
+      { name: "NBB", file: "nbb.png" },
+      { name: "WSL", file: "wsl.png" },
+      { name: "Dream Tour", file: "dream-tour.png" },
+      { name: "BWF", file: "bwf.png" },
     ],
   },
   {
     index: "CH. 05",
     name: "Canais & Plataformas de Esporte",
     logos: [
-      { name: "ESPN", domain: "espn.com" },
-      { name: "SporTV", domain: "sportv.globo.com" },
-      { name: "DAZN", domain: "dazn.com" },
-      { name: "Fox Sports", domain: "foxsports.com" },
-      { name: "Band Sports", domain: "bandsports.band.uol.com.br" },
-      { name: "Esporte Interativo", domain: "esporteinterativo.com.br" },
-      { name: "SportPromotion", domain: "sportpromotion.com.br" },
-      { name: "Live Sports", domain: "livesports.com.br" },
-      { name: "Live Mode", domain: "livemode.com" },
-      { name: "Tribuna", domain: "tribunapr.com.br" },
+      { name: "ESPN", file: "espn.png" },
+      { name: "SporTV", file: "sportv.png" },
+      { name: "DAZN", file: "dazn.png" },
+      { name: "Fox Sports", file: "fox-sports.png" },
+      { name: "Band Sports", file: "bandsports.png", review: "Logo.dev retornava UOL; deixei separado para validação manual" },
+      { name: "Esporte Interativo", file: "esporte-interativo.png" },
+      { name: "SportPromotion", file: "sportpromotion.png" },
+      { name: "Live Sports", file: "live-sports.png", review: "domínio oficial encontrado como livesportsbr.com; validar manualmente a marca" },
+      { name: "Live Mode", file: "live-mode.png" },
+      { name: "Tribuna", file: "tribuna.png" },
     ],
   },
   {
     index: "CH. 06",
     name: "Luta & Combate",
     logos: [
-      { name: "Jungle Fight", domain: "junglefight.com" },
-      { name: "Maximum", domain: "maximumfight.com.br" },
-      { name: "SFT", domain: "sftcombat.com" },
-      { name: "X1Brazil", domain: "x1brazil.com.br" },
-      { name: "CasaBlanca", domain: "casablancafight.com" },
+      { name: "Jungle Fight", file: "jungle-fight.png" },
+      { name: "Maximum", file: "maximum.png", review: "asset oficial existe, mas a resolução pública é menor que 4K" },
+      { name: "SFT", file: "sft.png" },
+      { name: "X1Brazil", file: "x1-brazil.png", review: "site oficial bloqueou acesso; validar manualmente" },
+      { name: "CasaBlanca", file: "casablanca.png", review: "não encontrei domínio oficial estável; validar manualmente" },
     ],
   },
   {
     index: "CH. 07",
     name: "Entretenimento, Digital & Marcas",
     logos: [
-      { name: "Disney Channel", domain: "disney.com" },
-      { name: "YouTube", domain: "youtube.com" },
-      { name: "MTV", domain: "mtv.com" },
-      { name: "Universal Music Group", domain: "universalmusic.com" },
-      { name: "PokerStars.com", domain: "pokerstars.com" },
-      { name: "Pepsico", domain: "pepsico.com" },
-      { name: "Rodobens", domain: "rodobens.com.br" },
+      { name: "Disney Channel", file: "disney-channel.png" },
+      { name: "YouTube", file: "youtube.svg" },
+      { name: "MTV", file: "mtv.png", review: "não havia asset local confiável; validar manualmente" },
+      { name: "Universal Music Group", file: "universal-music.svg" },
+      { name: "PokerStars.com", file: "pokerstars.png" },
+      { name: "Pepsico", file: "pepsico.svg" },
+      { name: "Rodobens", file: "rodobens.png" },
     ],
   },
-];
+]
 
-const logoUrl = (domain: string) =>
-  `https://img.logo.dev/${domain}?token=${LOGO_DEV_KEY}&size=400&format=png&retina=true&theme=dark&fallback=monogram`;
+const logoUrl = (file: string) => `/images/client-logos/${file}`;
 
 const ClientesHtml = () => {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -205,6 +202,11 @@ const ClientesHtml = () => {
           font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:700;
           color:#E8A33D; text-align:center; line-height:1.2;
         }
+        .clientes-html .review-flag {
+          display:inline-block; margin-left:6px; padding:2px 5px; border-radius:999px;
+          background:rgba(232,163,61,.14); color:#E8A33D; font-size:8px; letter-spacing:.08em;
+          vertical-align:middle;
+        }
         @media (max-width:640px){
           .clientes-html .clients { padding:64px 20px 48px; }
           .clientes-html .logo-grid { grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); }
@@ -238,10 +240,10 @@ const ClientesHtml = () => {
                 </div>
                 <div className="logo-grid">
                   {cat.logos.map((logo) => (
-                    <div key={`${cat.index}-${logo.name}`} className="logo-card-html" title={logo.name}>
+                    <div key={`${cat.index}-${logo.name}`} className="logo-card-html" title={logo.review ? `${logo.name} — ${logo.review}` : logo.name}>
                       <div className="logo-img-wrap">
                         <img
-                          src={logoUrl(logo.domain)}
+                          src={logoUrl(logo.file)}
                           alt={logo.name}
                           loading="lazy"
                           onError={(e) => {
@@ -257,15 +259,18 @@ const ClientesHtml = () => {
                           }}
                         />
                       </div>
-                      <div className="logo-name">{logo.name}</div>
+                      <div className="logo-name">
+                        {logo.name}
+                        {logo.review && <span className="review-flag">VALIDAR</span>}
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
             ))}
 
-            <p style={{ marginTop: 48, fontSize: 12, color: "#7E8794" }}>
-              Logos fornecidas por <a href="https://logo.dev" style={{ color: "#E8A33D" }}>Logo.dev</a>.
+            <p style={{ marginTop: 48, fontSize: 12, color: "#7E8794", lineHeight: 1.7 }}>
+              Base revisada com assets locais em alta resolução/SVG quando disponível. Marcas com selo <strong style={{ color: "#E8A33D" }}>VALIDAR</strong> exigem conferência manual por falta de fonte oficial pública estável ou divergência entre domínios.
             </p>
           </div>
         </section>
