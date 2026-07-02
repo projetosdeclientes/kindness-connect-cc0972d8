@@ -162,7 +162,7 @@ const Index = () => {
 
 
       {/* Clients */}
-      <ClientsSection />
+      <ClientsSection preview />
 
 
       {/* About */}
