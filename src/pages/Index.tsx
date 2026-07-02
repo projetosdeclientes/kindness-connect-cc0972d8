@@ -7,6 +7,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AnimatedSection from "../components/AnimatedSection";
 import SectionHeader from "../components/SectionHeader";
+import ClientsSection from "../components/ClientsSection";
 
 import heroImg from "../assets/hero-truck.png";
 import HeroCrossfade from "../components/HeroCrossfade";
