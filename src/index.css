@@ -4,58 +4,73 @@
 @tailwind components;
 @tailwind utilities;
 
+/* =========================================================
+   Identidade visual unificada — baseada em /clientes-html
+   Base: #0A0C10 · Surface: #12161D · Borda: #242B36
+   Texto: #EDEEF0 / #7E8794 · Accent único: #E8A33D (âmbar)
+   Tipografia: Space Grotesk (display) + Inter (body)
+   ========================================================= */
+
 @layer base {
   :root {
-    --background: 228 12% 8%;
-    --foreground: 0 0% 96%;
+    /* #0A0C10 */
+    --background: 220 24% 5%;
+    /* #EDEEF0 */
+    --foreground: 220 6% 93%;
 
-    --card: 228 10% 11%;
-    --card-foreground: 0 0% 96%;
+    /* #12161D */
+    --card: 220 22% 9%;
+    --card-foreground: 220 6% 93%;
 
-    --popover: 228 10% 11%;
-    --popover-foreground: 0 0% 96%;
+    --popover: 220 22% 9%;
+    --popover-foreground: 220 6% 93%;
 
-    --primary: 210 85% 55%;
-    --primary-foreground: 0 0% 100%;
+    /* #E8A33D — accent âmbar (único destaque) */
+    --primary: 36 79% 57%;
+    --primary-foreground: 220 24% 5%;
 
-    --secondary: 228 8% 16%;
-    --secondary-foreground: 0 0% 75%;
+    /* #1A2029 — surface hover */
+    --secondary: 218 21% 13%;
+    --secondary-foreground: 220 6% 93%;
 
-    --muted: 228 8% 16%;
-    --muted-foreground: 228 8% 55%;
+    --muted: 218 21% 13%;
+    /* #7E8794 */
+    --muted-foreground: 217 8% 54%;
 
-    --accent: 335 75% 55%;
-    --accent-foreground: 0 0% 96%;
+    --accent: 36 79% 57%;
+    --accent-foreground: 220 24% 5%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 220 6% 93%;
 
-    --border: 228 8% 18%;
-    --input: 228 8% 18%;
-    --ring: 210 85% 55%;
+    /* #242B36 */
+    --border: 218 18% 18%;
+    --input: 218 18% 18%;
+    --ring: 36 79% 57%;
 
-    --radius: 0.75rem;
+    --radius: 0.625rem;
 
-    --gradient-brand: linear-gradient(135deg, hsl(335, 75%, 55%), hsl(280, 65%, 55%), hsl(210, 85%, 55%), hsl(195, 80%, 50%));
-    --gradient-brand-hover: linear-gradient(135deg, hsl(335, 75%, 62%), hsl(280, 65%, 62%), hsl(210, 85%, 62%), hsl(195, 80%, 58%));
-    --gradient-subtle: linear-gradient(135deg, hsl(335, 75%, 55%, 0.1), hsl(210, 85%, 55%, 0.1));
-    --gradient-radial-glow: radial-gradient(ellipse 600px 400px at 50% 0%, hsl(210, 85%, 55%, 0.1), transparent);
-    --gradient-card: linear-gradient(145deg, hsl(228, 10%, 13%), hsl(228, 10%, 10%));
+    /* Gradientes agora monocromáticos âmbar — sem rosa/azul/roxo */
+    --gradient-brand: linear-gradient(135deg, hsl(36, 79%, 57%), hsl(36, 79%, 62%));
+    --gradient-brand-hover: linear-gradient(135deg, hsl(36, 79%, 62%), hsl(36, 79%, 68%));
+    --gradient-subtle: linear-gradient(135deg, hsl(36, 79%, 57%, 0.08), hsl(36, 79%, 57%, 0.02));
+    --gradient-radial-glow: radial-gradient(ellipse 600px 400px at 50% 0%, hsl(36, 79%, 57%, 0.08), transparent);
+    --gradient-card: linear-gradient(145deg, hsl(220, 22%, 10%), hsl(220, 22%, 8%));
 
-    --shadow-glow-sm: 0 0 20px hsl(210, 85%, 55%, 0.12);
-    --shadow-glow: 0 0 60px hsl(210, 85%, 55%, 0.15);
-    --shadow-glow-lg: 0 0 100px hsl(210, 85%, 55%, 0.18);
-    --shadow-card: 0 1px 2px hsl(0, 0%, 0%, 0.25), 0 4px 16px hsl(0, 0%, 0%, 0.15);
-    --shadow-card-hover: 0 2px 4px hsl(0, 0%, 0%, 0.25), 0 8px 32px hsl(0, 0%, 0%, 0.2);
+    --shadow-glow-sm: 0 0 20px hsl(36, 79%, 57%, 0.12);
+    --shadow-glow: 0 4px 20px hsl(36, 79%, 57%, 0.15);
+    --shadow-glow-lg: 0 6px 32px hsl(36, 79%, 57%, 0.2);
+    --shadow-card: 0 1px 2px hsl(0, 0%, 0%, 0.3), 0 4px 16px hsl(0, 0%, 0%, 0.2);
+    --shadow-card-hover: 0 6px 20px hsl(36, 79%, 57%, 0.15);
 
-    --sidebar-background: 228 10% 11%;
-    --sidebar-foreground: 0 0% 75%;
-    --sidebar-primary: 210 85% 55%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 228 8% 16%;
-    --sidebar-accent-foreground: 0 0% 75%;
-    --sidebar-border: 228 8% 18%;
-    --sidebar-ring: 210 85% 55%;
+    --sidebar-background: 220 22% 9%;
+    --sidebar-foreground: 220 6% 85%;
+    --sidebar-primary: 36 79% 57%;
+    --sidebar-primary-foreground: 220 24% 5%;
+    --sidebar-accent: 218 21% 13%;
+    --sidebar-accent-foreground: 220 6% 93%;
+    --sidebar-border: 218 18% 18%;
+    --sidebar-ring: 36 79% 57%;
   }
 }
 
