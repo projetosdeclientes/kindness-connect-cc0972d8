@@ -89,9 +89,9 @@ const AuroraBackground = () => {
                 float i = float(j);
                 vec2 v = p + cos(i * i + (iTime + p.x * 0.08) * 0.025 + i * vec2(13.0, 11.0)) * 3.5;
                 vec4 auroraColors = vec4(
-                  0.55 + 0.25 * sin(i * 0.3 + iTime * 0.4),
-                  0.35 + 0.15 * cos(i * 0.2 + iTime * 0.3),
-                  0.12 + 0.08 * sin(i * 0.15 + iTime * 0.5),
+                  0.3 + 0.3 * sin(i * 0.3 + iTime * 0.4),
+                  0.15 + 0.2 * cos(i * 0.2 + iTime * 0.3),
+                  0.5 + 0.4 * sin(i * 0.15 + iTime * 0.5),
                   1.0
                 );
                 float lenVal = max(length(max(v, vec2(v.x * f * 0.015, v.y * 1.5))), 0.001);
