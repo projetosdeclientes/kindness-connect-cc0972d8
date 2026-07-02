@@ -12,10 +12,10 @@ const categories: Category[] = [
     name: "TV Aberta & Emissoras",
     logos: [
       { name: "TV Globo", file: "tv-globo.svg" },
-      { name: "RecordTV", file: "record.png" },
+      { name: "RecordTV", file: "record.webp" },
       { name: "SBT", file: "sbt.png" },
       { name: "Band", file: "band.png" },
-      { name: "TV Cultura", file: "tv-cultura.png" },
+      { name: "TV Cultura", file: "tv-cultura-restored.svg", review: "restaurada em vetor 4K por falta de fonte oficial pública em alta resolução exatamente igual ao gabarito" },
       { name: "TV Brasil", file: "tv-brasil.png" },
       { name: "TV Verdes Mares", file: "tv-verdes-mares.png" },
       { name: "TV Liberal", file: "tv-liberal.png" },
@@ -24,7 +24,7 @@ const categories: Category[] = [
       { name: "Futura", file: "futura.svg" },
       { name: "TVN", file: "tvn.png" },
       { name: "Cazé TV", file: "caze-tv.png" },
-      { name: "Canal UOL", file: "uol.png" },
+      { name: "Canal UOL", file: "canal-uol.svg", review: "restaurada em vetor 4K para reproduzir a versão 'Vamos Juntos!' do gabarito" },
       { name: "Sesc TV", file: "sesc-tv.png" },
     ],
   },
@@ -32,7 +32,7 @@ const categories: Category[] = [
     index: "CH. 02",
     name: "Institucional & Olímpico",
     logos: [
-      { name: "NBR / Canal Gov", file: "canal-gov.png", review: "marca pública substituída; validar se deseja NBR antigo ou Canal Gov atual" },
+      { name: "NBR", file: "nbr.svg" },
       { name: "EBC", file: "ebc.png", review: "validar manualmente a aplicação exata da marca EBC" },
       { name: "Ancine", file: "ancine.png" },
       { name: "Comitê Olímpico do Brasil", file: "cob.png" },
@@ -57,7 +57,7 @@ const categories: Category[] = [
     logos: [
       { name: "FIVB", file: "fivb.png" },
       { name: "Vôlei Brasil", file: "volei-brasil.png" },
-      { name: "NBB", file: "nbb.png" },
+      { name: "NBB", file: "nbb-restored.svg", review: "restaurada em vetor 4K para remover a versão incorreta com Caixa" },
       { name: "WSL", file: "wsl.png" },
       { name: "Dream Tour", file: "dream-tour.png" },
       { name: "BWF", file: "bwf.png" },
@@ -74,7 +74,7 @@ const categories: Category[] = [
       { name: "Band Sports", file: "bandsports.png", review: "Logo.dev retornava UOL; deixei separado para validação manual" },
       { name: "Esporte Interativo", file: "esporte-interativo.png" },
       { name: "SportPromotion", file: "sportpromotion.png" },
-      { name: "Live Sports", file: "live-sports.png", review: "domínio oficial encontrado como livesportsbr.com; validar manualmente a marca" },
+      { name: "Live Sports", file: "live-sports.svg", review: "restaurada em vetor 4K com base no gabarito por falta de fonte pública estável em alta resolução" },
       { name: "Live Mode", file: "live-mode.png" },
       { name: "Tribuna", file: "tribuna.png" },
     ],
@@ -190,7 +190,7 @@ const ClientesHtml = () => {
         .clientes-html .logo-card-html:hover { background:#1A2029; border-color:#E8A33D; box-shadow:0 6px 20px rgba(232,163,61,.15); }
         .clientes-html .logo-img-wrap {
           aspect-ratio:1/1; display:flex; align-items:center; justify-content:center;
-          padding:14px; background:#0F1218;
+          padding:10px; background:#fff;
         }
         .clientes-html .logo-card-html img { width:100%; height:100%; object-fit:contain; display:block; }
         .clientes-html .logo-name {
