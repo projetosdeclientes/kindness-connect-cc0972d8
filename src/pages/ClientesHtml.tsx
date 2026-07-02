@@ -180,26 +180,35 @@ const ClientesHtml = () => {
         .clientes-html .cat-name { font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:600; color:#EDEEF0; }
         .clientes-html .cat-count { margin-left:auto; font-size:12px; color:#7E8794; font-variant-numeric:tabular-nums; }
         .clientes-html .logo-grid {
-          display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:12px;
+          display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:14px;
         }
         .clientes-html .logo-card-html {
-          position:relative; aspect-ratio:4/3;
-          background:#12161D; border:1px solid #242B36; border-radius:8px;
-          display:flex; align-items:center; justify-content:center; padding:18px;
+          position:relative; display:flex; flex-direction:column;
+          background:#12161D; border:1px solid #242B36; border-radius:10px;
           opacity:0; transform:translateY(10px);
           transition: background .2s, border-color .2s, transform .5s, opacity .5s, box-shadow .2s;
           overflow:hidden;
         }
         .clientes-html .logo-card-html.in-view { opacity:1; transform:translateY(0); }
         .clientes-html .logo-card-html:hover { background:#1A2029; border-color:#E8A33D; box-shadow:0 6px 20px rgba(232,163,61,.15); }
-        .clientes-html .logo-card-html img { max-width:100%; max-height:100%; object-fit:contain; display:block; }
+        .clientes-html .logo-img-wrap {
+          aspect-ratio:1/1; display:flex; align-items:center; justify-content:center;
+          padding:14px; background:#0F1218;
+        }
+        .clientes-html .logo-card-html img { width:100%; height:100%; object-fit:contain; display:block; }
+        .clientes-html .logo-name {
+          font-family:'Space Grotesk',sans-serif; font-size:12px; font-weight:600;
+          color:#EDEEF0; text-align:center; padding:10px 8px; line-height:1.25;
+          border-top:1px solid #242B36; letter-spacing:.02em;
+        }
         .clientes-html .logo-fallback {
-          font-family:'Space Grotesk',sans-serif; font-size:13px; font-weight:600;
-          color:#EDEEF0; text-align:center; line-height:1.2;
+          font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:700;
+          color:#E8A33D; text-align:center; line-height:1.2;
         }
         @media (max-width:640px){
           .clientes-html .clients { padding:64px 20px 48px; }
-          .clientes-html .logo-grid { grid-template-columns:repeat(auto-fill,minmax(120px,1fr)); }
+          .clientes-html .logo-grid { grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); }
+          .clientes-html .logo-name { font-size:11px; padding:8px 6px; }
         }
         @media (prefers-reduced-motion:reduce){
           .clientes-html .live-dot, .clientes-html .live-bars i { animation:none; }
