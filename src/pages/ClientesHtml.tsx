@@ -84,10 +84,10 @@ const categories: Category[] = [
     name: "Luta & Combate",
     logos: [
       { name: "Jungle Fight", file: "jungle-fight.png" },
-      { name: "Maximum", file: "maximum-restored.svg", review: "restaurada em vetor 4K a partir de referência de baixa resolução" },
+      { name: "Maximum", file: "maximum.png" },
       { name: "SFT", file: "sft.png" },
-      { name: "X1Brazil", file: "x1-brazil-restored.svg", review: "restaurada em vetor 4K; site oficial bloqueou acesso público" },
-      { name: "CasaBlanca", file: "casablanca-restored.svg", review: "restaurada em vetor 4K por falta de fonte pública estável em alta resolução" },
+      { name: "X1Brazil", file: "x1-brazil.png" },
+      { name: "CasaBlanca", file: "casablanca.png" },
     ],
   },
   {
