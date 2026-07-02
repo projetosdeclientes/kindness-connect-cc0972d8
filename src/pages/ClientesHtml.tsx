@@ -5,14 +5,14 @@ import Footer from "../components/Footer";
 type Logo = { name: string; file: string; review?: string };
 type Category = { index: string; name: string; logos: Logo[] };
 
-// Domínios oficiais de cada marca — Logo.dev busca a logo real direto do site.
+// Base curada de logos locais: evita retornos incorretos de domínios genéricos/subdomínios.
 const categories: Category[] = [
   {
     index: "CH. 01",
     name: "TV Aberta & Emissoras",
     logos: [
       { name: "TV Globo", file: "tv-globo.svg" },
-      { name: "RecordTV", file: "record.webp" },
+      { name: "RecordTV", file: "record.png" },
       { name: "SBT", file: "sbt.png" },
       { name: "Band", file: "band.png" },
       { name: "TV Cultura", file: "tv-cultura.png" },
