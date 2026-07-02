@@ -25,9 +25,9 @@
     --popover: 220 22% 9%;
     --popover-foreground: 220 6% 93%;
 
-    /* #E8A33D — accent âmbar (único destaque) */
-    --primary: 36 79% 57%;
-    --primary-foreground: 220 24% 5%;
+    /* Accent primário azul (ações/links) — mantém identidade colorida */
+    --primary: 210 85% 60%;
+    --primary-foreground: 0 0% 100%;
 
     /* #1A2029 — surface hover */
     --secondary: 218 21% 13%;
@@ -37,8 +37,9 @@
     /* #7E8794 */
     --muted-foreground: 217 8% 54%;
 
-    --accent: 36 79% 57%;
-    --accent-foreground: 220 24% 5%;
+    /* Rosa — accent secundário */
+    --accent: 335 75% 58%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 72% 55%;
     --destructive-foreground: 220 6% 93%;
@@ -46,31 +47,31 @@
     /* #242B36 */
     --border: 218 18% 18%;
     --input: 218 18% 18%;
-    --ring: 36 79% 57%;
+    --ring: 210 85% 60%;
 
-    --radius: 0.625rem;
+    --radius: 0.75rem;
 
-    /* Gradientes agora monocromáticos âmbar — sem rosa/azul/roxo */
-    --gradient-brand: linear-gradient(135deg, hsl(36, 79%, 57%), hsl(36, 79%, 62%));
-    --gradient-brand-hover: linear-gradient(135deg, hsl(36, 79%, 62%), hsl(36, 79%, 68%));
-    --gradient-subtle: linear-gradient(135deg, hsl(36, 79%, 57%, 0.08), hsl(36, 79%, 57%, 0.02));
-    --gradient-radial-glow: radial-gradient(ellipse 600px 400px at 50% 0%, hsl(36, 79%, 57%, 0.08), transparent);
+    /* Gradientes multicolor restaurados: rosa → roxo → azul → âmbar */
+    --gradient-brand: linear-gradient(135deg, hsl(335, 75%, 58%), hsl(280, 65%, 60%), hsl(210, 85%, 60%), hsl(45, 90%, 60%));
+    --gradient-brand-hover: linear-gradient(135deg, hsl(335, 75%, 65%), hsl(280, 65%, 65%), hsl(210, 85%, 65%), hsl(45, 90%, 65%));
+    --gradient-subtle: linear-gradient(135deg, hsl(335, 75%, 58%, 0.1), hsl(210, 85%, 60%, 0.1));
+    --gradient-radial-glow: radial-gradient(ellipse 600px 400px at 50% 0%, hsl(210, 85%, 60%, 0.08), transparent);
     --gradient-card: linear-gradient(145deg, hsl(220, 22%, 10%), hsl(220, 22%, 8%));
 
-    --shadow-glow-sm: 0 0 20px hsl(36, 79%, 57%, 0.12);
-    --shadow-glow: 0 4px 20px hsl(36, 79%, 57%, 0.15);
-    --shadow-glow-lg: 0 6px 32px hsl(36, 79%, 57%, 0.2);
+    --shadow-glow-sm: 0 0 20px hsl(210, 85%, 60%, 0.12);
+    --shadow-glow: 0 0 60px hsl(210, 85%, 60%, 0.15);
+    --shadow-glow-lg: 0 0 100px hsl(210, 85%, 60%, 0.18);
     --shadow-card: 0 1px 2px hsl(0, 0%, 0%, 0.3), 0 4px 16px hsl(0, 0%, 0%, 0.2);
-    --shadow-card-hover: 0 6px 20px hsl(36, 79%, 57%, 0.15);
+    --shadow-card-hover: 0 2px 4px hsl(0, 0%, 0%, 0.3), 0 8px 32px hsl(0, 0%, 0%, 0.25);
 
     --sidebar-background: 220 22% 9%;
     --sidebar-foreground: 220 6% 85%;
-    --sidebar-primary: 36 79% 57%;
-    --sidebar-primary-foreground: 220 24% 5%;
+    --sidebar-primary: 210 85% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 218 21% 13%;
     --sidebar-accent-foreground: 220 6% 93%;
     --sidebar-border: 218 18% 18%;
-    --sidebar-ring: 36 79% 57%;
+    --sidebar-ring: 210 85% 60%;
   }
 }
 
