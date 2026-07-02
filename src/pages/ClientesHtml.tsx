@@ -44,11 +44,11 @@ const categories: Category[] = [
     name: "Futebol & Federações",
     logos: [
       { name: "CBF", file: "cbf.png" },
-      { name: "CBF TV", file: "cbf.png" },
-      { name: "Conmebol TV", file: "conmebol.png" },
+      { name: "CBF TV", file: "cbf-tv.png" },
+      { name: "Conmebol TV", file: "conmebol-tv.png" },
       { name: "FCF", file: "fcf.png" },
       { name: "CBSb", file: "cbsb.png" },
-      { name: "CBBF", file: "cbbf.png", review: "validar manualmente se a sigla correta no HTML original era CBSB/Beach Soccer ou outra entidade" },
+      { name: "CBBF", file: "cbbf.png" },
     ],
   },
   {
