@@ -24,7 +24,7 @@ const categories: Category[] = [
       { name: "Futura", file: "futura.svg" },
       { name: "TVN", file: "tvn.png" },
       { name: "Cazé TV", file: "caze-tv.png" },
-      { name: "Canal UOL", file: "canal-uol.svg", review: "restaurada em vetor 4K para reproduzir a versão 'Vamos Juntos!' do gabarito" },
+      { name: "Canal UOL", file: "canal-uol.png" },
       { name: "Sesc TV", file: "sesc-tv.png" },
     ],
   },
