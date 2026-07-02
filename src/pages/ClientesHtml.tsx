@@ -12,10 +12,10 @@ const categories: Category[] = [
     name: "TV Aberta & Emissoras",
     logos: [
       { name: "TV Globo", file: "tv-globo.svg" },
-      { name: "RecordTV", file: "record.png" },
-      { name: "SBT", file: "sbt.png" },
+      { name: "RecordTV", file: "record.webp" },
+      { name: "SBT", file: "sbt-restored.svg", review: "restaurada em vetor 4K para corrigir proporção/qualidade do arquivo anterior" },
       { name: "Band", file: "band.png" },
-      { name: "TV Cultura", file: "tv-cultura.png" },
+      { name: "TV Cultura", file: "tv-cultura-restored.svg", review: "restaurada em vetor 4K por falta de fonte oficial pública em alta resolução exatamente igual ao gabarito" },
       { name: "TV Brasil", file: "tv-brasil.png" },
       { name: "TV Verdes Mares", file: "tv-verdes-mares.png" },
       { name: "TV Liberal", file: "tv-liberal.png" },
@@ -24,7 +24,7 @@ const categories: Category[] = [
       { name: "Futura", file: "futura.svg" },
       { name: "TVN", file: "tvn.png" },
       { name: "Cazé TV", file: "caze-tv.png" },
-      { name: "Canal UOL", file: "uol.png" },
+      { name: "Canal UOL", file: "canal-uol.svg", review: "restaurada em vetor 4K para reproduzir a versão 'Vamos Juntos!' do gabarito" },
       { name: "Sesc TV", file: "sesc-tv.png" },
     ],
   },
@@ -32,7 +32,7 @@ const categories: Category[] = [
     index: "CH. 02",
     name: "Institucional & Olímpico",
     logos: [
-      { name: "NBR / Canal Gov", file: "canal-gov.png", review: "marca pública substituída; validar se deseja NBR antigo ou Canal Gov atual" },
+      { name: "NBR", file: "nbr.svg" },
       { name: "EBC", file: "ebc.png", review: "validar manualmente a aplicação exata da marca EBC" },
       { name: "Ancine", file: "ancine.png" },
       { name: "Comitê Olímpico do Brasil", file: "cob.png" },
@@ -57,7 +57,7 @@ const categories: Category[] = [
     logos: [
       { name: "FIVB", file: "fivb.png" },
       { name: "Vôlei Brasil", file: "volei-brasil.png" },
-      { name: "NBB", file: "nbb.png" },
+      { name: "NBB", file: "nbb-restored.svg", review: "restaurada em vetor 4K para remover a versão incorreta com Caixa" },
       { name: "WSL", file: "wsl.png" },
       { name: "Dream Tour", file: "dream-tour.png" },
       { name: "BWF", file: "bwf.png" },
@@ -71,10 +71,10 @@ const categories: Category[] = [
       { name: "SporTV", file: "sportv.png" },
       { name: "DAZN", file: "dazn.png" },
       { name: "Fox Sports", file: "fox-sports.png" },
-      { name: "Band Sports", file: "bandsports.png", review: "Logo.dev retornava UOL; deixei separado para validação manual" },
+      { name: "Band Sports", file: "bandsports-restored.svg", review: "restaurada em vetor 4K porque o asset anterior estava ilegível no card" },
       { name: "Esporte Interativo", file: "esporte-interativo.png" },
       { name: "SportPromotion", file: "sportpromotion.png" },
-      { name: "Live Sports", file: "live-sports.png", review: "domínio oficial encontrado como livesportsbr.com; validar manualmente a marca" },
+      { name: "Live Sports", file: "live-sports.svg", review: "restaurada em vetor 4K com base no gabarito por falta de fonte pública estável em alta resolução" },
       { name: "Live Mode", file: "live-mode.png" },
       { name: "Tribuna", file: "tribuna.png" },
     ],
@@ -84,10 +84,10 @@ const categories: Category[] = [
     name: "Luta & Combate",
     logos: [
       { name: "Jungle Fight", file: "jungle-fight.png" },
-      { name: "Maximum", file: "maximum.png", review: "asset oficial existe, mas a resolução pública é menor que 4K" },
+      { name: "Maximum", file: "maximum-restored.svg", review: "restaurada em vetor 4K a partir de referência de baixa resolução" },
       { name: "SFT", file: "sft.png" },
-      { name: "X1Brazil", file: "x1-brazil.png", review: "site oficial bloqueou acesso; validar manualmente" },
-      { name: "CasaBlanca", file: "casablanca.png", review: "não encontrei domínio oficial estável; validar manualmente" },
+      { name: "X1Brazil", file: "x1-brazil-restored.svg", review: "restaurada em vetor 4K; site oficial bloqueou acesso público" },
+      { name: "CasaBlanca", file: "casablanca-restored.svg", review: "restaurada em vetor 4K por falta de fonte pública estável em alta resolução" },
     ],
   },
   {
@@ -96,7 +96,7 @@ const categories: Category[] = [
     logos: [
       { name: "Disney Channel", file: "disney-channel.png" },
       { name: "YouTube", file: "youtube.svg" },
-      { name: "MTV", file: "mtv.png", review: "não havia asset local confiável; validar manualmente" },
+      { name: "MTV", file: "mtv-restored.svg", review: "restaurada em vetor 4K para corrigir logo invisível/ilegível" },
       { name: "Universal Music Group", file: "universal-music.svg" },
       { name: "PokerStars.com", file: "pokerstars.png" },
       { name: "Pepsico", file: "pepsico.svg" },
@@ -190,7 +190,7 @@ const ClientesHtml = () => {
         .clientes-html .logo-card-html:hover { background:#1A2029; border-color:#E8A33D; box-shadow:0 6px 20px rgba(232,163,61,.15); }
         .clientes-html .logo-img-wrap {
           aspect-ratio:1/1; display:flex; align-items:center; justify-content:center;
-          padding:14px; background:#0F1218;
+          padding:10px; background:#fff;
         }
         .clientes-html .logo-card-html img { width:100%; height:100%; object-fit:contain; display:block; }
         .clientes-html .logo-name {
@@ -270,7 +270,7 @@ const ClientesHtml = () => {
             ))}
 
             <p style={{ marginTop: 48, fontSize: 12, color: "#7E8794", lineHeight: 1.7 }}>
-              Base revisada com assets locais em alta resolução/SVG quando disponível. Marcas com selo <strong style={{ color: "#E8A33D" }}>VALIDAR</strong> exigem conferência manual por falta de fonte oficial pública estável ou divergência entre domínios.
+              Base revisada com assets locais em alta resolução/SVG quando disponível. Marcas com selo <strong style={{ color: "#E8A33D" }}>VALIDAR</strong> foram restauradas em vetor 4K ou exigem conferência manual por falta de fonte oficial pública estável.
             </p>
           </div>
         </section>
