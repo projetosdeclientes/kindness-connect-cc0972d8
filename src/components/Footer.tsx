@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Globe, Facebook, Youtube, Instagram, ArrowUpRight, MapPin, ArrowRight } from "lucide-react";
+import { Globe, ArrowUpRight, MapPin, ArrowRight } from "lucide-react";
+import { FaFacebook, FaYoutube, FaInstagram, FaWhatsapp } from "react-icons/fa";
 import logoImg from "../assets/logo-interfacetv.png";
 
 const navItems = [
@@ -21,9 +22,10 @@ const bases = [
 ];
 
 const socials = [
-  { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
-  { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
-  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+  { icon: FaWhatsapp, href: "https://wa.me/5511991903177", label: "WhatsApp", color: "hover:text-[#25D366] hover:border-[#25D366]/40" },
+  { icon: FaInstagram, href: "https://instagram.com/interfacetv", label: "Instagram", color: "hover:text-[#E1306C] hover:border-[#E1306C]/40" },
+  { icon: FaFacebook, href: "https://facebook.com/interfacetv", label: "Facebook", color: "hover:text-[#1877F2] hover:border-[#1877F2]/40" },
+  { icon: FaYoutube, href: "https://youtube.com/@interfacetv", label: "YouTube", color: "hover:text-[#FF0000] hover:border-[#FF0000]/40" },
 ];
 
 const Footer = () => {
@@ -54,14 +56,14 @@ const Footer = () => {
               interface-tv.netlify.app
             </a>
             <div className="flex gap-2 mt-5">
-              {socials.map(({ icon: Icon, href, label }) => (
+              {socials.map(({ icon: Icon, href, label, color }) => (
                 <a
                   key={href}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="w-9 h-9 rounded-lg bg-secondary/60 border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-all"
+                  className={`w-9 h-9 rounded-lg bg-secondary/60 border border-border/50 flex items-center justify-center text-muted-foreground transition-all ${color}`}
                 >
                   <Icon size={15} />
                 </a>
