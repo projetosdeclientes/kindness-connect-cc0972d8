@@ -22,9 +22,10 @@ const bases = [
 ];
 
 const socials = [
-  { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
-  { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
-  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+  { icon: FaWhatsapp, href: "https://wa.me/5511991903177", label: "WhatsApp", color: "hover:text-[#25D366] hover:border-[#25D366]/40" },
+  { icon: FaInstagram, href: "https://instagram.com/interfacetv", label: "Instagram", color: "hover:text-[#E1306C] hover:border-[#E1306C]/40" },
+  { icon: FaFacebook, href: "https://facebook.com/interfacetv", label: "Facebook", color: "hover:text-[#1877F2] hover:border-[#1877F2]/40" },
+  { icon: FaYoutube, href: "https://youtube.com/@interfacetv", label: "YouTube", color: "hover:text-[#FF0000] hover:border-[#FF0000]/40" },
 ];
 
 const Footer = () => {
