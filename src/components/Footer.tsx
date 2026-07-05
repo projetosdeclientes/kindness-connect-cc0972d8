@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Globe, Facebook, Youtube, Instagram, ArrowUpRight, MapPin, ArrowRight } from "lucide-react";
+import { Globe, ArrowUpRight, MapPin, ArrowRight } from "lucide-react";
+import { FaFacebook, FaYoutube, FaInstagram, FaWhatsapp } from "react-icons/fa";
 import logoImg from "../assets/logo-interfacetv.png";
 
 const navItems = [
