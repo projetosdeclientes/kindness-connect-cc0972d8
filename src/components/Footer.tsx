@@ -22,10 +22,10 @@ const bases = [
 ];
 
 const socials = [
-  { icon: FaWhatsapp, href: "https://wa.me/5511991903177", label: "WhatsApp", color: "text-[#25D366]" },
-  { icon: FaInstagram, href: "https://instagram.com/interfacetv", label: "Instagram", color: "text-[#E1306C]" },
-  { icon: FaFacebook, href: "https://facebook.com/interfacetv", label: "Facebook", color: "text-[#1877F2]" },
-  { icon: FaYoutube, href: "https://youtube.com/@interfacetv", label: "YouTube", color: "text-[#FF0000]" },
+  { icon: FaWhatsapp, href: "https://wa.me/5511991903177", label: "WhatsApp", bg: "bg-[#25D366]" },
+  { icon: FaInstagram, href: "https://instagram.com/interfacetv", label: "Instagram", bg: "bg-[linear-gradient(45deg,#f09433_0%,#e6683c_25%,#dc2743_50%,#cc2366_75%,#bc1888_100%)]" },
+  { icon: FaFacebook, href: "https://facebook.com/interfacetv", label: "Facebook", bg: "bg-[#1877F2]" },
+  { icon: FaYoutube, href: "https://youtube.com/@interfacetv", label: "YouTube", bg: "bg-[#FF0000]" },
 ];
 
 const Footer = () => {
@@ -56,16 +56,16 @@ const Footer = () => {
               interface-tv.netlify.app
             </a>
             <div className="flex gap-2 mt-5">
-              {socials.map(({ icon: Icon, href, label, color }) => (
+              {socials.map(({ icon: Icon, href, label, bg }) => (
                 <a
                   key={href}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className={`transition-transform hover:scale-110 ${color}`}
+                  className={`w-10 h-10 rounded-[10px] flex items-center justify-center text-white shadow-sm transition-transform hover:scale-110 ${bg}`}
                 >
-                  <Icon size={28} />
+                  <Icon size={22} />
                 </a>
               ))}
             </div>
