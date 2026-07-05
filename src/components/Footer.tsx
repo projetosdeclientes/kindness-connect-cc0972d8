@@ -22,10 +22,10 @@ const bases = [
 ];
 
 const socials = [
-  { icon: FaWhatsapp, href: "https://wa.me/5511991903177", label: "WhatsApp", color: "hover:text-[#25D366] hover:border-[#25D366]/40" },
-  { icon: FaInstagram, href: "https://instagram.com/interfacetv", label: "Instagram", color: "hover:text-[#E1306C] hover:border-[#E1306C]/40" },
-  { icon: FaFacebook, href: "https://facebook.com/interfacetv", label: "Facebook", color: "hover:text-[#1877F2] hover:border-[#1877F2]/40" },
-  { icon: FaYoutube, href: "https://youtube.com/@interfacetv", label: "YouTube", color: "hover:text-[#FF0000] hover:border-[#FF0000]/40" },
+  { icon: FaWhatsapp, href: "https://wa.me/5511991903177", label: "WhatsApp", color: "text-[#25D366] border-[#25D366]/50 hover:bg-[#25D366]/10 hover:border-[#25D366]" },
+  { icon: FaInstagram, href: "https://instagram.com/interfacetv", label: "Instagram", color: "text-[#E1306C] border-[#E1306C]/50 hover:bg-[#E1306C]/10 hover:border-[#E1306C]" },
+  { icon: FaFacebook, href: "https://facebook.com/interfacetv", label: "Facebook", color: "text-[#1877F2] border-[#1877F2]/50 hover:bg-[#1877F2]/10 hover:border-[#1877F2]" },
+  { icon: FaYoutube, href: "https://youtube.com/@interfacetv", label: "YouTube", color: "text-[#FF0000] border-[#FF0000]/50 hover:bg-[#FF0000]/10 hover:border-[#FF0000]" },
 ];
 
 const Footer = () => {
@@ -63,7 +63,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className={`w-9 h-9 rounded-lg bg-secondary/60 border border-border/50 flex items-center justify-center text-muted-foreground transition-all ${color}`}
+                  className={`w-9 h-9 rounded-lg bg-secondary/60 border flex items-center justify-center transition-all ${color}`}
                 >
                   <Icon size={15} />
                 </a>
