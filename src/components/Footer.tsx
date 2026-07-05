@@ -22,10 +22,10 @@ const bases = [
 ];
 
 const socials = [
-  { icon: FaWhatsapp, href: "https://wa.me/5511991903177", label: "WhatsApp", color: "text-[#25D366]" },
-  { icon: FaInstagram, href: "https://instagram.com/interfacetv", label: "Instagram", color: "text-[#E1306C]" },
-  { icon: FaFacebook, href: "https://facebook.com/interfacetv", label: "Facebook", color: "text-[#1877F2]" },
-  { icon: FaYoutube, href: "https://youtube.com/@interfacetv", label: "YouTube", color: "text-[#FF0000]" },
+  { icon: FaWhatsapp, href: "https://wa.me/5511991903177", label: "WhatsApp", bg: "bg-[#25D366]" },
+  { icon: FaInstagram, href: "https://instagram.com/interfacetv", label: "Instagram", bg: "bg-[linear-gradient(45deg,#f09433_0%,#e6683c_25%,#dc2743_50%,#cc2366_75%,#bc1888_100%)]" },
+  { icon: FaFacebook, href: "https://facebook.com/interfacetv", label: "Facebook", bg: "bg-[#1877F2]" },
+  { icon: FaYoutube, href: "https://youtube.com/@interfacetv", label: "YouTube", bg: "bg-[#FF0000]" },
 ];
 
 const Footer = () => {
