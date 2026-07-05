@@ -63,9 +63,9 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className={`w-9 h-9 rounded-lg bg-white border flex items-center justify-center transition-all ${color}`}
+                  className={`transition-transform hover:scale-110 ${color}`}
                 >
-                  <Icon size={15} />
+                  <Icon size={28} />
                 </a>
               ))}
             </div>
