@@ -63,7 +63,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className={`w-9 h-9 rounded-lg bg-secondary/60 border border-border/50 flex items-center justify-center text-muted-foreground transition-all ${color}`}
+                  className={`w-9 h-9 rounded-lg bg-secondary/60 border flex items-center justify-center transition-all ${color}`}
                 >
                   <Icon size={15} />
                 </a>
