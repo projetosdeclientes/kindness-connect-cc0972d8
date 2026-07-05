@@ -56,16 +56,16 @@ const Footer = () => {
               interface-tv.netlify.app
             </a>
             <div className="flex gap-2 mt-5">
-              {socials.map(({ icon: Icon, href, label, color }) => (
+              {socials.map(({ icon: Icon, href, label, bg }) => (
                 <a
                   key={href}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className={`transition-transform hover:scale-110 ${color}`}
+                  className={`w-10 h-10 rounded-[10px] flex items-center justify-center text-white shadow-sm transition-transform hover:scale-110 ${bg}`}
                 >
-                  <Icon size={28} />
+                  <Icon size={22} />
                 </a>
               ))}
             </div>
