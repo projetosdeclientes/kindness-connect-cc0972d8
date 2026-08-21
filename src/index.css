@@ -5,73 +5,62 @@
 @tailwind utilities;
 
 /* =========================================================
-   Identidade visual unificada — baseada em /clientes-html
-   Base: #0A0C10 · Surface: #12161D · Borda: #242B36
-   Texto: #EDEEF0 / #7E8794 · Accent único: #E8A33D (âmbar)
-   Tipografia: Space Grotesk (display) + Inter (body)
+   Identidade visual — fiel ao site publicado
+   interface-tv.netlify.app (fonte da verdade)
    ========================================================= */
 
 @layer base {
   :root {
-    /* #0A0C10 */
-    --background: 220 24% 5%;
-    /* #EDEEF0 */
-    --foreground: 220 6% 93%;
+    --background: 228 12% 8%;
+    --foreground: 0 0% 96%;
 
-    /* #12161D */
-    --card: 220 22% 9%;
-    --card-foreground: 220 6% 93%;
+    --card: 228 10% 11%;
+    --card-foreground: 0 0% 96%;
 
-    --popover: 220 22% 9%;
-    --popover-foreground: 220 6% 93%;
+    --popover: 228 10% 11%;
+    --popover-foreground: 0 0% 96%;
 
-    /* Accent primário azul (ações/links) — mantém identidade colorida */
-    --primary: 210 85% 60%;
+    --primary: 210 85% 55%;
     --primary-foreground: 0 0% 100%;
 
-    /* #1A2029 — surface hover */
-    --secondary: 218 21% 13%;
-    --secondary-foreground: 220 6% 93%;
+    --secondary: 228 8% 16%;
+    --secondary-foreground: 0 0% 75%;
 
-    --muted: 218 21% 13%;
-    /* #7E8794 */
-    --muted-foreground: 217 8% 54%;
+    --muted: 228 8% 16%;
+    --muted-foreground: 228 8% 55%;
 
-    /* Rosa — accent secundário */
-    --accent: 335 75% 58%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 335 75% 55%;
+    --accent-foreground: 0 0% 96%;
 
-    --destructive: 0 72% 55%;
-    --destructive-foreground: 220 6% 93%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
 
-    /* #242B36 */
-    --border: 218 18% 18%;
-    --input: 218 18% 18%;
-    --ring: 210 85% 60%;
+    --border: 228 8% 18%;
+    --input: 228 8% 18%;
+    --ring: 210 85% 55%;
 
     --radius: 0.75rem;
 
-    /* Gradientes multicolor restaurados: rosa → roxo → azul → âmbar */
-    --gradient-brand: linear-gradient(135deg, hsl(335, 75%, 58%), hsl(280, 65%, 60%), hsl(210, 85%, 60%), hsl(45, 90%, 60%));
-    --gradient-brand-hover: linear-gradient(135deg, hsl(335, 75%, 65%), hsl(280, 65%, 65%), hsl(210, 85%, 65%), hsl(45, 90%, 65%));
-    --gradient-subtle: linear-gradient(135deg, hsl(335, 75%, 58%, 0.1), hsl(210, 85%, 60%, 0.1));
-    --gradient-radial-glow: radial-gradient(ellipse 600px 400px at 50% 0%, hsl(210, 85%, 60%, 0.08), transparent);
-    --gradient-card: linear-gradient(145deg, hsl(220, 22%, 10%), hsl(220, 22%, 8%));
+    --gradient-brand: linear-gradient(135deg, hsl(335, 75%, 55%), hsl(280, 65%, 55%), hsl(210, 85%, 55%), hsl(195, 80%, 50%));
+    --gradient-brand-hover: linear-gradient(135deg, hsl(335, 75%, 62%), hsl(280, 65%, 62%), hsl(210, 85%, 62%), hsl(195, 80%, 58%));
+    --gradient-subtle: linear-gradient(135deg, hsl(335, 75%, 55%, 0.1), hsl(210, 85%, 55%, 0.1));
+    --gradient-radial-glow: radial-gradient(ellipse 600px 400px at 50% 0%, hsl(210, 85%, 55%, 0.1), transparent);
+    --gradient-card: linear-gradient(145deg, hsl(228, 10%, 13%), hsl(228, 10%, 10%));
 
-    --shadow-glow-sm: 0 0 20px hsl(210, 85%, 60%, 0.12);
-    --shadow-glow: 0 0 60px hsl(210, 85%, 60%, 0.15);
-    --shadow-glow-lg: 0 0 100px hsl(210, 85%, 60%, 0.18);
-    --shadow-card: 0 1px 2px hsl(0, 0%, 0%, 0.3), 0 4px 16px hsl(0, 0%, 0%, 0.2);
-    --shadow-card-hover: 0 2px 4px hsl(0, 0%, 0%, 0.3), 0 8px 32px hsl(0, 0%, 0%, 0.25);
+    --shadow-glow-sm: 0 0 20px hsl(210, 85%, 55%, 0.12);
+    --shadow-glow: 0 0 60px hsl(210, 85%, 55%, 0.15);
+    --shadow-glow-lg: 0 0 100px hsl(210, 85%, 55%, 0.18);
+    --shadow-card: 0 1px 2px hsl(0, 0%, 0%, 0.25), 0 4px 16px hsl(0, 0%, 0%, 0.15);
+    --shadow-card-hover: 0 2px 4px hsl(0, 0%, 0%, 0.25), 0 8px 32px hsl(0, 0%, 0%, 0.2);
 
-    --sidebar-background: 220 22% 9%;
-    --sidebar-foreground: 220 6% 85%;
-    --sidebar-primary: 210 85% 60%;
+    --sidebar-background: 228 10% 11%;
+    --sidebar-foreground: 0 0% 75%;
+    --sidebar-primary: 210 85% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 218 21% 13%;
-    --sidebar-accent-foreground: 220 6% 93%;
-    --sidebar-border: 218 18% 18%;
-    --sidebar-ring: 210 85% 60%;
+    --sidebar-accent: 228 8% 16%;
+    --sidebar-accent-foreground: 0 0% 75%;
+    --sidebar-border: 228 8% 18%;
+    --sidebar-ring: 210 85% 55%;
   }
 }
 
@@ -115,15 +104,15 @@
   }
 
   .glass {
-    background: hsl(220, 23%, 5%, 0.75);
-    backdrop-filter: blur(24px) saturate(1.2);
-    -webkit-backdrop-filter: blur(24px) saturate(1.2);
+    background: hsl(228, 12%, 5%, 0.75);
+    backdrop-filter: blur(12px) saturate(1.2);
+    -webkit-backdrop-filter: blur(12px) saturate(1.2);
   }
 
   .grid-pattern {
     background-image:
-      linear-gradient(hsl(220, 12%, 12%, 0.5) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(220, 12%, 12%, 0.5) 1px, transparent 1px);
+      linear-gradient(hsl(228, 10%, 14%, 0.5) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(228, 10%, 14%, 0.5) 1px, transparent 1px);
     background-size: 64px 64px;
   }
 
@@ -187,12 +176,12 @@ img {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: hsl(220, 23%, 5%);
+  background: #0b0c0f;
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(220, 12%, 18%);
+  background: #2e3038;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(220, 12%, 28%);
+  background: #454854;
 }
