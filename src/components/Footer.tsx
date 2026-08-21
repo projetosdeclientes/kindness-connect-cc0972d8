@@ -1,13 +1,11 @@
 import { Link } from "react-router-dom";
-import { Globe, ArrowUpRight, MapPin, ArrowRight } from "lucide-react";
-import { FaFacebook, FaYoutube, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { Globe, ArrowUpRight, MapPin, ArrowRight, Facebook, Youtube, Instagram } from "lucide-react";
 import logoImg from "../assets/logo-interfacetv.png";
 
 const navItems = [
   { label: "Home", path: "/" },
   { label: "Quem Somos", path: "/quem-somos" },
   { label: "Unidades Móveis", path: "/unidades-moveis" },
-  { label: "DSNG", path: "/dsng" },
   { label: "Clientes", path: "/clientes" },
   { label: "Cases", path: "/cases" },
 ];
@@ -22,11 +20,11 @@ const bases = [
 ];
 
 const socials = [
-  { icon: FaWhatsapp, href: "https://wa.me/5511991903177", label: "WhatsApp", bg: "bg-[#25D366]" },
-  { icon: FaInstagram, href: "https://instagram.com/interfacetv", label: "Instagram", bg: "bg-[linear-gradient(45deg,#f09433_0%,#e6683c_25%,#dc2743_50%,#cc2366_75%,#bc1888_100%)]" },
-  { icon: FaFacebook, href: "https://facebook.com/interfacetv", label: "Facebook", bg: "bg-[#1877F2]" },
-  { icon: FaYoutube, href: "https://youtube.com/@interfacetv", label: "YouTube", bg: "bg-[#FF0000]" },
+  { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
+  { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
+  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
 ];
+
 
 const Footer = () => {
   return (
