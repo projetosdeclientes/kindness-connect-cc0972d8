@@ -6,7 +6,7 @@ import { Tv, Satellite, Truck, Zap, MapPin, CheckCircle } from "lucide-react";
 
 const services = [
   { icon: Truck, title: "Unidades Móveis", count: "04", desc: "Unidades de transmissão completas e de última geração para produções ao vivo de grande porte." },
-  { icon: Satellite, title: "DSNGs", count: "02", desc: "Links satelitais para transmissão ao vivo de qualquer localidade do Brasil." },
+  { icon: Satellite, title: "Links Satelitais", count: "02", desc: "Links satelitais para transmissão ao vivo de qualquer localidade do Brasil." },
   { icon: Tv, title: "Vans Executivas", count: "02", desc: "Toda comodidade para o cliente com mobilidade, agilidade e conforto." },
   { icon: Zap, title: "Geradores de Energia", count: "02", desc: "Autonomia total para operações em qualquer ambiente, garantindo produção ininterrupta." },
 ];
