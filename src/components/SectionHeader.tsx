@@ -3,6 +3,7 @@ import AnimatedSection from "./AnimatedSection";
 interface Props {
   title: string;
   subtitle?: string;
+  /** Mantém o degradê no título. O site publicado usa branco na maioria das páginas. */
   gradient?: boolean;
   label?: string;
 }
