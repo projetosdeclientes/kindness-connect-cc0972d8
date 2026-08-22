@@ -3,10 +3,12 @@ import AnimatedSection from "./AnimatedSection";
 interface Props {
   title: string;
   subtitle?: string;
+  /** Mantém o degradê no título. O site publicado usa branco na maioria das páginas. */
+  gradient?: boolean;
   label?: string;
 }
 
-const SectionHeader = ({ title, subtitle, label }: Props) => {
+const SectionHeader = ({ title, subtitle, gradient = false, label }: Props) => {
   return (
     <AnimatedSection className="text-center mb-14 md:mb-20">
       {label && (
@@ -14,10 +16,9 @@ const SectionHeader = ({ title, subtitle, label }: Props) => {
           {label}
         </span>
       )}
-      <h2 className="text-3xl md:text-4xl lg:text-[3.25rem] font-bold leading-tight text-balance text-foreground">
+      <h2 className={`text-3xl md:text-4xl lg:text-[3.25rem] font-bold leading-tight text-balance ${gradient ? "gradient-text" : "text-foreground"}`}>
         {title}
       </h2>
-
       {subtitle && (
         <p className="mt-5 text-muted-foreground text-base md:text-lg max-w-lg mx-auto leading-relaxed">{subtitle}</p>
       )}
