@@ -26,7 +26,7 @@ const Portfolio = () => {
       <section className="relative pt-28 pb-24 md:pt-36 md:pb-32">
         <div className="absolute inset-0 radial-glow" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <SectionHeader gradient label="Portfólio" title="Cases" subtitle="Nossos principais trabalhos e produções" />
+          <SectionHeader label="Portfólio" title="Cases" subtitle="Nossos principais trabalhos e produções" />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {portfolioItems.map((item, i) => (

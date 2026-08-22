@@ -8,7 +8,7 @@ interface Props {
   label?: string;
 }
 
-const SectionHeader = ({ title, subtitle, gradient = false, label }: Props) => {
+const SectionHeader = ({ title, subtitle, gradient = true, label }: Props) => {
   return (
     <AnimatedSection className="text-center mb-14 md:mb-20">
       {label && (

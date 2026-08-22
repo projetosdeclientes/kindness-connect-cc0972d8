@@ -20,7 +20,7 @@ const Servicos = () => {
       <section className="relative pt-28 pb-24 md:pt-36 md:pb-32">
         <div className="absolute inset-0 radial-glow" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <SectionHeader gradient label="O que fazemos" title="Nossos Serviços" subtitle="Estrutura completa para suas produções audiovisuais" />
+          <SectionHeader label="O que fazemos" title="Nossos Serviços" subtitle="Estrutura completa para suas produções audiovisuais" />
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
             {services.map((s, i) => (
