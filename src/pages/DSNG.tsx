@@ -37,7 +37,7 @@ const DSNG = () => {
       <section className="relative pt-28 pb-24 md:pt-36 md:pb-32">
         <div className="absolute inset-0 radial-glow" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <SectionHeader label="Transmissão Satelital" title="DSNG" subtitle="Digital Satellite News Gathering – Links satelitais para transmissão ao vivo" />
+          <SectionHeader gradient label="Transmissão Satelital" title="DSNG" subtitle="Digital Satellite News Gathering – Links satelitais para transmissão ao vivo" />
 
           <AnimatedSection>
             <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden border border-border/30 mb-12">
