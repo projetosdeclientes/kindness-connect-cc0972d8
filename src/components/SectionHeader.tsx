@@ -15,9 +15,10 @@ const SectionHeader = ({ title, subtitle, gradient = true, label }: Props) => {
           {label}
         </span>
       )}
-      <h2 className={`text-3xl md:text-4xl lg:text-[3.25rem] font-bold leading-tight text-balance ${gradient ? "gradient-text" : "text-foreground"}`}>
+      <h2 className="text-3xl md:text-4xl lg:text-[3.25rem] font-bold leading-tight text-balance text-foreground">
         {title}
       </h2>
+
       {subtitle && (
         <p className="mt-5 text-muted-foreground text-base md:text-lg max-w-lg mx-auto leading-relaxed">{subtitle}</p>
       )}
