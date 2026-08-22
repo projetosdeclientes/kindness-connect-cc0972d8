@@ -37,10 +37,8 @@ const Footer = () => {
           <div className="col-span-2 md:col-span-5">
             <div className="flex items-center gap-3 mb-5">
               <img src={logoImg} alt="Interface TV Broadcasting" className="h-14 md:h-16 w-auto object-contain" />
-              <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight text-foreground leading-none">
-                Interface<span className="gradient-text">Tv</span>
-              </h3>
             </div>
+
             <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
               Produtora especializada em transmissão de eventos para TV, agências e internet há mais de 25 anos.
             </p>
