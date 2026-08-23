@@ -20,10 +20,11 @@ const bases = [
 ];
 
 const socials = [
-  { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
-  { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
-  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+  { icon: Facebook, href: "https://facebook.com", label: "Facebook", color: "#1877F2" },
+  { icon: Youtube, href: "https://youtube.com", label: "YouTube", color: "#FF0000" },
+  { icon: Instagram, href: "https://instagram.com", label: "Instagram", color: "#E1306C" },
 ];
+
 
 
 const Footer = () => {
@@ -37,7 +38,11 @@ const Footer = () => {
           <div className="col-span-2 md:col-span-5">
             <div className="flex items-center gap-3 mb-5">
               <img src={logoImg} alt="Interface TV Broadcasting" className="h-14 md:h-16 w-auto object-contain" />
+              <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight text-foreground leading-none">
+                Interface<span className="gradient-text">Tv</span>
+              </h3>
             </div>
+
 
             <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
               Produtora especializada em transmissão de eventos para TV, agências e internet há mais de 25 anos.
@@ -52,18 +57,20 @@ const Footer = () => {
               interface-tv.netlify.app
             </a>
             <div className="flex gap-2 mt-5">
-              {socials.map(({ icon: Icon, href, label }) => (
+              {socials.map(({ icon: Icon, href, label, color }) => (
                 <a
                   key={href}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="w-9 h-9 rounded-lg bg-secondary/60 border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-all"
+                  className="w-9 h-9 rounded-lg bg-secondary/60 border border-border/50 flex items-center justify-center hover:border-primary/30 transition-all"
+                  style={{ color }}
                 >
                   <Icon size={15} />
                 </a>
               ))}
+
             </div>
 
           </div>
