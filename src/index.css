@@ -156,6 +156,17 @@ body {
   overflow-x: hidden;
 }
 
+/* Conteúdo acima da camada de fundo animada (aurora, fixed z-index:0) */
+#root {
+  position: relative;
+}
+
+#root > * {
+  position: relative;
+  z-index: 10;
+  background-color: transparent;
+}
+
 /* GPU-accelerate animated elements for smoother scrolling */
 .shine,
 .gradient-text,
