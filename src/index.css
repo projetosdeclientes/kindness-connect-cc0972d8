@@ -11,7 +11,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 0%;
+    --background: 228 12% 8%;
     --foreground: 0 0% 96%;
 
     --card: 228 10% 11%;
@@ -154,6 +154,17 @@ html {
 
 body {
   overflow-x: hidden;
+}
+
+/* Conteúdo acima da camada de fundo animada (aurora, fixed z-index:0) */
+#root {
+  position: relative;
+}
+
+#root > * {
+  position: relative;
+  z-index: 10;
+  background-color: transparent;
 }
 
 /* GPU-accelerate animated elements for smoother scrolling */

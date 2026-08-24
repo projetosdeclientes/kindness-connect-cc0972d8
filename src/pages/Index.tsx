@@ -17,6 +17,7 @@ import Globe from "@/components/ui/globe";
 import TiltCard from "../components/TiltCard";
 import CountUp from "../components/CountUp";
 import Magnetic from "../components/Magnetic";
+import VideoShowcase from "../components/VideoShowcase";
 
 const showcaseItems = [
   { title: "Olimpíadas Brasil", image: "/images/case-olimpiadas.jpg" },
@@ -29,7 +30,7 @@ const showcaseItems = [
 
 const services = [
   { icon: Truck, title: "Unidades Móveis", count: "04", desc: "Transmissão completa de última geração" },
-  { icon: Satellite, title: "DSNGs", count: "02", desc: "Links satelitais para qualquer local" },
+  { icon: Satellite, title: "Links Satelitais", count: "02", desc: "Links satelitais para qualquer local" },
   { icon: Tv, title: "Vans Executivas", count: "02", desc: "Mobilidade e conforto para o cliente" },
   { icon: Zap, title: "Geradores de Energia", count: "02", desc: "Autonomia total em qualquer ambiente" },
 ];
@@ -163,6 +164,10 @@ const Index = () => {
 
       {/* Clients */}
       <ClientsSection preview />
+
+      {/* Vídeo em destaque */}
+      <VideoShowcase title="Arena Castelão" subtitle="Vista aérea — cobertura Interface TV Broadcasting" />
+
 
 
       {/* About */}

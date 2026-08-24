@@ -20,9 +20,9 @@ const bases = [
 ];
 
 const socials = [
-  { icon: Facebook, href: "https://facebook.com", label: "Facebook", color: "#1877F2" },
-  { icon: Youtube, href: "https://youtube.com", label: "YouTube", color: "#FF0000" },
-  { icon: Instagram, href: "https://instagram.com", label: "Instagram", color: "#E1306C" },
+  { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
+  { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
+  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
 ];
 
 
@@ -57,15 +57,14 @@ const Footer = () => {
               interface-tv.netlify.app
             </a>
             <div className="flex gap-2 mt-5">
-              {socials.map(({ icon: Icon, href, label, color }) => (
+              {socials.map(({ icon: Icon, href, label }) => (
                 <a
                   key={href}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="w-9 h-9 rounded-lg bg-secondary/60 border border-border/50 flex items-center justify-center hover:border-primary/30 transition-all"
-                  style={{ color }}
+                  className="w-9 h-9 rounded-lg bg-secondary/60 border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-all"
                 >
                   <Icon size={15} />
                 </a>
