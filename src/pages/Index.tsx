@@ -165,6 +165,10 @@ const Index = () => {
       {/* Clients */}
       <ClientsSection preview />
 
+      {/* Vídeo em destaque */}
+      <VideoShowcase title="Arena Castelão" subtitle="Vista aérea — cobertura Interface TV Broadcasting" />
+
+
 
       {/* About */}
       <section className="py-12 md:py-32 border-t border-border/30">
