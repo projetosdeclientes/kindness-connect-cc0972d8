@@ -17,6 +17,7 @@ import Globe from "@/components/ui/globe";
 import TiltCard from "../components/TiltCard";
 import CountUp from "../components/CountUp";
 import Magnetic from "../components/Magnetic";
+import VideoShowcase from "../components/VideoShowcase";
 
 const showcaseItems = [
   { title: "Olimpíadas Brasil", image: "/images/case-olimpiadas.jpg" },
