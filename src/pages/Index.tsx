@@ -29,7 +29,7 @@ const showcaseItems = [
 
 const services = [
   { icon: Truck, title: "Unidades Móveis", count: "04", desc: "Transmissão completa de última geração" },
-  { icon: Satellite, title: "DSNGs", count: "02", desc: "Links satelitais para qualquer local" },
+  { icon: Satellite, title: "Links Satelitais", count: "02", desc: "Links satelitais para qualquer local" },
   { icon: Tv, title: "Vans Executivas", count: "02", desc: "Mobilidade e conforto para o cliente" },
   { icon: Zap, title: "Geradores de Energia", count: "02", desc: "Autonomia total em qualquer ambiente" },
 ];

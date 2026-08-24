@@ -20,9 +20,9 @@ const bases = [
 ];
 
 const socials = [
-  { icon: Facebook, href: "https://facebook.com", label: "Facebook", color: "#1877F2" },
-  { icon: Youtube, href: "https://youtube.com", label: "YouTube", color: "#FF0000" },
-  { icon: Instagram, href: "https://instagram.com", label: "Instagram", color: "#E1306C" },
+  { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
+  { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
+  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
 ];
 
 
