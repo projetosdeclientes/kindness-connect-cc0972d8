@@ -6,18 +6,16 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import QuemSomos from "./pages/QuemSomos.tsx";
 import Equipe from "./pages/Equipe.tsx";
-import Servicos from "./pages/Servicos.tsx";
-import Clientes from "./pages/Clientes.tsx";
 import ClientesHtml from "./pages/ClientesHtml.tsx";
 import Cases from "./pages/Cases.tsx";
 
 import FaleConosco from "./pages/FaleConosco.tsx";
 import UnidadesMoveis from "./pages/UnidadesMoveis.tsx";
 import UnidadeDetail from "./pages/UnidadeDetail.tsx";
-import DSNG from "./pages/DSNG.tsx";
 import Estrutura from "./pages/Estrutura.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import ScrollToTop from "./components/ScrollToTop";
+import AuroraBackground from "./components/AuroraBackground";
 
 const queryClient = new QueryClient();
 
@@ -26,21 +24,20 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      {/* Camada de fundo global — montada fora do Router para persistir entre navegações */}
+      <AuroraBackground />
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/quem-somos" element={<QuemSomos />} />
           <Route path="/quem-somos/equipe" element={<Equipe />} />
-          <Route path="/servicos" element={<Servicos />} />
           <Route path="/unidades-moveis" element={<UnidadesMoveis />} />
           <Route path="/unidades-moveis/:id" element={<UnidadeDetail />} />
-          <Route path="/dsng" element={<DSNG />} />
           <Route path="/estrutura" element={<Estrutura />} />
           <Route path="/clientes" element={<ClientesHtml />} />
-          <Route path="/clientes-html" element={<ClientesHtml />} />
           <Route path="/cases" element={<Cases />} />
-          
+
           <Route path="/fale-conosco" element={<FaleConosco />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
