@@ -2,78 +2,75 @@ import { useEffect, useRef } from "react";
 
 /**
  * Camada de fundo global (fixa, atrás de todo o conteúdo).
- * Shader WebGL com fractal Brownian motion + "aurora" na paleta da marca
- * (rosa / roxo / azul / ciano — os mesmos tons de --gradient-brand).
+ * Shader WebGL "aurora" — cópia literal do shader usado na referência.
  *
  * - Carregamento lazy do three.js (não bloqueia o first paint).
- * - Fallback silencioso: sem WebGL, nada é renderizado (a página não quebra).
- * - Densidade reduzida em mobile e respeito a prefers-reduced-motion.
+ * - Fallback silencioso: sem WebGL, nada é renderizado.
+ * - NUM_LAYERS: 25 no desktop, 15 até 767px. Frame-rate limitado a ~20fps.
  */
-const FRAGMENT_SHADER = /* glsl */ `
-precision highp float;
+const buildFragmentShader = (numLayers: number) => /* glsl */ `
+precision mediump float;
+uniform float iTime;
+uniform vec2 iResolution;
 
-uniform vec2  uResolution;
-uniform float uTime;
-uniform float uDensity;
+#define NUM_LAYERS ${numLayers}
 
-varying vec2 vUv;
-
-float hash(vec2 p) {
-  return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123);
+float rand(vec2 n) {
+  return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453);
 }
 
 float noise(vec2 p) {
-  vec2 i = floor(p);
-  vec2 f = fract(p);
-  vec2 u = f * f * (3.0 - 2.0 * f);
+  vec2 ip = floor(p);
+  vec2 u = fract(p);
+  u = u * u * (3.0 - 2.0 * u);
   return mix(
-    mix(hash(i + vec2(0.0, 0.0)), hash(i + vec2(1.0, 0.0)), u.x),
-    mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), u.x),
+    mix(rand(ip), rand(ip + vec2(1.0, 0.0)), u.x),
+    mix(rand(ip + vec2(0.0, 1.0)), rand(ip + vec2(1.0, 1.0)), u.x),
     u.y
   );
 }
 
-float fbm(vec2 p) {
-  float value = 0.0;
-  float amplitude = 0.5;
-  for (int i = 0; i < 5; i++) {
-    value += amplitude * noise(p);
-    p *= 2.02;
-    amplitude *= 0.5;
+float fbm(vec2 x) {
+  float v = 0.0, a = 0.3;
+  vec2 shift = vec2(100.0);
+  mat2 rot = mat2(cos(0.5), sin(0.5), -sin(0.5), cos(0.5));
+  for (int i = 0; i < 2; i++) {
+    v += a * noise(x);
+    x = rot * x * 2.0 + shift;
+    a *= 0.4;
   }
-  return value;
+  return v;
 }
 
 void main() {
-  vec2 uv = vUv;
-  vec2 p = vec2(uv.x * (uResolution.x / max(uResolution.y, 1.0)), uv.y);
+  vec2 uv = (gl_FragCoord.xy - iResolution.xy * 0.5) / iResolution.y;
+  vec2 p = uv * mat2(6.0, -4.0, 4.0, 6.0);
+  vec4 o = vec4(0.0);
+  float f = 2.0 + fbm(p + vec2(iTime * 5.0, 0.0)) * 0.5;
 
-  float t = uTime * 0.045;
-  float n = fbm(p * (2.2 * uDensity) + vec2(t, -t * 0.6));
-  n = fbm(p * 2.6 + vec2(n * 1.4, n - t));
+  for (int j = 1; j <= NUM_LAYERS; j++) {
+    float i = float(j);
+    vec2 v = p + cos(i * i + (iTime + p.x * 0.08) * 0.025 + i * vec2(13.0, 11.0)) * 3.5;
+    vec4 auroraColors = vec4(
+      0.3 + 0.3 * sin(i * 0.3 + iTime * 0.4),
+      0.15 + 0.2 * cos(i * 0.2 + iTime * 0.3),
+      0.5 + 0.4 * sin(i * 0.15 + iTime * 0.5),
+      1.0
+    );
+    float lenVal = max(length(max(v, vec2(v.x * f * 0.015, v.y * 1.5))), 0.001);
+    o += auroraColors * exp(sin(i * i + iTime * 0.8)) / lenVal * smoothstep(0.0, 1.0, i / float(NUM_LAYERS)) * 0.6;
+  }
 
-  // Paleta da marca
-  vec3 pink   = vec3(0.906, 0.286, 0.549);
-  vec3 purple = vec3(0.639, 0.361, 0.851);
-  vec3 blue   = vec3(0.239, 0.545, 0.929);
-  vec3 cyan   = vec3(0.165, 0.749, 0.827);
-
-  vec3 color = mix(pink, purple, smoothstep(0.15, 0.55, n));
-  color = mix(color, blue, smoothstep(0.40, 0.80, n + uv.y * 0.25));
-  color = mix(color, cyan, smoothstep(0.70, 1.00, n * 1.1));
-
-  // Véu vertical: mais intenso no topo, dissolve embaixo
-  float veil = smoothstep(0.05, 0.95, n) * (1.0 - uv.y * 0.65);
-  float alpha = veil * 0.16;
-
-  gl_FragColor = vec4(color * alpha, alpha);
+  o = o / 80.0;
+  o = pow(max(o, vec4(0.0)), vec4(1.6));
+  vec4 ex = exp(2.0 * o);
+  o = (ex - vec4(1.0)) / (ex + vec4(1.0));
+  gl_FragColor = o * 1.2;
 }
 `;
 
 const VERTEX_SHADER = /* glsl */ `
-varying vec2 vUv;
 void main() {
-  vUv = uv;
   gl_Position = vec4(position, 1.0);
 }
 `;
@@ -89,6 +86,14 @@ const AuroraBackground = () => {
     // Respeita usuários que pedem menos movimento.
     if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
 
+    // Fallback silencioso quando não há WebGL.
+    try {
+      const probe = document.createElement("canvas");
+      if (!probe.getContext("webgl")) return;
+    } catch {
+      return;
+    }
+
     let disposed = false;
     let cleanup: (() => void) | undefined;
 
@@ -97,23 +102,28 @@ const AuroraBackground = () => {
         const THREE = await import("three");
         if (disposed) return;
 
-        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: false });
+        const renderer = new THREE.WebGLRenderer({
+          alpha: true,
+          antialias: false,
+          powerPreference: "low-power",
+        });
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
         renderer.setSize(window.innerWidth, window.innerHeight);
         container.appendChild(renderer.domElement);
 
         const scene = new THREE.Scene();
-        const camera = new THREE.Camera();
+        const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+
+        const numLayers = window.innerWidth < 768 ? 15 : 25;
 
         const uniforms = {
-          uResolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
-          uTime: { value: 0 },
-          uDensity: { value: window.innerWidth < 768 ? 0.6 : 1.0 },
+          iResolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
+          iTime: { value: 0 },
         };
 
         const material = new THREE.ShaderMaterial({
           vertexShader: VERTEX_SHADER,
-          fragmentShader: FRAGMENT_SHADER,
+          fragmentShader: buildFragmentShader(numLayers),
           uniforms,
           transparent: true,
           depthTest: false,
@@ -126,19 +136,23 @@ const AuroraBackground = () => {
 
         const onResize = () => {
           renderer.setSize(window.innerWidth, window.innerHeight);
-          uniforms.uResolution.value.set(window.innerWidth, window.innerHeight);
-          uniforms.uDensity.value = window.innerWidth < 768 ? 0.6 : 1.0;
+          uniforms.iResolution.value.set(window.innerWidth, window.innerHeight);
         };
         window.addEventListener("resize", onResize, { passive: true });
 
         let frame = 0;
+        let last = 0;
         const start = performance.now();
-        const loop = () => {
-          uniforms.uTime.value = (performance.now() - start) / 1000;
-          renderer.render(scene, camera);
+        const FRAME_INTERVAL = 50; // ~20fps
+
+        const loop = (now: number) => {
           frame = requestAnimationFrame(loop);
+          if (now - last < FRAME_INTERVAL) return;
+          last = now;
+          uniforms.iTime.value = (performance.now() - start) / 1000;
+          renderer.render(scene, camera);
         };
-        loop();
+        frame = requestAnimationFrame(loop);
 
         cleanup = () => {
           cancelAnimationFrame(frame);
