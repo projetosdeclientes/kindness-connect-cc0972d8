@@ -15,7 +15,6 @@ import UnidadeDetail from "./pages/UnidadeDetail.tsx";
 import Estrutura from "./pages/Estrutura.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import ScrollToTop from "./components/ScrollToTop";
-import AuroraBackground from "./components/AuroraBackground";
 
 const queryClient = new QueryClient();
 
@@ -24,8 +23,6 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      {/* Camada de fundo global — montada fora do Router para persistir entre navegações */}
-      <AuroraBackground />
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
