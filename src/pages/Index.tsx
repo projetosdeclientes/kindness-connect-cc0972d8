@@ -9,7 +9,6 @@ import AnimatedSection from "../components/AnimatedSection";
 import SectionHeader from "../components/SectionHeader";
 import ClientsSection from "../components/ClientsSection";
 
-import heroImg from "../assets/hero-truck.png";
 import HeroCrossfade from "../components/HeroCrossfade";
 import { Typewriter } from "@/components/ui/typewriter-text";
 import Globe from "@/components/ui/globe";
@@ -17,7 +16,7 @@ import Globe from "@/components/ui/globe";
 import TiltCard from "../components/TiltCard";
 import CountUp from "../components/CountUp";
 import Magnetic from "../components/Magnetic";
-import VideoShowcase from "../components/VideoShowcase";
+
 
 const showcaseItems = [
   { title: "Olimpíadas Brasil", image: "/images/case-olimpiadas.jpg" },
@@ -163,10 +162,10 @@ const Index = () => {
 
 
       {/* Clients */}
-      <ClientsSection preview />
+      <section className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <ClientsSection preview />
+      </section>
 
-      {/* Vídeo em destaque */}
-      <VideoShowcase title="Arena Castelão" subtitle="Vista aérea — cobertura Interface TV Broadcasting" />
 
 
 
